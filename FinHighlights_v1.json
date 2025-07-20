@@ -1,0 +1,1337 @@
+[
+  {
+    "key": "7",
+    "cellValue": "7,968,000",
+    "popup": {
+      "header": "Cash & Short-term Investments",
+      "details": [
+        {
+          "label": "Cash and Equivalents",
+          "value": "7,616,000"
+        },
+        {
+          "label": "Short-term Investments",
+          "value": "351,000"
+        },
+        {
+          "label": "Trading Asset Securities",
+          "value": "1,000"
+        },
+        {
+          "label": "Cash & Short-term Investments",
+          "value": "7,968,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "8",
+    "cellValue": "11,733,000",
+    "popup": {
+      "header": "Net Property, Plant & Equipment",
+      "details": [
+        {
+          "label": "Gross Property, Plant & Equipment",
+          "value": "23,815,000"
+        },
+        {
+          "label": "Accumulated Depreciation",
+          "value": "(12,082,000)"
+        },
+        {
+          "label": "Net Property, Plant & Equipment",
+          "value": "11,733,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "9",
+    "cellValue": "81,414,000",
+    "popup": {
+      "header": "Total Assets",
+      "details": [
+        {
+          "label": "Total Receivables",
+          "value": "6,925,000"
+        },
+        {
+          "label": "Cash & Short-term Investments",
+          "value": "7,968,000"
+        },
+        {
+          "label": "Net Property, Plant & Equipment",
+          "value": "11,733,000"
+        },
+        {
+          "label": "Other Intangibles",
+          "value": "6,647,000"
+        },
+        {
+          "label": "Inventory",
+          "value": "6,194,000"
+        },
+        {
+          "label": "Long-term Investments",
+          "value": "573,000"
+        },
+        {
+          "label": "Goodwill",
+          "value": "23,108,000"
+        },
+        {
+          "label": "Prepaid Exp.",
+          "value": "2,179,000"
+        },
+        {
+          "label": "Other Current Assets, Total",
+          "value": "390,000"
+        },
+        {
+          "label": "Other Assets, Total",
+          "value": "15,697,000"
+        },
+        {
+          "label": "Total Assets",
+          "value": "81,414,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "10",
+    "cellValue": "7,307,000",
+    "popup": {
+      "header": "Net Debt",
+      "details": [
+        {
+          "label": "Curr. Port. of Long-term Debt",
+          "value": "1,500,000"
+        },
+        {
+          "label": "Current Portion of Leases",
+          "value": "254,000"
+        },
+        {
+          "label": "Long-term Debt",
+          "value": "12,625,000"
+        },
+        {
+          "label": "Long-term Leases",
+          "value": "896,000"
+        },
+        {
+          "label": "Cash & Short-term Investments",
+          "value": "7,968,000"
+        },
+        {
+          "label": "Net Debt",
+          "value": "7,307,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "11",
+    "cellValue": "15,275,000",
+    "popup": {
+      "header": "Total Debt",
+      "details": [
+        {
+          "label": "Curr. Port. of Long-term Debt",
+          "value": "1,500,000"
+        },
+        {
+          "label": "Current Portion of Leases",
+          "value": "254,000"
+        },
+        {
+          "label": "Long-term Debt",
+          "value": "12,625,000"
+        },
+        {
+          "label": "Long-term Leases",
+          "value": "896,000"
+        },
+        {
+          "label": "Total Debt",
+          "value": "15,275,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "12",
+    "cellValue": "47,664,000",
+    "popup": {
+      "header": "Total Common Equity",
+      "details": [
+        {
+          "label": "Common Stock and Add Paid in Capital",
+          "value": "25,153,000"
+        },
+        {
+          "label": "Retained Earnings",
+          "value": "47,261,000"
+        },
+        {
+          "label": "Treasury Stock and Other",
+          "value": "(24,750,000)"
+        },
+        {
+          "label": "Total Common Equity",
+          "value": "47,664,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "13",
+    "cellValue": "237,000",
+    "popup": {
+      "header": "Total Minority Interest",
+      "details": [
+        {
+          "label": "Total Minority Interest",
+          "value": "237,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "14",
+    "cellValue": "47,901,000",
+    "popup": {
+      "header": "Total Equity",
+      "details": [
+        {
+          "label": "Total Minority Interest",
+          "value": "237,000"
+        },
+        {
+          "label": "Total Common Equity",
+          "value": "47,664,000"
+        },
+        {
+          "label": "Total Equity",
+          "value": "47,901,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "15",
+    "cellValue": "1.67",
+    "popup": {
+      "header": "Current Ratio",
+      "details": [
+        {
+          "label": "Total Current Assets",
+          "value": "23,656,000"
+        },
+        {
+          "label": "Total Current Liabilities",
+          "value": "14,157,000"
+        },
+        {
+          "label": "Current Ratio",
+          "value": "1.67"
+        }
+      ]
+    }
+  },
+  {
+    "key": "16",
+    "cellValue": "1.05",
+    "popup": {
+      "header": "Quick Ratio",
+      "details": [
+        {
+          "label": "Cash & Short-term Investments",
+          "value": "7,968,000"
+        },
+        {
+          "label": "Accounts Receivable",
+          "value": "6,925,000"
+        },
+        {
+          "label": "Total Current Liabilities",
+          "value": "14,157,000"
+        },
+        {
+          "label": "Quick Ratio",
+          "value": "1.05"
+        }
+      ]
+    }
+  },
+  {
+    "key": "17",
+    "cellValue": "31.89",
+    "popup": {
+      "header": "Total Debt/Equity",
+      "details": [
+        {
+          "label": "Total Debt",
+          "value": "15,275,000"
+        },
+        {
+          "label": "Total Equity",
+          "value": "47,901,000"
+        },
+        {
+          "label": "Total Debt/Equity",
+          "value": "31.89"
+        }
+      ]
+    }
+  },
+  {
+    "key": "18",
+    "cellValue": "24.18",
+    "popup": {
+      "header": "Total Debt / Total Capital",
+      "details": [
+        {
+          "label": "Total Debt",
+          "value": "15,275,000"
+        },
+        {
+          "label": "Total Capital",
+          "value": "63,176,000"
+        },
+        {
+          "label": "Total Debt / Total Capital",
+          "value": "24.18"
+        }
+      ]
+    }
+  },
+  {
+    "key": "19",
+    "cellValue": "1.38",
+    "popup": {
+      "header": "Total Debt / EBITDA",
+      "details": [
+        {
+          "label": "Total Debt",
+          "value": "15,275,000"
+        },
+        {
+          "label": "EBITDA",
+          "value": "10,714,000"
+        },
+        {
+          "label": "Lease Adjustment for EBITDA",
+          "value": "366,000"
+        },
+        {
+          "label": "Total Debt / EBITDA",
+          "value": "1.38"
+        }
+      ]
+    }
+  },
+  {
+    "key": "22",
+    "cellValue": "41,950,000",
+    "popup": {
+      "header": "Total Revenue",
+      "details": [
+        {
+          "label": "Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "23",
+    "cellValue": "23,306,000",
+    "popup": {
+      "header": "Gross Profit",
+      "details": [
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Cost of Revenues",
+          "value": "18,644,000"
+        },
+        {
+          "label": "Gross Profit",
+          "value": "23,306,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "24",
+    "cellValue": "13,402,000",
+    "popup": {
+      "header": "Earnings from Cont. Ops.",
+      "details": [
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Cost of Revenues",
+          "value": "18,644,000"
+        },
+        {
+          "label": "Other Operating Exp., Total",
+          "value": "15,810,000"
+        },
+        {
+          "label": "Net Interest Exp.",
+          "value": "(215,000)"
+        },
+        {
+          "label": "Other Non Operating Expense, Total",
+          "value": "(139,000)"
+        },
+        {
+          "label": "Unusual Items, Total",
+          "value": "(129,000)"
+        },
+        {
+          "label": "Income Tax Expense",
+          "value": "(6,389,000)"
+        },
+        {
+          "label": "Earnings from Cont. Ops.",
+          "value": "13,402,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "25",
+    "cellValue": "13,402,000",
+    "popup": {
+      "header": "Net Income",
+      "details": [
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Net Interest Exp.",
+          "value": "(215,000)"
+        },
+        {
+          "label": "Other Non Operating Expense, Total",
+          "value": "(139,000)"
+        },
+        {
+          "label": "Unusual Items, Total",
+          "value": "(129,000)"
+        },
+        {
+          "label": "Cost of Revenues",
+          "value": "18,644,000"
+        },
+        {
+          "label": "Other Operating Exp., Total",
+          "value": "15,810,000"
+        },
+        {
+          "label": "Income Tax Expense",
+          "value": "(6,389,000)"
+        },
+        {
+          "label": "Net Income",
+          "value": "13,402,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "26",
+    "cellValue": "10,714,000",
+    "popup": {
+      "header": "EBITDA",
+      "details": [
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "D&A for EBITDA 12/24Y",
+          "value": "3,218,000"
+        },
+        {
+          "label": "Cost of Revenues",
+          "value": "18,644,000"
+        },
+        {
+          "label": "Selling General & Admin Exp.",
+          "value": "11,109,000"
+        },
+        {
+          "label": "R & D Exp.",
+          "value": "2,823,000"
+        },
+        {
+          "label": "Depreciation & Amort., Total",
+          "value": "1,878,000"
+        },
+        {
+          "label": "Reconciliation with GAAP Net Income",
+          "value": null
+        },
+        {
+          "label": "Net Interest Exp.",
+          "value": "(215,000)"
+        },
+        {
+          "label": "Currency Exchange Gains",
+          "value": "27,000"
+        },
+        {
+          "label": "Other Non-Operating Inc.",
+          "value": "(166,000)"
+        },
+        {
+          "label": "Unusual Items, Total",
+          "value": "(129,000)"
+        },
+        {
+          "label": "D&A for EBITDA 12/24Y",
+          "value": "3,218,000"
+        },
+        {
+          "label": "Income Tax Expense",
+          "value": "(6,389,000)"
+        },
+        {
+          "label": "EBITDA",
+          "value": "10,714,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "27",
+    "cellValue": "7,496,000",
+    "popup": {
+      "header": "EBIT",
+      "details": [
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Cost of Revenues",
+          "value": "18,644,000"
+        },
+        {
+          "label": "Selling General & Admin Exp.",
+          "value": "11,109,000"
+        },
+        {
+          "label": "R & D Exp.",
+          "value": "2,823,000"
+        },
+        {
+          "label": "Depreciation & Amort., Total",
+          "value": "1,878,000"
+        },
+        {
+          "label": "Reconciliation with GAAP Net Income",
+          "value": null
+        },
+        {
+          "label": "Net Interest Exp.",
+          "value": "(215,000)"
+        },
+        {
+          "label": "Currency Exchange Gains",
+          "value": "27,000"
+        },
+        {
+          "label": "Other Non-Operating Inc.",
+          "value": "(166,000)"
+        },
+        {
+          "label": "Unusual Items, Total",
+          "value": "(129,000)"
+        },
+        {
+          "label": "Income Tax Expense",
+          "value": "(6,389,000)"
+        },
+        {
+          "label": "EBIT",
+          "value": "7,496,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "28",
+    "cellValue": "19.82",
+    "popup": {
+      "header": "EBITDA / Interest Expense",
+      "details": [
+        {
+          "label": "EBITDA",
+          "value": "10,714,000"
+        },
+        {
+          "label": "Lease Adjustment for EBITDA",
+          "value": "366,000"
+        },
+        {
+          "label": "Interest Expense",
+          "value": "(559,000)"
+        },
+        {
+          "label": "EBITDA / Interest Expense",
+          "value": "19.82"
+        }
+      ]
+    }
+  },
+  {
+    "key": "29",
+    "cellValue": "13.41",
+    "popup": {
+      "header": "EBIT / Interest Expense",
+      "details": [
+        {
+          "label": "EBIT",
+          "value": "7,496,000"
+        },
+        {
+          "label": "Interest Expense",
+          "value": "(559,000)"
+        },
+        {
+          "label": "EBIT / Interest Expense",
+          "value": "13.41"
+        }
+      ]
+    }
+  },
+  {
+    "key": "30",
+    "cellValue": "58.8",
+    "popup": {
+      "header": "Avg. Days Sales Out.",
+      "details": [
+        {
+          "label": "Accounts Receivable 12/24",
+          "value": "6,925,000"
+        },
+        {
+          "label": "Accounts Receivable 12/23",
+          "value": "6,565,000"
+        },
+        {
+          "label": "Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Number of Days in a Period",
+          "value": "366"
+        },
+        {
+          "label": "Avg. Days Sales Out.",
+          "value": "58.8"
+        }
+      ]
+    }
+  },
+  {
+    "key": "31",
+    "cellValue": "125.3",
+    "popup": {
+      "header": "Avg. Days Inventory Out.",
+      "details": [
+        {
+          "label": "Inventory 12/24",
+          "value": "6,194,000"
+        },
+        {
+          "label": "Inventory 12/23",
+          "value": "6,570,000"
+        },
+        {
+          "label": "Cost Of Goods Sold",
+          "value": "18,644,000"
+        },
+        {
+          "label": "Number of Days in a Period",
+          "value": "366"
+        },
+        {
+          "label": "Avg. Days Inventory Out.",
+          "value": "125.3"
+        }
+      ]
+    }
+  },
+  {
+    "key": "32",
+    "cellValue": "6.22",
+    "popup": {
+      "header": "Accounts Receivable Turnover",
+      "details": [
+        {
+          "label": "Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Accounts Receivable 12/24",
+          "value": "6,925,000"
+        },
+        {
+          "label": "Accounts Receivable 12/23",
+          "value": "6,565,000"
+        },
+        {
+          "label": "Accounts Receivable Turnover",
+          "value": "6.22"
+        }
+      ]
+    }
+  },
+  {
+    "key": "33",
+    "cellValue": "2.92",
+    "popup": {
+      "header": "Inventory Turnover",
+      "details": [
+        {
+          "label": "Cost Of Goods Sold",
+          "value": "18,644,000"
+        },
+        {
+          "label": "Inventory 12/24",
+          "value": "6,194,000"
+        },
+        {
+          "label": "Inventory 12/23",
+          "value": "6,570,000"
+        },
+        {
+          "label": "Inventory Turnover",
+          "value": "2.92"
+        }
+      ]
+    }
+  },
+  {
+    "key": "34",
+    "cellValue": "3.65",
+    "popup": {
+      "header": "Fixed Asset Turnover",
+      "details": [
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Net Property, Plant & Equipment 12/24",
+          "value": "11,733,000"
+        },
+        {
+          "label": "Net Property, Plant & Equipment 12/23",
+          "value": "11,276,000"
+        },
+        {
+          "label": "Fixed Asset Turnover",
+          "value": "3.65"
+        }
+      ]
+    }
+  },
+  {
+    "key": "35",
+    "cellValue": "0.54",
+    "popup": {
+      "header": "Total Asset Turnover",
+      "details": [
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Total Assets 12/24",
+          "value": "81,414,000"
+        },
+        {
+          "label": "Total Assets 12/23",
+          "value": "73,214,000"
+        },
+        {
+          "label": "Total Asset Turnover",
+          "value": "0.54"
+        }
+      ]
+    }
+  },
+  {
+    "key": "38",
+    "cellValue": "8,558,000",
+    "popup": {
+      "header": "Cash from Ops.",
+      "details": [
+        {
+          "label": "Net Income - CF",
+          "value": "13,402,000"
+        },
+        {
+          "label": "Depreciation & Amort., Total",
+          "value": "3,218,000"
+        },
+        {
+          "label": "Other NonCash Items, Total",
+          "value": "1,155,000"
+        },
+        {
+          "label": "Change in Net Operating Assets",
+          "value": "(9,217,000)"
+        },
+        {
+          "label": "Cash from Ops.",
+          "value": "8,558,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "39",
+    "cellValue": "(2,338,000)",
+    "popup": {
+      "header": "Cash from Investing",
+      "details": [
+        {
+          "label": "Capital Expenditure",
+          "value": "(2,207,000)"
+        },
+        {
+          "label": "Divestitures",
+          "value": "1,000"
+        },
+        {
+          "label": "Other Investing Activities, Total",
+          "value": "(132,000)"
+        },
+        {
+          "label": "Cash from Investing",
+          "value": "(2,338,000)"
+        }
+      ]
+    }
+  },
+  {
+    "key": "40",
+    "cellValue": "(5,404,000)",
+    "popup": {
+      "header": "Cash from Financing",
+      "details": [
+        {
+          "label": "Total Debt Issued",
+          "value": "223,000"
+        },
+        {
+          "label": "Total Debt Repaid",
+          "value": "(760,000)"
+        },
+        {
+          "label": "Issuance of Common Stock",
+          "value": "264,000"
+        },
+        {
+          "label": "Repurchase of Common Stock",
+          "value": "(1,295,000)"
+        },
+        {
+          "label": "Total Dividends Paid",
+          "value": "(3,836,000)"
+        },
+        {
+          "label": "Cash from Financing",
+          "value": "(5,404,000)"
+        }
+      ]
+    }
+  },
+  {
+    "key": "41",
+    "cellValue": "(96,000)",
+    "popup": {
+      "header": "Foreign Exchange Rate Adj.",
+      "details": [
+        {
+          "label": "Foreign Exchange Rate Adj.",
+          "value": "(96,000)"
+        }
+      ]
+    }
+  },
+  {
+    "key": "42",
+    "cellValue": "720,000",
+    "popup": {
+      "header": "Net Change in Cash",
+      "details": [
+        {
+          "label": "Cash from Ops.",
+          "value": "8,558,000"
+        },
+        {
+          "label": "Cash from Investing",
+          "value": "(2,338,000)"
+        },
+        {
+          "label": "Cash from Financing",
+          "value": "(5,404,000)"
+        },
+        {
+          "label": "Foreign Exchange Rate Adj.",
+          "value": "(96,000)"
+        },
+        {
+          "label": "Net Change in Cash",
+          "value": "720,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "43",
+    "cellValue": "(2,207,000)",
+    "popup": {
+      "header": "Capital Expenditure",
+      "details": [
+        {
+          "label": "Capital Expenditure",
+          "value": "(2,207,000)"
+        }
+      ]
+    }
+  },
+  {
+    "key": "44",
+    "cellValue": "410,000",
+    "popup": {
+      "header": "Change in Net Working Capital",
+      "details": [
+        {
+          "label": "Net Working Capital 12/24",
+          "value": "3,285,000"
+        },
+        {
+          "label": "Net Working Capital 12/23",
+          "value": "2,875,000"
+        },
+        {
+          "label": "Change in Net Working Capital",
+          "value": "410,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "45",
+    "cellValue": "5,959,000",
+    "popup": {
+      "header": "Unlevered Free Cash Flow",
+      "details": [
+        {
+          "label": "EBIT",
+          "value": "7,496,000"
+        },
+        {
+          "label": "Depreciation & Amort., Total",
+          "value": "3,218,000"
+        },
+        {
+          "label": "Capital Expenditure",
+          "value": "(2,207,000)"
+        },
+        {
+          "label": "Stock-Based Comp., Total",
+          "value": "673,000"
+        },
+        {
+          "label": "Change in Net Working Capital",
+          "value": "410,000"
+        },
+        {
+          "label": "Unlevered Free Cash Flow",
+          "value": "5,959,000"
+        }
+      ]
+    }
+  },
+  {
+    "key": "46",
+    "cellValue": "5,609,625",
+    "popup": {
+      "header": "Levered Free Cash Flow",
+      "details": [
+        {
+          "label": "EBIT",
+          "value": "7,496,000"
+        },
+        {
+          "label": "Interest Expense",
+          "value": "(559,000)"
+        },
+        {
+          "label": "Depreciation & Amort., Total",
+          "value": "3,218,000"
+        },
+        {
+          "label": "Capital Expenditure",
+          "value": "(2,207,000)"
+        },
+        {
+          "label": "Stock-Based Comp., Total",
+          "value": "673,000"
+        },
+        {
+          "label": "Change in Net Working Capital",
+          "value": "410,000"
+        },
+        {
+          "label": "Levered Free Cash Flow",
+          "value": "5,609,625"
+        }
+      ]
+    }
+  },
+  {
+    "key": "47",
+    "cellValue": "0.61",
+    "popup": {
+      "header": "Cash from Ops. to Curr. Liab.",
+      "details": [
+        {
+          "label": "Cash from Ops.",
+          "value": "8,558,000"
+        },
+        {
+          "label": "Total Current Liabilities",
+          "value": "14,157,000"
+        },
+        {
+          "label": "Cash from Ops. to Curr. Liab.",
+          "value": "0.61"
+        }
+      ]
+    }
+  },
+  {
+    "key": "50",
+    "cellValue": "6.06",
+    "popup": {
+      "header": "Return on Assets",
+      "details": [
+        {
+          "label": "EBIT",
+          "value": "7,496,000"
+        },
+        {
+          "label": "Total Assets 12/24",
+          "value": "81,414,000"
+        },
+        {
+          "label": "Total Assets 12/23",
+          "value": "73,214,000"
+        },
+        {
+          "label": "Return on Assets",
+          "value": "6.06"
+        }
+      ]
+    }
+  },
+  {
+    "key": "51",
+    "cellValue": "7.95",
+    "popup": {
+      "header": "Return on Capital",
+      "details": [
+        {
+          "label": "EBIT",
+          "value": "7,496,000"
+        },
+        {
+          "label": "Total Capital 12/24",
+          "value": "63,176,000"
+        },
+        {
+          "label": "Total Capital 12/23",
+          "value": "54,700,000"
+        },
+        {
+          "label": "Return on Capital",
+          "value": "7.95"
+        }
+      ]
+    }
+  },
+  {
+    "key": "52",
+    "cellValue": "30.91",
+    "popup": {
+      "header": "Return on Equity",
+      "details": [
+        {
+          "label": "Earnings from Cont. Ops.",
+          "value": "13,402,000"
+        },
+        {
+          "label": "Total Equity 12/24",
+          "value": "47,901,000"
+        },
+        {
+          "label": "Total Equity 12/23",
+          "value": "38,827,000"
+        },
+        {
+          "label": "Return on Equity",
+          "value": "30.91"
+        }
+      ]
+    }
+  },
+  {
+    "key": "53",
+    "cellValue": "30.95",
+    "popup": {
+      "header": "Return on Common Equity",
+      "details": [
+        {
+          "label": "NI to Common Excl. Extra Items",
+          "value": "13,351,000"
+        },
+        {
+          "label": "Total Common Equity 12/24",
+          "value": "47,664,000"
+        },
+        {
+          "label": "Total Common Equity 12/23",
+          "value": "38,603,000"
+        },
+        {
+          "label": "Return on Common Equity",
+          "value": "30.95"
+        }
+      ]
+    }
+  },
+  {
+    "key": "54",
+    "cellValue": "55.56",
+    "popup": {
+      "header": "Gross Profit Margin",
+      "details": [
+        {
+          "label": "Gross Profit",
+          "value": "23,306,000"
+        },
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Gross Profit Margin",
+          "value": "55.56"
+        }
+      ]
+    }
+  },
+  {
+    "key": "55",
+    "cellValue": "31.95",
+    "popup": {
+      "header": "Net Income Margin",
+      "details": [
+        {
+          "label": "Net Income",
+          "value": "13,402,000"
+        },
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Net Income Margin",
+          "value": "31.95"
+        }
+      ]
+    }
+  },
+  {
+    "key": "56",
+    "cellValue": "31.95",
+    "popup": {
+      "header": "Earnings from Cont Ops Margin",
+      "details": [
+        {
+          "label": "Earnings from Cont. Ops.",
+          "value": "13,402,000"
+        },
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "Earnings from Cont Ops Margin",
+          "value": "31.95"
+        }
+      ]
+    }
+  },
+  {
+    "key": "57",
+    "cellValue": "25.54",
+    "popup": {
+      "header": "EBITDA Margin",
+      "details": [
+        {
+          "label": "EBITDA",
+          "value": "10,714,000"
+        },
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "EBITDA Margin",
+          "value": "25.54"
+        }
+      ]
+    }
+  },
+  {
+    "key": "58",
+    "cellValue": "17.87",
+    "popup": {
+      "header": "EBIT Margin",
+      "details": [
+        {
+          "label": "EBIT",
+          "value": "7,496,000"
+        },
+        {
+          "label": "Total Revenue",
+          "value": "41,950,000"
+        },
+        {
+          "label": "EBIT Margin",
+          "value": "17.87"
+        }
+      ]
+    }
+  },
+  {
+    "key": "61",
+    "cellValue": "2.24",
+    "popup": {
+      "header": "Dividends per Share",
+      "details": [
+        {
+          "label": "Dividends per Share",
+          "value": "2.24"
+        }
+      ]
+    }
+  },
+  {
+    "key": "62",
+    "cellValue": "7.67",
+    "popup": {
+      "header": "Basic EPS Excl. Extra Items",
+      "details": [
+        {
+          "label": "NI to Common Excl. Extra Items",
+          "value": "13,351,000"
+        },
+        {
+          "label": "Weighted Avg. Basic Shares Out.",
+          "value": "1,740,000,000"
+        },
+        {
+          "label": "Basic EPS Excl. Extra Items",
+          "value": "7.67"
+        }
+      ]
+    }
+  },
+  {
+    "key": "63",
+    "cellValue": "7.67",
+    "popup": {
+      "header": "Basic EPS",
+      "details": [
+        {
+          "label": "NI to Common Incl Extra Items",
+          "value": "13,351,000"
+        },
+        {
+          "label": "Weighted Avg. Basic Shares Out.",
+          "value": "1,740,000,000"
+        },
+        {
+          "label": "Basic EPS",
+          "value": "7.67"
+        }
+      ]
+    }
+  },
+  {
+    "key": "64",
+    "cellValue": "7.64",
+    "popup": {
+      "header": "Diluted EPS Excl. Extra Items",
+      "details": [
+        {
+          "label": "Diluted Net Income",
+          "value": "13,354,720"
+        },
+        {
+          "label": "Weighted Avg. Diluted Shares Out.",
+          "value": "1,748,000,000"
+        },
+        {
+          "label": "Diluted EPS Excl. Extra Items",
+          "value": "7.64"
+        }
+      ]
+    }
+  },
+  {
+    "key": "65",
+    "cellValue": "7.64",
+    "popup": {
+      "header": "Diluted EPS Incl. Extra Items",
+      "details": [
+        {
+          "label": "NI to Common Incl Extra Items",
+          "value": "13,351,000"
+        },
+        {
+          "label": "Weighted Avg. Diluted Shares Out.",
+          "value": "1,748,000,000"
+        },
+        {
+          "label": "Diluted EPS Incl. Extra Items",
+          "value": "7.64"
+        }
+      ]
+    }
+  }
+]

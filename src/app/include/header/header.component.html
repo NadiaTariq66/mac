@@ -1,0 +1,56 @@
+<div class="header_section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <div class="site_logo">
+          <a href="">
+            <span>
+              <img src="./img/exm_logo.png" alt="" />
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 mobile_controller">
+        <div class="main_menus">
+          <ul>
+            <li><a routerLink="/balance-sheet" class="active">Companies</a></li>
+            <li><a href="">Deals</a></li>
+            <li><a href="">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3  col-6">
+        <div class="mobile_flex">
+          <div class="right_site_logo text-right">
+            <a href="">
+            <span>
+              <!-- <img src="./img/exMdealgorithm.png" alt="" /> -->
+             <img src="assets/images/peerlytics.png" alt="" />
+            </span>
+            </a>
+          </div>
+          <div class="mobile_menu">
+            <a (click)="mobileClick()">
+          <span>
+            <i class="fa-solid fa-bars"></i>
+          </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------------mobile---menus------------------------->
+<div class="mobile_menu_container" *ngIf="this.showMenu">
+  <a  class="close_btn" (click)="menuClose()">
+    <i class="fa-solid fa-xmark"></i>
+  </a>
+  <div class="main_menus">
+    <ul>
+      <li><a href="" class="active">Companies</a></li>
+      <li><a href="">Deals</a></li>
+      <li><a href="">Support</a></li>
+    </ul>
+  </div>
+</div>
