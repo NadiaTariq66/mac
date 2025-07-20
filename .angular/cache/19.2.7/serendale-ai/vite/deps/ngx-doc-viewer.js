@@ -1,12 +1,12 @@
 import {
   DomSanitizer
-} from "./chunk-I7FFB24R.js";
-import "./chunk-XPHPTLZV.js";
+} from "./chunk-O22ZC7AZ.js";
+import "./chunk-P2ZPQVCI.js";
 import {
   CommonModule,
   NgIf
-} from "./chunk-OEHUGFYY.js";
-import "./chunk-RFTUMQTA.js";
+} from "./chunk-4OHTFYCT.js";
+import "./chunk-6L5JTXU4.js";
 import {
   Component,
   EventEmitter,
@@ -15,7 +15,6 @@ import {
   NgZone,
   Output,
   ViewChildren,
-  __async,
   setClassMetadata,
   ɵɵNgOnChangesFeature,
   ɵɵadvance,
@@ -44,7 +43,10 @@ import {
   ɵɵtemplate,
   ɵɵtext,
   ɵɵviewQuery
-} from "./chunk-2PRAIGL2.js";
+} from "./chunk-CCUUX3WD.js";
+import {
+  __async
+} from "./chunk-3OV72XIM.js";
 
 // node_modules/docviewhelper/index.js
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
