@@ -51,36 +51,6 @@ export class StockPriceAndDateComponent implements OnInit{
     this.fetchExcelData();
   }
 
-  generateData() {
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    // Data from Jan 2000 to May 2005
-    for (let year = 2000; year <= 2005; year++) {
-      const endMonth = year === 2005 ? 4 : 11;
-      for (let month = 0; month <= endMonth; month++) {
-        const date = new Date(year, month, 1);
-        this.dates.push(date.toISOString().split('T')[0]); // Use ISO date for Plotly
-        
-        // Sample data mimicking the trend
-        const progress = (year - 2000) * 12 + month;
-        let goldValue = 0;
-        let spValue = 0;
-        
-        if (progress < 12) { // 2000
-            goldValue = -5 + (Math.random() * 5);
-            spValue = 10 - progress + (Math.random() * 5);
-        } else if (progress < 36) { // 2001-2002
-            goldValue = -5 + (progress * 1.5) + (Math.sin(progress) * 5);
-            spValue = - (progress * 1.5) + (Math.cos(progress) * 10);
-        } else { // 2003 onwards
-            goldValue = 20 + ((progress-36) * 1.2) + (Math.sin(progress/2)*3);
-            spValue = -40 + ((progress-36) * 1.1) + (Math.cos(progress/2)*5);
-        }
-        this.gold.push(Math.round(goldValue*10)/10);
-        this.sp500.push(Math.round(spValue*10)/10);
-      }
-    }
-  }
-
   fetchExcelData() {
     this.http.get('../../../assets/ABBV_stock_data.xlsx', { responseType: 'arraybuffer' }).subscribe({
       next: (data) => {
@@ -161,22 +131,15 @@ export class StockPriceAndDateComponent implements OnInit{
     }
 
     const trace1 = {
-     x: this.dates.slice(0, points),
-  y: this.gold.slice(0, points),
-  mode: 'lines+markers',
-  name: 'Adj Close',
-  line: { color: 'orange' },
-  marker: { color: 'orange', size: markerSizes }
-    };
-    const trace2 = {
       x: this.dates.slice(0, points),
-      y: this.sp500.slice(0, points),
+      y: this.gold.slice(0, points),
       mode: 'lines+markers',
-      name: 'S&P 500 (TR)',
-      line: { color: 'deepskyblue' },
-      marker: { color: 'deepskyblue', size: markerSizes }
+      name: 'Adj Close',
+      line: { color: 'orange' },
+      marker: { color: 'orange', size: markerSizes }
     };
-    const data = [trace1, trace2];
+    // Remove trace2 and only use trace1
+    const data = [trace1];
 
     const annotations: any[] = [{
         x: 1,
@@ -200,31 +163,18 @@ export class StockPriceAndDateComponent implements OnInit{
         font: { size: 14, color: 'grey' }
       }];
     
-    // Add annotations for line ends after a year of data
+    // Remove S&P 500 annotation logic as well
     if (points > 12) {
       const lastDate = this.dates[points - 1];
       const lastGoldValue = this.gold[points - 1];
-      const lastSp500Value = this.sp500[points - 1];
-
       annotations.push({
         x: lastDate,
         y: lastGoldValue,
-        text: `Gold<br>${lastGoldValue}%`,
+        text: `Adj Close<br>${lastGoldValue}%`,
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
-        font: { color: 'gold', size: 12 },
-        xshift: 10
-      });
-
-      annotations.push({
-        x: lastDate,
-        y: lastSp500Value,
-        text: `S&P 500 (TR)<br>${lastSp500Value}%`,
-        showarrow: false,
-        xanchor: 'left',
-        yanchor: 'middle',
-        font: { color: 'deepskyblue', size: 12 },
+        font: { color: 'orange', size: 12 },
         xshift: 10
       });
     }
