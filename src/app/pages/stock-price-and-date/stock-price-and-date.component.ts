@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common'
 import { Router } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
 import * as Plotly from 'plotly.js-dist-min';
+import * as XLSX from 'xlsx';
 
 // PlotlyModule.plotlyjs = PlotlyJS
 
@@ -47,18 +48,7 @@ export class StockPriceAndDateComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.generateData();
-    this.drawChart(1);
-
-    // Animation: har 50ms baad ek naya point add hoga
-    this.interval = setInterval(() => {
-      if (this.currentIndex < this.dates.length) {
-        this.currentIndex++;
-        this.drawChart(this.currentIndex);
-      } else {
-        clearInterval(this.interval);
-      }
-    }, 100);
+    this.fetchExcelData();
   }
 
   generateData() {
@@ -91,6 +81,67 @@ export class StockPriceAndDateComponent implements OnInit{
     }
   }
 
+  fetchExcelData() {
+    this.http.get('../../../assets/ABBV_stock_data.xlsx', { responseType: 'arraybuffer' }).subscribe({
+      next: (data) => {
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+        // Find column indexes for 'date' and 'Adj Close'
+        const headerRow = jsonData[0] as string[];
+        const dateIdx = headerRow.findIndex(h => h.toLowerCase().includes('date'));
+        const adjCloseIdx = headerRow.findIndex(h => h.toLowerCase().includes('adj close'));
+
+        this.dates = [];
+        this.gold = []; // ya sp500, jo bhi aapko plot karna hai
+
+        for (let i = 1; i < jsonData.length; i++) {
+          const row = jsonData[i] as any[];
+          const excelDate = row[dateIdx];
+          const adjClose = row[adjCloseIdx];
+
+          if (excelDate && adjClose) {
+            // Excel dates can be numbers, so we handle that case.
+            const dateObj = XLSX.SSF.parse_date_code(excelDate);
+            const plotlyDate = `${dateObj.y}-${String(dateObj.m).padStart(2, '0')}-${String(dateObj.d).padStart(2, '0')}`;
+            
+            const value = Number(adjClose);
+            if (!isNaN(value)) {
+              this.dates.push(plotlyDate);
+              this.gold.push(value);
+            }
+          }
+        }
+
+        if(this.dates.length > 0) {
+          this.currentIndex = 1;
+          this.drawChart(1);
+          this.startAnimation();
+        } else {
+          console.error("No data was extracted from the Excel file. Check column names and data format.");
+        }
+      },
+      error: (error) => {
+        console.error("Error fetching the Excel file. Make sure the file is in 'src/assets/data.xlsx' and the path is correct.", error);
+      }
+    });
+  }
+  
+
+  startAnimation() {
+    if (this.interval) clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      if (this.currentIndex < this.dates.length) {
+        this.currentIndex++;
+        this.drawChart(this.currentIndex);
+      } else {
+        clearInterval(this.interval);
+      }
+    }, 100);
+  }
+
   drawChart(points: number) {
     const date = new Date(this.dates[points-1]);
     const monthName = date.toLocaleString('default', { month: 'long' });
@@ -110,12 +161,12 @@ export class StockPriceAndDateComponent implements OnInit{
     }
 
     const trace1 = {
-      x: this.dates.slice(0, points),
-      y: this.gold.slice(0, points),
-      mode: 'lines+markers',
-      name: 'Gold',
-      line: { color: 'gold' },
-      marker: { color: 'gold', size: markerSizes }
+     x: this.dates.slice(0, points),
+  y: this.gold.slice(0, points),
+  mode: 'lines+markers',
+  name: 'Adj Close',
+  line: { color: 'orange' },
+  marker: { color: 'orange', size: markerSizes }
     };
     const trace2 = {
       x: this.dates.slice(0, points),
