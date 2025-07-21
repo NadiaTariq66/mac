@@ -202,13 +202,8 @@
         </div>
         <!-- Main Content -->
        <div class="flex-grow overflow-x-auto">
-        <div class="bg-gray-900 border-b border-gray-800 px-6 py-3 flex flex-col md:flex-row justify-between">
-          <div>
-            <!-- <div class="d-flex align-items-center gap-2">
-              <h1 class="text-xl font-semibold">AbbVie Inc.</h1> | 
-              <p class="text-sm text-gray-400">Balance Sheet (Per SEC EDGAR 10k)</p>
-            </div> -->
-            <markdown src="assets/business_desc.md"></markdown>
+        <div class="bg-gray-900 border-b border-gray-800  px-6 py-3 flex flex-col md:flex-row justify-between">
+          <div class="prose prose-invert max-w-none two-column-content" [innerHTML]="htmlContent">
           </div>
         </div>
         </div>

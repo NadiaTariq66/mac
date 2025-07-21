@@ -11,7 +11,7 @@ import { NgbModule, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'
 import { CommonModule } from '@angular/common'
 import { Router } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkdownService } from 'ngx-markdown';
 
 
 @Component({
@@ -25,7 +25,8 @@ export class BusinessInfoComponent implements OnInit{
   constructor(
     private router: Router,
     private http: HttpClient,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private markdownService: MarkdownService
   ) { }
   value: number = 2017
   highValue: number = 2024
@@ -56,8 +57,13 @@ export class BusinessInfoComponent implements OnInit{
   }
 
   financials: any = []
-  ngOnInit() {
-  
+  htmlContent: string = '';
+
+  async ngOnInit() {
+    this.http.get('assets/business_desc.md', { responseType: 'text' })
+      .subscribe(async data => {
+        this.htmlContent = await this.markdownService.parse(data);
+      });
   }
  
 }

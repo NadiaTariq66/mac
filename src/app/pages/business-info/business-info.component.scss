@@ -971,3 +971,28 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   table-layout: fixed;
   width: 100%;
 }
+
+.two-column-content {
+  column-count: 2;
+  column-gap: 2rem; /* 32px */
+
+  // Use ::ng-deep to apply styles to the dynamically loaded markdown content.
+  // This is necessary because Angular's view encapsulation can prevent styles
+  // from applying to content added via [innerHTML].
+  ::ng-deep {
+    // Style for paragraphs and list items
+    p, ul, ol, li {
+      color: rgba(233, 233, 234, 0.9); // Off-white for better readability
+    }
+
+    // Style for all heading levels and bolded text
+    h1, h2, h3, h4, h5, h6, strong, b {
+      color: #ffffff; // Pure white for emphasis
+      font-weight: 600;
+    }
+  }
+}
+
+.bg-custom-dark-grey {
+  background-color: #262626; // A neutral dark grey, similar to neutral-900
+}
