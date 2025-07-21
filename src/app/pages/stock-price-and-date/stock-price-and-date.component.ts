@@ -97,6 +97,12 @@ export class StockPriceAndDateComponent implements OnInit{
     const year = date.getFullYear();
     const currentDateText = `${monthName} ${year}`;
 
+    // Dynamically calculate the end of the x-axis range for padding
+    const lastVisibleDate = new Date(this.dates[points - 1]);
+    const xAxisEndDate = new Date(lastVisibleDate);
+    // Add 6 months padding to the end of the x-axis
+    xAxisEndDate.setMonth(xAxisEndDate.getMonth() + 6);
+
     // Marker sizes: 0 for all points except the last one
     const markerSizes = new Array(points).fill(0);
     if (points > 0) {
@@ -176,13 +182,13 @@ export class StockPriceAndDateComponent implements OnInit{
       title: { text: 'Gold versus the S&P 500' },
       showlegend: false,
       xaxis: { 
-        range: [this.dates[0], '2005-12-31'], // Extend range to end of 2005 for padding
+        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]], // Dynamic range with padding
         showgrid: false,
         tickformat: '%Y' // Display only years
       },
       yaxis: { 
-        title: { text: 'Total return (%)' },
-        range: [-70, 70]
+        title: { text: 'Total return (%)' }
+        // By removing 'range', y-axis will now auto-adjust
        },
       plot_bgcolor: '#111',
       paper_bgcolor: '#111',
