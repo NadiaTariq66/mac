@@ -155,7 +155,7 @@ export class StockPriceAndDateComponent implements OnInit{
         y: 1.15,
         xref: 'paper',
         yref: 'paper',
-        text: 'Price',
+        text: 'Adjusted Close Price',
         showarrow: false,
         xanchor: 'left',
         yanchor: 'top',
@@ -187,7 +187,7 @@ export class StockPriceAndDateComponent implements OnInit{
         tickformat: '%Y' // Display only years
       },
       yaxis: { 
-        title: { text: 'Price' }
+        title: { text: 'Adjusted Close Price' }
         
        },
       plot_bgcolor: '#111',
