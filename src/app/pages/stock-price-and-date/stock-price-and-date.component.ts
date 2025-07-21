@@ -28,8 +28,7 @@ export class StockPriceAndDateComponent implements OnInit{
   @ViewChild('plotlyChart', { static: true }) plotlyChart!: ElementRef;
 
   dates: string[] = [];
-  gold: number[] = [];
-  sp500: number[] = [];
+  price: number[] = [];
 
   interval: any;
   currentIndex = 1;
@@ -65,7 +64,7 @@ export class StockPriceAndDateComponent implements OnInit{
         const adjCloseIdx = headerRow.findIndex(h => h.toLowerCase().includes('adj close'));
 
         this.dates = [];
-        this.gold = []; // ya sp500, jo bhi aapko plot karna hai
+        this.price = []; // ya sp500, jo bhi aapko plot karna hai
 
         for (let i = 1; i < jsonData.length; i++) {
           const row = jsonData[i] as any[];
@@ -80,7 +79,7 @@ export class StockPriceAndDateComponent implements OnInit{
             const value = Number(adjClose);
             if (!isNaN(value)) {
               this.dates.push(plotlyDate);
-              this.gold.push(value);
+              this.price.push(value);
             }
           }
         }
@@ -132,7 +131,7 @@ export class StockPriceAndDateComponent implements OnInit{
 
     const trace1 = {
       x: this.dates.slice(0, points),
-      y: this.gold.slice(0, points),
+      y: this.price.slice(0, points),
       mode: 'lines+markers',
       name: 'Adj Close',
       line: { color: 'orange' },
@@ -166,11 +165,11 @@ export class StockPriceAndDateComponent implements OnInit{
     // Remove S&P 500 annotation logic as well
     if (points > 12) {
       const lastDate = this.dates[points - 1];
-      const lastGoldValue = this.gold[points - 1];
+      const lastPriceValue = this.price[points - 1];
       annotations.push({
         x: lastDate,
-        y: lastGoldValue,
-        text: `Adj Close<br>${lastGoldValue}%`,
+        y: lastPriceValue,
+        text: `Price<br>${lastPriceValue}%`,
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
@@ -180,7 +179,7 @@ export class StockPriceAndDateComponent implements OnInit{
     }
 
     const layout = {
-      title: { text: 'Gold versus the S&P 500' },
+      title: { text: 'Stock Price' },
       showlegend: false,
       xaxis: { 
         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]], // Dynamic range with padding
