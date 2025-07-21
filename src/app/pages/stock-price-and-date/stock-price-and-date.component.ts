@@ -121,7 +121,7 @@ export class StockPriceAndDateComponent implements OnInit{
       },
       yaxis: { 
         title: { text: 'Total return (%)' },
-        range: [-45, 65]
+        range: [-70, 70]
        },
       plot_bgcolor: '#111',
       paper_bgcolor: '#111',
