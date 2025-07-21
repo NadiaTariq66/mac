@@ -155,7 +155,7 @@ export class StockPriceAndDateComponent implements OnInit{
         y: 1.15,
         xref: 'paper',
         yref: 'paper',
-        text: 'Total return, %',
+        text: 'Price',
         showarrow: false,
         xanchor: 'left',
         yanchor: 'top',
@@ -169,7 +169,7 @@ export class StockPriceAndDateComponent implements OnInit{
       annotations.push({
         x: lastDate,
         y: lastPriceValue,
-        text: `Price<br>${lastPriceValue}%`,
+        text: `Price<br>${lastPriceValue.toFixed(2)}`, // Round to 2 decimal places
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
@@ -187,8 +187,8 @@ export class StockPriceAndDateComponent implements OnInit{
         tickformat: '%Y' // Display only years
       },
       yaxis: { 
-        title: { text: 'Total return (%)' }
-        // By removing 'range', y-axis will now auto-adjust
+        title: { text: 'Price' }
+        
        },
       plot_bgcolor: '#111',
       paper_bgcolor: '#111',
