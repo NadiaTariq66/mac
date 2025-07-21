@@ -97,36 +97,31 @@ export class StockPriceAndDateComponent implements OnInit{
     const year = date.getFullYear();
     const currentDateText = `${monthName} ${year}`;
 
+    // Marker sizes: 0 for all points except the last one
+    const markerSizes = new Array(points).fill(0);
+    if (points > 0) {
+      markerSizes[points - 1] = 6; 
+    }
+
     const trace1 = {
       x: this.dates.slice(0, points),
       y: this.gold.slice(0, points),
-      mode: 'lines',
+      mode: 'lines+markers',
       name: 'Gold',
-      line: { color: 'gold' }
+      line: { color: 'gold' },
+      marker: { color: 'gold', size: markerSizes }
     };
     const trace2 = {
       x: this.dates.slice(0, points),
       y: this.sp500.slice(0, points),
-      mode: 'lines',
+      mode: 'lines+markers',
       name: 'S&P 500 (TR)',
-      line: { color: 'deepskyblue' }
+      line: { color: 'deepskyblue' },
+      marker: { color: 'deepskyblue', size: markerSizes }
     };
     const data = [trace1, trace2];
-    const layout = {
-      title: { text: 'Gold versus the S&P 500' },
-      xaxis: { 
-        range: [this.dates[0], this.dates[this.dates.length - 1]],
-        showgrid: false,
-        tickformat: '%Y' // Display only years
-      },
-      yaxis: { 
-        title: { text: 'Total return (%)' },
-        range: [-70, 70]
-       },
-      plot_bgcolor: '#111',
-      paper_bgcolor: '#111',
-      font: { color: '#fff' },
-      annotations: [{
+
+    const annotations: any[] = [{
         x: 1,
         y: 1.15,
         xref: 'paper',
@@ -146,7 +141,53 @@ export class StockPriceAndDateComponent implements OnInit{
         xanchor: 'left',
         yanchor: 'top',
         font: { size: 14, color: 'grey' }
-      }]
+      }];
+    
+    // Add annotations for line ends after a year of data
+    if (points > 12) {
+      const lastDate = this.dates[points - 1];
+      const lastGoldValue = this.gold[points - 1];
+      const lastSp500Value = this.sp500[points - 1];
+
+      annotations.push({
+        x: lastDate,
+        y: lastGoldValue,
+        text: `Gold<br>${lastGoldValue}%`,
+        showarrow: false,
+        xanchor: 'left',
+        yanchor: 'middle',
+        font: { color: 'gold', size: 12 },
+        xshift: 10
+      });
+
+      annotations.push({
+        x: lastDate,
+        y: lastSp500Value,
+        text: `S&P 500 (TR)<br>${lastSp500Value}%`,
+        showarrow: false,
+        xanchor: 'left',
+        yanchor: 'middle',
+        font: { color: 'deepskyblue', size: 12 },
+        xshift: 10
+      });
+    }
+
+    const layout = {
+      title: { text: 'Gold versus the S&P 500' },
+      showlegend: false,
+      xaxis: { 
+        range: [this.dates[0], '2005-12-31'], // Extend range to end of 2005 for padding
+        showgrid: false,
+        tickformat: '%Y' // Display only years
+      },
+      yaxis: { 
+        title: { text: 'Total return (%)' },
+        range: [-70, 70]
+       },
+      plot_bgcolor: '#111',
+      paper_bgcolor: '#111',
+      font: { color: '#fff' },
+      annotations: annotations
     };
     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout as any, {responsive: true});
   }
