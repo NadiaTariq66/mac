@@ -25,12 +25,14 @@ import * as Plotly from 'plotly.js-dist-min';
 })
 export class StockPriceAndDateComponent implements OnInit{
   @ViewChild('plotlyChart', { static: true }) plotlyChart!: ElementRef;
-  years = ['2000', '2001', '2002', '2003', '2004'];
-  gold = [0, 5, 15, 30, 49.1];
-  sp500 = [0, -5, -15, -30, -16.5];
+
+  dates: string[] = [];
+  gold: number[] = [];
+  sp500: number[] = [];
 
   interval: any;
   currentIndex = 1;
+
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -45,43 +47,108 @@ export class StockPriceAndDateComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.generateData();
     this.drawChart(1);
 
-    // Animation: har 1 second baad ek naya point add hoga
+    // Animation: har 50ms baad ek naya point add hoga
     this.interval = setInterval(() => {
-      if (this.currentIndex < this.years.length) {
+      if (this.currentIndex < this.dates.length) {
         this.currentIndex++;
         this.drawChart(this.currentIndex);
       } else {
         clearInterval(this.interval);
       }
-    }, 1000);
+    }, 100);
   }
+
+  generateData() {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    // Data from Jan 2000 to May 2005
+    for (let year = 2000; year <= 2005; year++) {
+      const endMonth = year === 2005 ? 4 : 11;
+      for (let month = 0; month <= endMonth; month++) {
+        const date = new Date(year, month, 1);
+        this.dates.push(date.toISOString().split('T')[0]); // Use ISO date for Plotly
+        
+        // Sample data mimicking the trend
+        const progress = (year - 2000) * 12 + month;
+        let goldValue = 0;
+        let spValue = 0;
+        
+        if (progress < 12) { // 2000
+            goldValue = -5 + (Math.random() * 5);
+            spValue = 10 - progress + (Math.random() * 5);
+        } else if (progress < 36) { // 2001-2002
+            goldValue = -5 + (progress * 1.5) + (Math.sin(progress) * 5);
+            spValue = - (progress * 1.5) + (Math.cos(progress) * 10);
+        } else { // 2003 onwards
+            goldValue = 20 + ((progress-36) * 1.2) + (Math.sin(progress/2)*3);
+            spValue = -40 + ((progress-36) * 1.1) + (Math.cos(progress/2)*5);
+        }
+        this.gold.push(Math.round(goldValue*10)/10);
+        this.sp500.push(Math.round(spValue*10)/10);
+      }
+    }
+  }
+
   drawChart(points: number) {
+    const date = new Date(this.dates[points-1]);
+    const monthName = date.toLocaleString('default', { month: 'long' });
+    const year = date.getFullYear();
+    const currentDateText = `${monthName} ${year}`;
+
     const trace1 = {
-      x: this.years.slice(0, points),
+      x: this.dates.slice(0, points),
       y: this.gold.slice(0, points),
-      mode: 'lines+markers',
+      mode: 'lines',
       name: 'Gold',
       line: { color: 'gold' }
     };
     const trace2 = {
-      x: this.years.slice(0, points),
+      x: this.dates.slice(0, points),
       y: this.sp500.slice(0, points),
-      mode: 'lines+markers',
+      mode: 'lines',
       name: 'S&P 500 (TR)',
       line: { color: 'deepskyblue' }
     };
     const data = [trace1, trace2];
     const layout = {
-      title: { text: 'Total return, %' },
-      xaxis: { title: { text: 'Year' } },
-      yaxis: { title: { text: 'Total return (%)' } },
+      title: { text: 'Gold versus the S&P 500' },
+      xaxis: { 
+        range: [this.dates[0], this.dates[this.dates.length - 1]],
+        showgrid: false,
+        tickformat: '%Y' // Display only years
+      },
+      yaxis: { 
+        title: { text: 'Total return (%)' },
+        range: [-45, 65]
+       },
       plot_bgcolor: '#111',
       paper_bgcolor: '#111',
-      font: { color: '#fff' }
+      font: { color: '#fff' },
+      annotations: [{
+        x: 1,
+        y: 1.15,
+        xref: 'paper',
+        yref: 'paper',
+        text: currentDateText,
+        showarrow: false,
+        xanchor: 'right',
+        yanchor: 'top',
+        font: { size: 20 }
+      }, {
+        x: 0,
+        y: 1.15,
+        xref: 'paper',
+        yref: 'paper',
+        text: 'Total return, %',
+        showarrow: false,
+        xanchor: 'left',
+        yanchor: 'top',
+        font: { size: 14, color: 'grey' }
+      }]
     };
-    Plotly.newPlot(this.plotlyChart.nativeElement, data, layout, {responsive: true});
+    Plotly.newPlot(this.plotlyChart.nativeElement, data, layout as any, {responsive: true});
   }
 }
 
