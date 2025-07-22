@@ -108,7 +108,7 @@ export class StockPriceAndDateComponent implements OnInit{
       } else {
         clearInterval(this.interval);
       }
-    }, 100);
+    }, 10);
   }
 
   drawChart(points: number) {
