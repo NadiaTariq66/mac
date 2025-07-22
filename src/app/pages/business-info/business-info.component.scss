@@ -1015,7 +1015,7 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 }
 
 .sidebar-heading-link {
-  white-space: normal;
+ white-space: nowrap;
   overflow: hidden;
   padding-left: 42px;
   cursor: pointer !important;
