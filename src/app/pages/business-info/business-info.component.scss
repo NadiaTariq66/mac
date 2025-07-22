@@ -697,11 +697,13 @@ video {
 font-family: Georgia;
 font-size: 14px;
 font-style: normal;
+cursor: pointer;
 font-weight: 400;/* 18.2px */
       }
       .sidebar-item.active {
           border-radius: 10px;
             background: #FFF;
+			cursor: pointer;
             color: var(--Gray-Black-600, #161721) !important;
 font-family: Georgia;
 font-size: 14px;
@@ -973,8 +975,12 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 }
 
 .two-column-content {
-  column-count: 2;
-  column-gap: 2rem; /* 32px */
+//   column-count: 2;
+//   position: relative; /* This is important for scrolling calculation */
+//   column-gap: 2rem; /* 32px */
+ display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 
   // Use ::ng-deep to apply styles to the dynamically loaded markdown content.
   // This is necessary because Angular's view encapsulation can prevent styles
@@ -997,8 +1003,10 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   background-color: #262626; // A neutral dark grey, similar to neutral-900
 }
 .highlight {
-  background-color: rgba(255, 255, 0, 0.2);
-  transition: background-color 0.5s ease;
+  background: #444 !important;
+  color: #fff !important;
+  border-radius: 4px;
+  transition: background 0.5s, color 0.5s;
 }
 .scroll-highlight {
   background-color: rgba(255, 255, 0, 0.3); // light yellow
@@ -1028,5 +1036,6 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 .highlight {
   background: #444 !important;
   color: #fff !important;
+  border-radius: 4px;
   transition: background 0.5s, color 0.5s;
 }

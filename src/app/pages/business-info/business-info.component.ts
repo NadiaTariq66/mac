@@ -119,14 +119,20 @@ handleNavAndToggle() {
 }
 
   scrollTo(id: string): void {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const container = this.contentContainer.nativeElement;
 
-      // Optional highlight
-      document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
-      element.classList.add('highlight');
-      setTimeout(() => element.classList.remove('highlight'), 1500);
-    }
+  // Temporarily disable columns
+  container.style.columnCount = '1';
+
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    element.classList.add('highlight');
+
+    setTimeout(() => {
+      element.classList.remove('highlight');
+      container.style.columnCount = '2'; // Restore after scroll
+    }, 1500);
+  }
   }
 }
