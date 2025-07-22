@@ -185,19 +185,9 @@ export class StockPriceAndDateComponent implements OnInit{
         xanchor: 'right',
         yanchor: 'top',
         font: { size: 20 }
-      }, {
-        x: 0,
-        y: 1.15,
-        xref: 'paper',
-        yref: 'paper',
-        text: 'Adjusted Close Price',
-        showarrow: false,
-        xanchor: 'left',
-        yanchor: 'top',
-        font: { size: 14, color: 'grey' }
       }];
     
-    // Remove S&P 500 annotation logic as well
+    
     if (points > 12) {
       const lastDate = this.dates[points - 1];
       const lastPriceValue = this.price[points - 1];
