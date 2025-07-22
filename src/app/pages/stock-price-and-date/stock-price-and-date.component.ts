@@ -169,8 +169,10 @@ export class StockPriceAndDateComponent implements OnInit{
       y: this.price.slice(0, points),
       mode: 'lines+markers',
       name: 'Adj Close',
-      line: { color: 'orange' },
-      marker: { color: 'orange', size: markerSizes }
+      line: { color: '#FF8C00', width: 2 }, // Orange line
+      fill: 'tonexty', // Creates the mountain effect
+      fillcolor: 'rgba(255, 165, 0, 0.2)',
+      marker: { color: '#FF8C00', size: markerSizes } // Orange marker
     };
     // Remove trace2 and only use trace1
     const data = [trace1];
