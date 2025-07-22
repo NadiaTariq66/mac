@@ -92,6 +92,9 @@
           <li *ngFor="let heading of headings">
             <a
               (click)="scrollTo(heading.id)"
+               [ngbTooltip]="heading.text"
+               placement="right"
+  container="body"
               class="sidebar-heading-link text-sm text-gray-400 hover:text-white block py-1"
             >
               {{ heading.text }}
