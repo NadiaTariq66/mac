@@ -190,9 +190,30 @@ export class IncomeStatementComponent implements OnInit {
   ]
   popoverTitle: string = ''
   popoverContent: string = ''
-  getPopoverContent(termKey: string) {
+  getPopoverContent(termKey: string,row_head_label:string="") {
     const item = this.definationList.find(d => d.term_key === termKey)
-    if (!item) return null
+    if (!item){
+      if(row_head_label){
+        let row_head_label_short = row_head_label
+        .split(/\s+/)
+        .slice(0, 2)
+        .map(word => word.replace(/[^\w]/g, '').toLowerCase()) // remove punctuation
+        .join(' ');
+        console.log("row_head_label_short:",row_head_label_short);
+        for(let i=0;i<this.definationList.length;i++){
+          if(this.definationList[i]['definition'].toLowerCase().indexOf(row_head_label_short)>-1){
+            return {
+                title: this.definationList[i].term,
+                content: this.definationList[i].full_defination
+            }
+            break;
+          }
+        }
+        return null
+      }else{
+        return null;
+      }
+    }
 
     return {
       title: item.term,
@@ -203,9 +224,14 @@ export class IncomeStatementComponent implements OnInit {
   showPopover(
     termKey: string,
     table_label: string = '',
-    row_label: string = ''
+    row_label: string = '',
+    row = null
   ) {
-    const data = this.getPopoverContent(termKey)
+    console.log("ROW:",row)
+    let row_head_label = (row && row['row_head_label'])? row['row_head_label'] : '';
+    const data = this.getPopoverContent(termKey,row_head_label)
+    
+    // const data = this.getPopoverContent(termKey)
     this.popoverTitle = ''
     this.popoverContent = ''
     let title_extras = ''
@@ -845,7 +871,8 @@ export class IncomeStatementComponent implements OnInit {
     this.financials = this.convertMockApiToFinancialsFullyGeneric(
       this.mockApiResponse
     )
-    console.log('Financials:', this.financials)
+    console.log('Financials:', this.financials);
+    console.log(JSON.stringify(this.financials, null, 4));
   }
   @ViewChild('docViewer', { static: false })
   docViewer!: ElementRef<HTMLIFrameElement>
