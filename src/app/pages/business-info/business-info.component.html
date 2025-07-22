@@ -17,7 +17,7 @@
               <span class="text-sm">Key Insights</span>
             </a>
             <a
-              (click)="navigate('/business-info')"
+              (click)="handleNavAndToggle()"
               [ngClass]="{'active' : getRouterURL() == '/business-info'}"
               class="sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800"
             >
@@ -28,6 +28,16 @@
               </div>
               <span class="text-sm">Company Overview</span>
             </a>
+            <!-- Headings as children -->
+            <div *ngIf="showHeadings && getRouterURL() == '/business-info' && headings.length > 0" class="ml-8">
+              <ul class="list-none p-0 m-0">
+                <li *ngFor="let heading of headings">
+                  <a (click)="scrollTo(heading.id)" class="sidebar-heading-link text-sm text-gray-400 hover:text-white block py-1">
+                    {{ heading.text }}
+                  </a>
+                </li>
+              </ul>
+            </div>
             <a
               href="#"
               class="sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800"
@@ -201,11 +211,13 @@
           </div>
         </div>
         <!-- Main Content -->
-       <div class="flex-grow overflow-x-auto">
-        <div class="bg-gray-900 border-b border-gray-800  px-6 py-3 flex flex-col md:flex-row justify-between">
-          <div class="prose prose-invert max-w-none two-column-content" [innerHTML]="htmlContent">
-          </div>
-        </div>
-        </div>
-      </div>  
+    
+<div class="flex-grow overflow-x-auto">
+  <div class="bg-gray-900 border-b border-gray-800 px-6 py-3 flex flex-col md:flex-row justify-between">
+    <div #contentContainer class="prose prose-invert max-w-none two-column-content">
+      <markdown [data]="htmlContent" (ready)="extractHeadings()"></markdown>
+    </div>
+  </div>
+</div>
+        
  

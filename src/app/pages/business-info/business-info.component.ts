@@ -5,7 +5,9 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  TemplateRef
+  TemplateRef,
+  ChangeDetectorRef,
+  Renderer2
 } from '@angular/core'
 import { NgbModule, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'
 import { CommonModule } from '@angular/common'
@@ -26,7 +28,9 @@ export class BusinessInfoComponent implements OnInit{
     private router: Router,
     private http: HttpClient,
     private modalService: NgbModal,
-    private markdownService: MarkdownService
+    private markdownService: MarkdownService,
+   private renderer: Renderer2,
+  private cdr: ChangeDetectorRef,
   ) { }
   value: number = 2017
   highValue: number = 2024
@@ -55,15 +59,74 @@ export class BusinessInfoComponent implements OnInit{
   navigate(url: string) {
     this.router.navigate([url])
   }
-
+showHeadings: boolean = false;
   financials: any = []
   htmlContent: string = '';
+  headings: { id: string, level: number, text: string }[] = [];
 
-  async ngOnInit() {
-    this.http.get('assets/business_desc.md', { responseType: 'text' })
-      .subscribe(async data => {
-        this.htmlContent = await this.markdownService.parse(data);
+  @ViewChild('contentContainer', { static: false }) contentContainer!: ElementRef;
+
+   ngOnInit() {
+    this.http
+      .get('assets/business_desc.md', { responseType: 'text' })
+      .subscribe( (data) => {
+        this.htmlContent = data;
+        // extractHeadings will be called by (ready) event in HTML
       });
   }
- 
+
+  onMarkdownReady() {
+    setTimeout(() => this.extractHeadings(), 0); // Ensure DOM is rendered
+  }
+  toggleHeadings() {
+  this.showHeadings = !this.showHeadings;
+}
+handleNavAndToggle() {
+  if (this.router.url !== '/business-info') {
+    this.router.navigate(['/business-info']);
+  } else {
+    this.toggleHeadings();
+  }
+}
+
+ extractHeadings(): void {
+  if (this.contentContainer) {
+    const strongTags = this.contentContainer.nativeElement.querySelectorAll('p > strong') as NodeListOf<HTMLElement>;
+
+    const headings: { id: string; level: number; text: string }[] = [];
+    Array.from(strongTags).forEach((el: HTMLElement, i) => {
+      const parent = el.parentElement;
+      if (parent && el.textContent?.trim() === parent.textContent?.trim()) {
+        const id = `heading-${i}`;
+        this.renderer.setAttribute(parent, 'id', id);
+        headings.push({
+          id,
+          level: 2,
+          text: el.textContent?.trim() || '',
+        });
+      }
+    });
+
+    this.headings = headings;
+
+    // ✅ Automatically open headings if already on /business-info
+    if (this.router.url === '/business-info') {
+      this.showHeadings = true;
+    }
+
+    this.cdr.detectChanges();
+  }
+}
+
+  scrollTo(id: string): void {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Optional highlight
+      document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
+      element.classList.add('highlight');
+      setTimeout(() => element.classList.remove('highlight'), 1500);
+    }
+  }
 }

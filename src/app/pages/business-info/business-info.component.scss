@@ -996,3 +996,37 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 .bg-custom-dark-grey {
   background-color: #262626; // A neutral dark grey, similar to neutral-900
 }
+.highlight {
+  background-color: rgba(255, 255, 0, 0.2);
+  transition: background-color 0.5s ease;
+}
+.scroll-highlight {
+  background-color: rgba(255, 255, 0, 0.3); // light yellow
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.sidebar-heading-link {
+  white-space: normal;
+  overflow: hidden;
+  padding-left: 24px;
+  cursor: pointer !important;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  display: block;
+  color: #f4f5f7; 
+   transition: background-color 0.2s ease;
+   &:hover {
+    background-color: #ffffff; // tailwind's bg-gray-700
+    color: #030303;
+	border-radius: 0.375rem;
+	
+	  transform: translateX(8px); 
+  }
+}
+
+.highlight {
+  background: #444 !important;
+  color: #fff !important;
+  transition: background 0.5s, color 0.5s;
+}
