@@ -1017,7 +1017,7 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 .sidebar-heading-link {
   white-space: normal;
   overflow: hidden;
-  padding-left: 24px;
+  padding-left: 42px;
   cursor: pointer !important;
   text-overflow: ellipsis;
   line-height: 1.4;
@@ -1033,12 +1033,6 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   }
 }
 
-// .highlight {
-//   background: #1f0c0c !important;
-//   color: #fff !important;
-//   border-radius: 4px;
-//   transition: background 0.5s, color 0.5s;
-// }
 ::ng-deep .highlight, .highlight {
 	background: #ffeb3b !important;
 	color: #222 !important;
