@@ -12,29 +12,12 @@ distribution by Abbott Laboratories (Abbott) of 100% of the outstanding common s
 
 AbbVie\'s portfolio of products includes a broad line of therapies that address some of the world\'s most complex and serious diseases.
 
-**_Immunology products. AbbVie maintains an extensive immunology portfolio across rheumatology, dermatology and gastroenterology._**
+_Immunology products._
+AbbVie maintains an extensive immunology portfolio across rheumatology, dermatology and gastroenterology.
 AbbVie\'s immunology products address unmet needs for patients with autoimmune diseases. These products are:
 
 _Humira. Humira (adalimumab) is a biologic therapy administered as a subcutaneous injection. It is approved to treat the following_
 autoimmune diseases in the United States, Canada and Mexico (collectively, North America) and in the European Union:
-
-**Condition** **Principal Markets**
-Rheumatoid arthritis (moderate to severe) North America, European Union
-Psoriatic arthritis North America, European Union
-Ankylosing spondylitis North America, European Union
-Crohn\'s disease (moderate to severe) North America, European Union
-Plaque psoriasis (moderate to severe chronic) North America, European Union
-Juvenile idiopathic arthritis (moderate to severe polyarticular) North America, European Union
-Ulcerative colitis (moderate to severe) North America, European Union
-Non-radiographic axial spondyloarthritis European Union
-Pediatric Crohn\'s disease (moderate to severe) North America, European Union
-Hidradenitis suppurativa (moderate to severe) North America, European Union
-Pediatric enthesitis-related arthritis European Union
-Non-infectious intermediate, posterior and panuveitis North America, European Union
-Pediatric ulcerative colitis (moderate to severe) North America, European Union
-Pediatric uveitis North America, European Union
-
-**_1_** **|** _2024 Form 10-K_
 
 
 -----
@@ -47,58 +30,13 @@ Humira is sold in numerous other markets worldwide, including Japan, China, Braz
 _Skyrizi. Skyrizi (risankizumab) is an interleukin-23 (IL-23) inhibitor that selectively blocks IL-23 by binding to its p19 subunit. It is a_
 biologic therapy approved to treat the following autoimmune diseases in North America, the European Union and Japan:
 
-**Condition** **Principal Markets**
-Plaque psoriasis (moderate to severe) North America, European Union, Japan
-Psoriatic arthritis North America, European Union, Japan
-Crohn\'s disease (moderate to severe) North America, European Union, Japan
-Ulcerative colitis (moderate to severe) U.S., Canada, European Union, Japan
 
-Skyrizi is also approved in Japan for the treatment of erythrodermic psoriasis in patients who have an inadequate response to
-conventional therapies, for generalized pustular psoriasis, and for palmoplantar pustulosis in patients who have an inadequate response to
-conventional therapies.
-
-Skyrizi is approved in multiple countries globally, including the United States, Canada and the European Union, for the treatment of
-moderate to severe plaque psoriasis in adults who are candidates for systemic therapy or phototherapy. In psoriatic disease (psoriasis or
-psoriatic arthritis), Skyrizi is administered as a quarterly subcutaneous injection following two induction doses. When administered for Crohn’s
-disease and ulcerative colitis, Skyrizi is given in three induction doses via IV infusion, followed by subcutaneous injection via an on-body
-injector every eight weeks.
-
-_Rinvoq. Rinvoq (upadacitinib) is an oral, once-daily selective and reversible JAK inhibitor that is approved to treat the following_
-inflammatory diseases in North America, the European Union and Japan:
-
-**Condition** **Principal Markets**
-Rheumatoid arthritis (moderate to severe) North America, European Union, Japan
-Psoriatic arthritis North America, European Union, Japan
-Ankylosing spondylitis North America, European Union, Japan
-Atopic dermatitis (moderate to severe) North America, European Union, Japan
-Non-radiographic axial spondyloarthritis U.S., Canada, European Union, Japan
-Ulcerative colitis (moderate to severe) North America, European Union, Japan
-Crohn\'s disease (moderate to severe) U.S., Canada, European Union, Japan
-Active polyarticular juvenile idiopathic arthritis U.S.
-
-In the United States, Rinvoq is indicated for the treatment of moderate to severe active rheumatoid arthritis, for active psoriatic arthritis
-in adults and children 2 years of age and older, for moderate to severe active ulcerative colitis, for active ankylosing spondylitis and for active
-non-radiographic axial spondyloarthritis in adult patients who have an inadequate response or intolerance to one or more TNF blockers. It is
-also indicated for the treatment of Crohn\'s disease in adult patients who have an inadequate response or intolerance to one or more TNF
-blockers and for moderate to severe atopic dermatitis in adults and children 12 years of age and older whose disease is not adequately
-controlled with other systemic drug products, including biologics, or when use of those therapies are inadvisable.
-
-In the European Union, Rinvoq is indicated for the treatment of moderate to severe rheumatoid arthritis in adults, for active psoriatic
-arthritis in adults who have an inadequate response or intolerance to disease-modifying anti-rheumatic medicines (DMARDs), and for active
-axial spondyloarthritis in adults. It is also indicated for the treatment of Crohn\'s disease in adult patients who have an inadequate response or
-intolerance to one or more TNF blockers and for moderate to severe atopic dermatitis in adults and children 12 years of age and older, and for
-moderately to severely active ulcerative colitis in adults.
-
-RINVOQ is sold in numerous other markets worldwide, including China, Brazil, and Australia. In the United States, a liquid formulation
-(RINVOQ LQ) is also approved for use in pediatric patients with psoriatic arthritis and polyarticular juvenile idiopathic arthritis.
-
-_2024 Form 10-K |_ **_2_**
 
 
 -----
 
-**_Oncology products. AbbVie’s oncology products target some of the most complex and difficult-to-treat cancers. These products are:_**
-
+_Oncology products._
+AbbVie’s oncology products target some of the most complex and difficult-to-treat cancers. These products are:
 _Imbruvica._ Imbruvica (ibrutinib) is an oral, once-daily therapy that inhibits a protein called Bruton\'s tyrosine kinase. Imbruvica was one of
 the first medicines to receive a United States Food and Drug Administration (FDA) approval after being granted a Breakthrough Therapy
 Designation and is one of the few therapies to receive four separate designations. Imbruvica currently is approved for the treatment of adult
@@ -152,9 +90,6 @@ depressive disorder.
 
 _Duopa and Duodopa (carbidopa and levodopa).  AbbVie\'s levodopa-carbidopa intestinal gel for the treatment of advanced Parkinson\'s_
 disease is marketed as Duopa in the United States and as Duodopa outside of the United States.
-
-**_3_** **|** _2024 Form 10-K_
-
 
 -----
 
@@ -211,8 +146,6 @@ with cystic fibrosis, chronic pancreatitis and several other conditions. AbbVie 
 _Linzess/Constella. Linzess (linaclotide) is a once-daily guanylate cyclase-C agonist used in adults to treat irritable bowel syndrome with_
 constipation (IBS‑C) and chronic idiopathic constipation. The product is marketed as Linzess in the United States and as Constella outside of
 the United States.
-
-_2024 Form 10-K |_ **_4_**
 
 
 -----
@@ -276,9 +209,6 @@ pathway for approval of biosimilars under the PHSA, but the approval process for
 FDA is dependent upon many factors, including a showing that the biosimilar is "highly similar" to the original product and has no clinically
 meaningful differences from the original product in
 
-**_5_** **|** _2024 Form 10-K_
-
-
 -----
 
 terms of safety, purity and potency. The types of data that could ordinarily be required in an application to show similarity may include analytical
@@ -333,9 +263,6 @@ Title VII to the Patient Protection and Affordable Care Act. The law provides a 
 12 years of regulatory exclusivity for the innovator biologic and a potential additional 180 day-extension term for conducting pediatric studies.
 Biologics are also eligible for orphan drug exclusivity, as discussed above. The law also includes an extensive process for the innovator biologic
 and biosimilar manufacturer to litigate patent
-
-_2024 Form 10-K |_ **_6_**
-
 
 -----
 
@@ -392,8 +319,6 @@ and Supplementary Data."
 AbbVie purchases, in the ordinary course of business, raw materials and supplies essential to its operations from numerous suppliers around
 the world. In addition, certain medical devices and components necessary for the manufacture of AbbVie products are provided by unaffiliated
 third party suppliers. AbbVie has robust business continuity and supplier monitoring programs.
-
-**_7_** **|** _2024 Form 10-K_
 
 
 -----
@@ -454,8 +379,6 @@ FDA periodically inspects manufacturing facilities to assess compliance with cGM
 requirements. In addition, as a condition of approval, the FDA may require post-marketing testing and surveillance to further assess and monitor
 the product\'s safety or efficacy after commercialization, which may require additional clinical trials, patient registries, observational data or
 additional work on chemistry, manufacturing and controls. Any post-approval
-
-_2024 Form 10-K |_ **_8_**
 
 
 -----
@@ -572,7 +495,6 @@ the first 10 medicines subject to government-set prices beginning in 2026. In Au
 applicable to these medicines, including Imbruvica, beginning January 1, 2026. In January 2025, HHS, through the CMS, selected Vraylar and
 Linzess as two of the 15 medicines subject to government-set prices
 
-_2024 Form 10-K |_ **_10_**
 
 
 -----
@@ -688,8 +610,6 @@ environmental protection, should not have a material adverse effect on the compa
 AbbVie employed approximately 55,000 employees in over 70 countries as of January 31, 2025. Outside the United States, some of AbbVie\'s
 employees are represented by unions or works councils. AbbVie believes that it has good relations with its employees.
 
-_2024 Form 10-K |_ **_12_**
-
 
 -----
 
@@ -743,9 +663,6 @@ community and creating connections.
 
 Copies of AbbVie\'s Annual Reports on Form 10-K, Quarterly Reports on Form 10-Q, Current Reports on Form 8-K and amendments to those
 reports filed or furnished pursuant to Section 13(a) or 15(d) of the Securities Exchange Act of 1934 are
-
-**_13_** **|** _2024 Form 10-K_
-
 
 -----
 

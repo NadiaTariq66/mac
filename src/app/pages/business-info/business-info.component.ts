@@ -62,6 +62,8 @@ export class BusinessInfoComponent implements OnInit{
 showHeadings: boolean = false;
   financials: any = []
   htmlContent: string = '';
+htmlContentLeft: string = '';
+htmlContentRight: string = '';
   headings: { id: string, level: number, text: string }[] = [];
 
   @ViewChild('contentContainer', { static: false }) contentContainer!: ElementRef;
@@ -69,10 +71,18 @@ showHeadings: boolean = false;
    ngOnInit() {
     this.http
       .get('assets/business_desc.md', { responseType: 'text' })
-      .subscribe( (data) => {
-        this.htmlContent = data;
-        // extractHeadings will be called by (ready) event in HTML
-      });
+       .subscribe((data) => {
+      this.htmlContent = data;
+
+      const midpoint = Math.floor(data.length / 2);
+
+      // Smart split: avoid cutting mid-word
+      const leftEnd = data.indexOf('\n', midpoint);
+      this.htmlContentLeft = data.slice(0, leftEnd);
+      this.htmlContentRight = data.slice(leftEnd);
+
+      // extractHeadings called via (ready) in both columns
+    });
   }
 
   onMarkdownReady() {
@@ -108,8 +118,6 @@ handleNavAndToggle() {
     });
 
     this.headings = headings;
-
-    // ✅ Automatically open headings if already on /business-info
     if (this.router.url === '/business-info') {
       this.showHeadings = true;
     }
