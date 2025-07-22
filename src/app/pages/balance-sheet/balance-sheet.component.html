@@ -311,7 +311,7 @@
                     </thead>
                     <tbody>
                       <ng-container *ngFor="let row of f.data">
-                        <ng-container *ngTemplateOutlet="renderRow; context: { $implicit: row, headers: f.headers, level: 0 }"></ng-container>
+                        <ng-container *ngTemplateOutlet="renderRow; context: { $implicit: row, headers: f.headers, level: 0,table_label:f.table_label }"></ng-container>
                       </ng-container>
                     </tbody>
                   </table>
@@ -347,10 +347,10 @@
   </ng-template>
   
 <!-- Recursive row rendering template -->
-<ng-template #renderRow let-row let-headers="headers" let-level="level">
+<ng-template #renderRow let-row let-headers="headers" let-level="level" let-table_label="table_label">
   <tr>
     <td [style.paddingLeft.px]="level * 20" style="background: #23232b; color: #fff;font-size: 14px;width: 300px !important;" >
-      <span [ngbTooltip]="row.row_head_label">{{ row.row_head_label }}</span>
+      <span (mouseenter)="showPopover(row.row_head_key,table_label,row.row_head_label,row)" triggers="mouseenter:mouseleave" [ngbPopover]="popContent" [popoverTitle]="popTitle" placement="right">{{ row.row_head_label }}</span>
     </td>
     <td *ngFor="let value of row.data; let i = index; let last = last;"
       [ngClass]="{'no-val' : !value || value && !value.val}"
