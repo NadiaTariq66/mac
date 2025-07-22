@@ -63,8 +63,8 @@ export class StockPriceAndDateComponent implements OnInit{
         const dateIdx = headerRow.findIndex(h => h.toLowerCase().includes('date'));
         const adjCloseIdx = headerRow.findIndex(h => h.toLowerCase().includes('adj close'));
 
-        this.dates = [];
-        this.price = []; // ya sp500, jo bhi aapko plot karna hai
+        // Collect all daily data first
+        const dailyData: { date: string; price: number }[] = [];
 
         for (let i = 1; i < jsonData.length; i++) {
           const row = jsonData[i] as any[];
@@ -78,11 +78,16 @@ export class StockPriceAndDateComponent implements OnInit{
             
             const value = Number(adjClose);
             if (!isNaN(value)) {
-              this.dates.push(plotlyDate);
-              this.price.push(value);
+              dailyData.push({ date: plotlyDate, price: value });
             }
           }
         }
+
+        // Convert daily data to monthly data
+        const monthlyData = this.aggregateToMonthly(dailyData);
+        
+        this.dates = monthlyData.map(item => item.date);
+        this.price = monthlyData.map(item => item.price);
 
         if(this.dates.length > 0) {
           this.currentIndex = 1;
@@ -97,9 +102,38 @@ export class StockPriceAndDateComponent implements OnInit{
       }
     });
   }
+
+  // New method to aggregate daily data to monthly data
+  aggregateToMonthly(dailyData: { date: string; price: number }[]): { date: string; price: number }[] {
+    const monthlyMap = new Map<string, { total: number; count: number; lastPrice: number }>();
+
+    dailyData.forEach(item => {
+      const date = new Date(item.date);
+      const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+      
+      if (monthlyMap.has(monthKey)) {
+        const existing = monthlyMap.get(monthKey)!;
+        existing.lastPrice = item.price; // Keep the last price of the month
+      } else {
+        monthlyMap.set(monthKey, {
+          total: item.price,
+          count: 1,
+          lastPrice: item.price
+        });
+      }
+    });
+
+    // Convert to array and sort by date
+    const monthlyArray = Array.from(monthlyMap.entries()).map(([monthKey, data]) => ({
+      date: `${monthKey}-01`, // Use first day of month for display
+      price: data.lastPrice // Use last price of the month (closing price)
+    }));
+
+    return monthlyArray.sort((a, b) => a.date.localeCompare(b.date));
+  }
   
 
-  startAnimation() {
+ startAnimation() {
     if (this.interval) clearInterval(this.interval);
     this.interval = setInterval(() => {
       if (this.currentIndex < this.dates.length) {
@@ -111,7 +145,8 @@ export class StockPriceAndDateComponent implements OnInit{
     }, 10);
   }
 
-  drawChart(points: number) {
+
+ drawChart(points: number) {
     const date = new Date(this.dates[points-1]);
     const monthName = date.toLocaleString('default', { month: 'long' });
     const year = date.getFullYear();
