@@ -67,7 +67,7 @@ htmlContentRight: string = '';
   headings: { id: string, level: number, text: string }[] = [];
   
   // Carousel properties
-  carouselSlides: { title: string, content: string, id: string }[] = [];
+  carouselSlides: { title: string, content: string, contentLeft: string, contentRight: string, id: string, needsTwoColumns: boolean }[] = [];
   currentSlideIndex: number = 0;
   showCarousel: boolean = true; // Default to carousel view
 
@@ -106,10 +106,28 @@ htmlContentRight: string = '';
       // Keep the original markdown format for the content, including the heading
       const content = section.trim();
       
+      // Check if content is long enough to need 2 columns (more than 1000 characters)
+      const needsTwoColumns = content.length > 1000;
+      console.log(`Slide ${index}: ${title}, Content length: ${content.length}, Needs 2 columns: ${needsTwoColumns}`);
+      
+      // Split content for 2 columns if needed
+      let contentLeft = '';
+      let contentRight = '';
+      
+      if (needsTwoColumns) {
+        const midpoint = Math.floor(content.length / 2);
+        const leftEnd = content.indexOf('\n', midpoint);
+        contentLeft = content.slice(0, leftEnd);
+        contentRight = content.slice(leftEnd);
+      }
+      
       return {
         title: title || `Section ${index + 1}`,
         content: content,
-        id: `slide-${index}`
+        contentLeft: contentLeft,
+        contentRight: contentRight,
+        id: `slide-${index}`,
+        needsTwoColumns: needsTwoColumns
       };
     });
 
@@ -118,7 +136,10 @@ htmlContentRight: string = '';
       this.carouselSlides = [{
         title: 'Business Description',
         content: content,
-        id: 'slide-0'
+        contentLeft: '',
+        contentRight: '',
+        id: 'slide-0',
+        needsTwoColumns: content.length > 1000
       }];
     }
 
@@ -135,25 +156,10 @@ htmlContentRight: string = '';
 
   // Extract headings from carousel content
   extractCarouselHeadings(): void {
-    if (this.carouselSlides.length > 0) {
-      const headings: { id: string; level: number; text: string }[] = [];
-      
-      this.carouselSlides.forEach((slide, index) => {
-        // Add the main slide title only (no duplicate extraction from content)
-        headings.push({
-          id: slide.id,
-          level: 1,
-          text: slide.title,
-        });
-      });
-
-      this.headings = headings;
-      if (this.router.url === '/business-info') {
-        this.showHeadings = true;
-      }
-
-      this.cdr.detectChanges();
-    }
+    // Don't extract headings for sidebar - they will be shown in carousel slides
+    this.headings = [];
+    this.showHeadings = false;
+    this.cdr.detectChanges();
   }
   
   toggleHeadings() {

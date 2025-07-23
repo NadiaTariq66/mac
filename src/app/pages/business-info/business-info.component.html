@@ -79,29 +79,7 @@
         </svg>
         </div>
       </a>
-      <!-- Headings as children -->
-      <div
-        *ngIf="
-          showHeadings &&
-          getRouterURL() == '/business-info' &&
-          headings.length > 0
-        "
-        class="ml-8"
-      >
-        <ul class="list-none p-0 m-0">
-          <li *ngFor="let heading of headings">
-            <a
-              (click)="scrollTo(heading.id)"
-               [ngbTooltip]="heading.text"
-               placement="right"
-  container="body"
-              class="sidebar-heading-link text-sm text-gray-400 hover:text-white block py-1"
-            >
-              {{ heading.text }}
-            </a>
-          </li>
-        </ul>
-      </div>
+      <!-- Headings removed - now shown in carousel slides -->
       <a
         href="#"
         class="sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800"
@@ -471,9 +449,19 @@
         <div *ngIf="showCarousel" class="w-full">
           <ngb-carousel #carousel="ngbCarousel" [interval]="0" class="business-carousel">
             <ng-template ngbSlide *ngFor="let slide of carouselSlides; let i = index" [id]="slide.id">
-              <div class="carousel-content">
+              <div class="carousel-content" [ngClass]="{ 'two-column-layout': slide.needsTwoColumns }">
                 <div class="carousel-body">
-                  <markdown [data]="slide.content" (ready)="onMarkdownReady()"></markdown>
+                  <div *ngIf="!slide.needsTwoColumns">
+                    <markdown [data]="slide.content" (ready)="onMarkdownReady()"></markdown>
+                  </div>
+                  <div *ngIf="slide.needsTwoColumns" class="two-column-content">
+                    <div class="column-left">
+                      <markdown [data]="slide.contentLeft" (ready)="onMarkdownReady()"></markdown>
+                    </div>
+                    <div class="column-right">
+                      <markdown [data]="slide.contentRight" (ready)="onMarkdownReady()"></markdown>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ng-template>

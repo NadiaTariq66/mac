@@ -1060,6 +1060,22 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   max-width: 800px;
   margin: 0 auto;
   
+  &.two-column-layout {
+    max-width: 1200px; // Wider for 2 columns
+  }
+  
+  .two-column-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    
+    .column-left, .column-right {
+      color: rgba(233, 233, 234, 0.9);
+      font-family: Georgia;
+      line-height: 1.6;
+    }
+  }
+  
   .carousel-body {
     color: rgba(233, 233, 234, 0.9);
     font-family: Georgia;
@@ -1081,6 +1097,7 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
         display: block;
         border-bottom: 2px solid #57B5E7;
         padding-bottom: 0.5rem;
+        grid-column: 1 / -1; // Span both columns
       }
       
       // Style other headings and bold text
