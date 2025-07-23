@@ -1051,14 +1051,20 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   
   .carousel-item {
     background: rgba(29, 29, 29, 0.70);
-    min-height: 400px;
-    padding: 2rem;
+    height: 600px; // Fixed height for carousel items
+    padding: 0; // Remove padding since carousel-content has padding
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 .carousel-content {
   max-width: 800px;
   margin: 0 auto;
+  height: 700px; // Fixed height for all slides
+  overflow-y: auto; // Scrollable content
+  padding: 2rem;
   
   &.two-column-layout {
     max-width: 1200px; // Wider for 2 columns
@@ -1068,11 +1074,14 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    height: 100%;
     
     .column-left, .column-right {
       color: rgba(233, 233, 234, 0.9);
       font-family: Georgia;
       line-height: 1.6;
+      overflow-y: auto; // Individual column scrolling if needed
+      padding-right: 1rem; // Space for scrollbar
     }
   }
   
