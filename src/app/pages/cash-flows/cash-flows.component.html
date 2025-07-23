@@ -109,6 +109,12 @@
                 </div>
                 <span class="text-sm font-medium">Price & Date</span>
               </a>
+               <a (click)="navigate('/abbv-sp-500-returns')" class="pointer sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800" [ngClass]="{'active' : getRouterURL() == '/abbv-sp-500-returns'}">
+                <div class="w-6 h-6 flex items-center justify-center mr-3">
+                  <i class="filter-icon balance-sheet-unselected mt-10" [ngClass]="{'active' : getRouterURL() == '/abbv-sp-500-returns'}"></i>
+                </div>
+                <span class="text-sm font-medium">Abbv Vs SP500 Returns</span>
+              </a>
 
             <a
               href="#"
