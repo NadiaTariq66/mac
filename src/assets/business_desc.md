@@ -58,8 +58,8 @@ _Epkinly. Epkinly (epcoritamab) is a product used to treat adults with certain t
 grade B-cell lymphoma that has recurred or that does not respond to previous treatment after receiving two or more treatments. Epkinly is
 administered as a subcutaneous injection. Epkinly is also approved to treat adults with relapsed or refractory follicular lymphoma.
 
-**_Aesthetics products. AbbVie’s Aesthetics portfolio consists of facial injectables, plastics and regenerative medicine, body contouring and_**
-skincare products, which hold market-leading positions in the U.S. and in key markets around the world. These products are:
+_Aesthetics products._
+ AbbVie’s Aesthetics portfolio consists of facial injectables, plastics and regenerative medicine, body contouring and skincare products, which hold market-leading positions in the U.S. and in key markets around the world. These products are:
 
 _Botox Cosmetic. Botox Cosmetic is an acetylcholine release inhibitor and a neuromuscular blocking agent indicated for treatment in four_
 areas: temporary improvement in the appearance of moderate to severe glabellar lines (frown lines between the eyebrows), moderate to
@@ -74,8 +74,8 @@ _Other aesthetics. Other aesthetics products include, but are not limited to, Al
 contouring technology, Natrelle breast implants, the SkinMedica skincare line, Latisse eyelash solution and DiamondGlow dermabrasion
 technology.
 
-**_Neuroscience products. AbbVie’s neuroscience products address some of the most difficult-to-treat neurologic diseases. These products_**
-are:
+_Neuroscience products._
+AbbVie’s neuroscience products address some of the most difficult-to-treat neurologic diseases. These products are:
 
 _Botox Therapeutic. Botox Therapeutic (onabotulinumtoxinA injection) is an acetylcholine release inhibitor and a neuromuscular blocking_
 agent that is injected into muscle tissue. In the United States, it is approved to treat numerous indications, including chronic migraine,
@@ -104,8 +104,8 @@ brand name Aquipta.
 _Other neuroscience. Other neuroscience products include Vyalev/Produodopa, a subcutaneous 24-hour infusion of levodopa-based_
 therapy approved for the treatment of motor fluctuations in adults with advanced Parkinson\'s disease, as well as other products.
 
-**_Eye care products. AbbVie’s eye care products address unmet needs and new approaches to help preserve and protect patients’ vision._**
-These products are:
+_Eye care products._
+ AbbVie’s eye care products address unmet needs and new approaches to help preserve and protect patients’ vision. These products are:
 
 _Ozurdex. Ozurdex (dexamethasone intravitreal implant) is a corticosteroid implant that slowly releases medication over time. Injected_
 directly into the back of the eye, it dissolves naturally and does not need to be removed. Ozurdex is indicated for the treatment of adult
@@ -130,8 +130,8 @@ and a number of other markets in South America, the Middle East and Asia.
 
 _Other eye care. Other eye care products include Refresh/Optive, Xen and Durysta._
 
-**_Other key products. AbbVie’s other key products include, among other things, treatments for patients with hepatitis C virus (HCV),_**
-metabolic and hormone products that target a number of conditions, including exocrine pancreatic insufficiency and hypothyroidism, as well
+_Other key products._
+AbbVie’s other key products include, among other things, treatments for patients with hepatitis C virus (HCV), metabolic and hormone products that target a number of conditions, including exocrine pancreatic insufficiency and hypothyroidism, as well
 as endocrinology products for the palliative treatment of advanced prostate cancer, treatment of endometriosis and central precocious
 puberty and for the preoperative treatment of patients with anemia caused by uterine fibroids. These products are:
 
@@ -437,7 +437,6 @@ ensure compliance. Failure to comply can delay the release of a new product or r
 recall of a product, the suspension or revocation of the authority necessary for a product\'s production and sale and other civil or criminal
 sanctions, including fines and penalties.
 
-**_9_** **|** _2024 Form 10-K_
 
 
 -----
@@ -552,8 +551,6 @@ deemed to pose a lower risk are placed in either Class I or Class II, and device
 are placed in Class III. In general, a Class III device cannot be marketed in the United States unless the FDA approves the device after submission
 of a PMA, and any changes to the device subsequent to initial FDA approval must also be reviewed and approved by the FDA. The majority of
 AbbVie’s medical device products, including AbbVie’s breast implants, are regulated as Class III medical devices. A
-
-**_11_** **|** _2024 Form 10-K_
 
 
 -----
