@@ -1041,3 +1041,148 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 	z-index: 10 !important;
 	position: relative;
   }
+
+// Carousel Styles
+.business-carousel {
+  .carousel-inner {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .carousel-item {
+    background: rgba(29, 29, 29, 0.70);
+    min-height: 400px;
+    padding: 2rem;
+  }
+}
+
+.carousel-content {
+  max-width: 800px;
+  margin: 0 auto;
+  
+  .carousel-body {
+    color: rgba(233, 233, 234, 0.9);
+    font-family: Georgia;
+    line-height: 1.6;
+    
+    ::ng-deep {
+      p, ul, ol, li {
+        color: rgba(233, 233, 234, 0.9);
+        margin-bottom: 0.75rem;
+      }
+      
+      // Style the main headings (like "Overview", "Products", etc.)
+      strong:first-child {
+        color: #ffffff;
+        font-family: Georgia;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        display: block;
+        border-bottom: 2px solid #57B5E7;
+        padding-bottom: 0.5rem;
+      }
+      
+      // Style other headings and bold text
+      h1, h2, h3, h4, h5, h6, strong, b {
+        color: #ffffff;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      
+      ul, ol {
+        padding-left: 1.5rem;
+      }
+      
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.carousel-navigation {
+  .carousel-nav-btn {
+    background: transparent;
+    border: 2px solid #57B5E7;
+    color: #57B5E7;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover:not(:disabled) {
+      background: #57B5E7;
+      color: #000;
+    }
+    
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+  
+  .carousel-indicators {
+    .carousel-indicator {
+      background: transparent;
+      border: 2px solid #57B5E7;
+      color: #57B5E7;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.875rem;
+      font-weight: 500;
+      
+      &:hover {
+        background: #57B5E7;
+        color: #000;
+      }
+      
+      &.active {
+        background: #57B5E7;
+        color: #000;
+      }
+    }
+  }
+}
+
+// View Toggle Button
+.view-toggle-btn {
+  background: transparent;
+  border: 2px solid #57B5E7;
+  color: #57B5E7;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Georgia;
+  font-size: 0.875rem;
+  font-weight: 500;
+  
+  &:hover {
+    background: #57B5E7;
+    color: #000;
+  }
+  
+  &.active {
+    background: #57B5E7;
+    color: #000;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

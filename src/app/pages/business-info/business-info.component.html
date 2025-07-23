@@ -452,11 +452,71 @@
     <div
       class="bg-gray-900 border-b border-gray-800 px-6 py-3 flex flex-col md:flex-row justify-between"
     >
-      <div
+      <!-- View Toggle Button -->
+      <!-- <div class="mb-4 flex justify-end">
+        <button 
+          (click)="toggleView()" 
+          class="view-toggle-btn"
+          [ngClass]="{ 'active': showCarousel }">
+          <svg *ngIf="showCarousel" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <svg *ngIf="!showCarousel" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h4v12H4V6zm6 0h4v12h-4V6zm6 0h4v12h-4V6z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          {{ showCarousel ? 'Two Column View' : 'Carousel View' }}
+        </button>
+      </div> -->
+              <!-- Carousel View -->
+        <div *ngIf="showCarousel" class="w-full">
+          <ngb-carousel #carousel="ngbCarousel" [interval]="0" class="business-carousel">
+            <ng-template ngbSlide *ngFor="let slide of carouselSlides; let i = index" [id]="slide.id">
+              <div class="carousel-content">
+                <div class="carousel-body">
+                  <markdown [data]="slide.content" (ready)="onMarkdownReady()"></markdown>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        
+        <!-- Carousel Navigation -->
+        <!-- <div class="carousel-navigation mt-4 flex justify-center items-center space-x-4">
+          <button 
+            class="carousel-nav-btn" 
+            (click)="prevSlide()"
+            [disabled]="currentSlideIndex === 0">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button> -->
+          
+          <!-- <div class="carousel-indicators flex space-x-2">
+            <button 
+              *ngFor="let slide of carouselSlides; let i = index"
+              class="carousel-indicator"
+              [class.active]="i === currentSlideIndex"
+              (click)="goToSlide(i)">
+              {{ i + 1 }}
+            </button>
+          </div> -->
+          
+          <!-- <button 
+            class="carousel-nav-btn" 
+            (click)="nextSlide()"
+            [disabled]="currentSlideIndex === carouselSlides.length - 1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div> -->
+
+      <!-- Two Column View (Hidden by default) -->
+      <!-- <div
+        *ngIf="!showCarousel"
         #contentContainer
         class="prose prose-invert max-w-none two-column-content"
       >
-        <!-- <markdown [data]="htmlContent" (ready)="extractHeadings()"></markdown> -->
         <div>
           <markdown
             [data]="htmlContentLeft"
@@ -469,7 +529,7 @@
             (ready)="extractHeadings()"
           ></markdown>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
