@@ -13,6 +13,7 @@ import { IncomeStatementComponent } from './pages/income-statement/income-statem
 import { CashFlowsComponent } from './pages/cash-flows/cash-flows.component';
 import { BusinessInfoComponent } from './pages/business-info/business-info.component';
 import { StockPriceAndDateComponent } from './pages/stock-price-and-date/stock-price-and-date.component';
+import { AbbvSP500ReturnsComponent } from './pages/abbv-sp-500-returns/abbv-sp-500-returns.component';
 
 export const routes: Routes = [
   {
@@ -56,5 +57,8 @@ export const routes: Routes = [
   },
   {
     path: 'price-and-date', component: StockPriceAndDateComponent
+  },
+  {
+    path: 'abbv-sp-500-returns', component: AbbvSP500ReturnsComponent
   }
 ];
