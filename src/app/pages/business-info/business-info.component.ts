@@ -156,9 +156,21 @@ htmlContentRight: string = '';
 
   // Extract headings from carousel content
   extractCarouselHeadings(): void {
-    // Don't extract headings for sidebar - they will be shown in carousel slides
+    // Extract main headings from carousel slides for table of contents
     this.headings = [];
-    this.showHeadings = false;
+    
+    this.carouselSlides.forEach((slide, index) => {
+      // Extract main heading from slide title (removes ** from **Heading**)
+      const title = slide.title.replace(/\*\*/g, '');
+      
+      this.headings.push({
+        id: slide.id,
+        level: 1,
+        text: title
+      });
+    });
+    
+    this.showHeadings = true;
     this.cdr.detectChanges();
   }
   

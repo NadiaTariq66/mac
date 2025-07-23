@@ -447,7 +447,24 @@
       </div> -->
               <!-- Carousel View -->
         <div *ngIf="showCarousel" class="w-full">
-          <ngb-carousel #carousel="ngbCarousel" [interval]="0" class="business-carousel">
+          <div class="carousel-container">
+            <!-- Table of Contents -->
+            <div class="table-of-contents" *ngIf="showHeadings && headings.length > 0">
+              <h3 class="toc-title">Table of Contents</h3>
+              <ul class="toc-list">
+                <li *ngFor="let heading of headings; let i = index" 
+                    class="toc-item"
+                    [class.active]="i === currentSlideIndex"
+                    (click)="goToSlide(i)">
+                  <span class="toc-number">{{ i + 1 }}</span>
+                  <span class="toc-text">{{ heading.text }}</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Carousel -->
+            <div class="carousel-wrapper">
+              <ngb-carousel #carousel="ngbCarousel" [interval]="0" class="business-carousel">
             <ng-template ngbSlide *ngFor="let slide of carouselSlides; let i = index" [id]="slide.id">
               <div class="carousel-content" [ngClass]="{ 'two-column-layout': slide.needsTwoColumns }">
                 <div class="carousel-body">
@@ -464,8 +481,10 @@
                   </div>
                 </div>
               </div>
-            </ng-template>
-          </ngb-carousel>
+                          </ng-template>
+            </ngb-carousel>
+            </div>
+          </div>
         
         <!-- Carousel Navigation -->
         <!-- <div class="carousel-navigation mt-4 flex justify-center items-center space-x-4">

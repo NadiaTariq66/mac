@@ -1181,6 +1181,89 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   }
 }
 
+// Carousel Container with Table of Contents
+.carousel-container {
+  display: flex;
+  gap: 2rem;
+  height: 100%;
+}
+
+.table-of-contents {
+  width: 280px;
+  background: rgba(29, 29, 29, 0.70);
+  border-radius: 10px;
+  padding: 1.5rem;
+  flex-shrink: 0;
+  
+  .toc-title {
+    color: #ffffff;
+    font-family: Georgia;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #57B5E7;
+    padding-bottom: 0.5rem;
+  }
+  
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .toc-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgba(233, 233, 234, 0.9);
+    font-family: Georgia;
+    
+    &:hover {
+      background: rgba(87, 181, 231, 0.1);
+      color: #ffffff;
+    }
+    
+    &.active {
+      background: #57B5E7;
+      color: #000000;
+    }
+    
+    .toc-number {
+      background: rgba(87, 181, 231, 0.2);
+      color: #57B5E7;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+    
+    &.active .toc-number {
+      background: #ffffff;
+      color: #000000;
+    }
+    
+    .toc-text {
+      font-size: 0.875rem;
+      line-height: 1.4;
+      flex: 1;
+    }
+  }
+}
+
+.carousel-wrapper {
+  flex: 1;
+}
+
 // View Toggle Button
 .view-toggle-btn {
   background: transparent;
