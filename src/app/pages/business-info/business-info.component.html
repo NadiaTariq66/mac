@@ -407,21 +407,7 @@
     <div
       class="bg-gray-900 border-b border-gray-800 px-6 py-3 flex flex-col md:flex-row justify-between"
     >
-      <!-- View Toggle Button -->
-      <!-- <div class="mb-4 flex justify-end">
-        <button 
-          (click)="toggleView()" 
-          class="view-toggle-btn"
-          [ngClass]="{ 'active': showCarousel }">
-          <svg *ngIf="showCarousel" width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <svg *ngIf="!showCarousel" width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M4 6h4v12H4V6zm6 0h4v12h-4V6zm6 0h4v12h-4V6z" stroke="currentColor" stroke-width="2"/>
-          </svg>
-          {{ showCarousel ? 'Two Column View' : 'Carousel View' }}
-        </button>
-      </div> -->
+    
               <!-- Carousel View -->
         <div *ngIf="showCarousel" class="w-full">
           <div class="carousel-container">
@@ -434,7 +420,7 @@
                     [class.active]="i === currentSlideIndex"
                     (click)="goToSlide(i)">
                   <span class="toc-number">{{ i + 1 }}</span>
-                  <span class="toc-text">{{ heading.text }}</span>
+                  <span class="toc-text" [ngbTooltip]="heading.text">{{ heading.text }}</span>
                 </li>
               </ul>
             </div>
