@@ -194,7 +194,7 @@ branded pharmaceutical products creates competitive pressures on AbbVie\'s produ
 treatments brought to market by AbbVie’s competitors could cause revenues for AbbVie’s products to decrease due to price reductions and sales
 volume decreases.
 
-**_Biosimilars.  Competition for AbbVie’s biologic products is affected by the approval of follow-on biologics, also known as “biosimilars.”_**
+_Biosimilars.  Competition for AbbVie’s biologic products is affected by the approval of follow-on biologics, also known as “biosimilars.”_
 Biologics have added major therapeutic options for the treatment of many diseases, including some for which therapies were unavailable or
 inadequate. The cost of developing and producing biologic therapies is typically dramatically higher than for small molecule medications, and
 many biologic medications are used for ongoing treatment of chronic diseases, such as rheumatoid arthritis or inflammatory bowel disease, or
@@ -359,7 +359,7 @@ data regarding, among other parameters, the benefits and risks of an approved dr
 
 **Regulation—Discovery and Clinical Development**
 
-**_United States.  Securing approval to market a new pharmaceutical product in the United States requires substantial effort and financial_**
+_United States.  Securing approval to market a new pharmaceutical product in the United States requires substantial effort and financial_
 resources and takes several years to complete. The applicant must complete preclinical tests and submit protocols to the FDA before
 commencing clinical trials. Clinical trials are intended to establish the safety and efficacy of the pharmaceutical product and typically are
 conducted in sequential phases, although the phases may overlap or be combined. If the required clinical testing is successful, the results are
@@ -387,7 +387,7 @@ additional work on chemistry, manufacturing and controls. Any post-approval
 regulatory obligations, and the cost of complying with such obligations, could expand in the future. Further, the FDA continues to regulate
 product labeling, and prohibits the promotion of products for unapproved or “off-label” uses along with other labeling restrictions.
 
-**_Outside the United States.  AbbVie is subject to similar regulatory requirements outside the United States for approval and marketing_**
+_Outside the United States.  AbbVie is subject to similar regulatory requirements outside the United States for approval and marketing_
 of pharmaceutical products. AbbVie must obtain approval of a clinical trial application or product from applicable supervising regulatory
 authorities before it can commence clinical trials or marketing of the product in target markets. The approval requirements and process for each
 country can vary, and the time required to obtain approval may be longer or shorter than that required for FDA approval in the United States. For
@@ -455,7 +455,7 @@ United States, many countries control the price of health care products directly
 limitations, or compulsory licensing. Political and budgetary pressures in the United States and in other countries may also heighten the scope
 and severity of pricing pressures on AbbVie\'s products for the foreseeable future.
 
-**_United States.  Specifically, U.S. federal laws require pharmaceutical manufacturers to pay certain statutorily-prescribed rebates to state_**
+_United States.  Specifically, U.S. federal laws require pharmaceutical manufacturers to pay certain statutorily-prescribed rebates to state_
 Medicaid programs on prescription drugs reimbursed under state Medicaid plans, and the efforts by states to seek additional rebates may affect
 AbbVie\'s business. Similarly, the Veterans Health Care Act of 1992, as a prerequisite to participation in Medicaid and other federal health care
 programs, requires that manufacturers extend additional discounts on pharmaceutical products to various federal agencies, including the United
@@ -503,7 +503,7 @@ beginning in 2027. It is possible that more of our products, including products 
 years, which could, among other things, accelerate revenue erosion prior to expiration of intellectual property protections. The effect of reducing
 prices and reimbursement could significantly impact revenues for certain of our products.
 
-**_European Union.  The European Union has adopted directives and other legislation governing labeling, advertising, distribution, supply,_**
+_European Union.  The European Union has adopted directives and other legislation governing labeling, advertising, distribution, supply,_
 pharmacovigilance and marketing of pharmaceutical products. Such legislation provides mandatory standards throughout the European Union
 and permits member states to supplement these standards with additional regulations. European governments also regulate pharmaceutical
 product prices through their control of national health care systems that fund a large part of the cost of such products to consumers. As a result,
@@ -517,13 +517,13 @@ generic version of a pharmaceutical product for the one prescribed and by permit
 generic versions in certain circumstances. Many governments are also following a similar path for biosimilar therapies. In addition, governments
 use reimbursement lists to limit the pharmaceutical products that are eligible for reimbursement by national health care systems.
 
-**_Japan.  In Japan, the National Health Insurance system maintains a Drug Price List specifying which pharmaceutical products are eligible_**
+_Japan.  In Japan, the National Health Insurance system maintains a Drug Price List specifying which pharmaceutical products are eligible_
 for reimbursement, and the Ministry of Health, Labour and Welfare sets the prices of the products on this list. The government generally
 introduces price cut rounds every other year and also mandates price decreases for specific products. New products judged innovative or useful,
 that are indicated for pediatric use, or that target orphan or small population diseases, however, may be eligible for a pricing premium. The
 government has also promoted the use of generics, where available.
 
-**_Emerging Markets.  Many emerging markets take steps to reduce pharmaceutical product prices, in some cases through direct price_**
+_Emerging Markets.  Many emerging markets take steps to reduce pharmaceutical product prices, in some cases through direct price_
 controls and in others through the promotion of generic/biosimilar alternatives to branded pharmaceuticals.
 
 Since AbbVie markets its products worldwide, certain products of a local nature and variations of product lines must also meet other local
@@ -543,7 +543,7 @@ be limited in scope, and may significantly limit the indicated uses for which a 
 manufacturers are subject to ongoing review, and discovery of previously unknown problems with products may result in restrictions on their
 manufacture, sale and/or use or require their withdrawal from the market.
 
-**_United States. AbbVie’s medical device products are subject to extensive regulation by the FDA in the United States. Unless an exemption_**
+_United States. AbbVie’s medical device products are subject to extensive regulation by the FDA in the United States. Unless an exemption_
 applies, each medical device AbbVie markets in the United States must have a 510(k) clearance or a Premarket Approval Application (PMA) in
 accordance with the FFDCA and its implementing regulations. The FDA classifies medical devices into one of three classes, depending on the
 degree of risk associated with each medical device and the extent of controls that are needed to ensure safety and effectiveness. Devices
@@ -579,7 +579,7 @@ correction or product recall or removal to reduce a risk to health posed by a de
 health risk. Further, the FDA continues to regulate device labeling, and prohibits the promotion of products for unapproved or “off-label” uses
 along with other labeling restrictions.
 
-**_European Union. Medical device products that are marketed in the European Union must comply with the requirements of the Medical_**
+_European Union. Medical device products that are marketed in the European Union must comply with the requirements of the Medical_
 Device Regulation (the MDR), which came into effect in May 2021. The MDR provides for regulatory oversight with respect to the design,
 manufacture, clinical trials, labeling and adverse event reporting for medical devices to ensure that medical devices marketed in the European
 Union are safe and effective for their intended uses. Medical devices that comply with the MDR are entitled to bear a Conformité Européenne
@@ -619,7 +619,7 @@ strategic and leadership capability, foster employee engagement and create a cul
 its employees through competitive compensation, benefits and employee support programs and offers best-in-class development and leadership
 opportunities. AbbVie has developed a deep talent base through ongoing investment in functional and leadership training and by sourcing worldclass external talent, ensuring a sustainable talent pipeline.
 
-**_Attracting and Developing Talent. Attracting and developing high-performing talent is essential to AbbVie’s continued success. AbbVie_**
+_Attracting and Developing Talent. Attracting and developing high-performing talent is essential to AbbVie’s continued success. AbbVie_
 implements detailed talent attraction strategies, with an emphasis on STEM skill sets and other critical skillsets, including drug discovery, clinical
 development, market access and business development. AbbVie seeks candidates with diverse backgrounds, experiences, and perspectives to
 enhance innovation and problem-solving. AbbVie also invests in competitive compensation and benefits programs. In addition to offering a
@@ -642,7 +642,7 @@ supplemented with tools and resources, and leverages leaders as role models and 
 leadership pipeline is the company\'s Professional Development Programs, which attract graduates, postgraduates and post-doctoral talent to
 participate in formal development programs lasting up to three years, with the objective of strengthening functional and leadership capabilities.
 
-**_Culture. AbbVie’s shared principles of transforming lives, acting with integrity, driving innovation, embracing diversity and inclusion, and_**
+_Culture. AbbVie’s shared principles of transforming lives, acting with integrity, driving innovation, embracing diversity and inclusion, and_
 serving the community form the core of the company\'s culture. AbbVie articulates the behaviors associated with these values in the Ways We
 Work, a core set of working behaviors that emphasize how the company achieves results is equally as important as achieving them. The Ways
 We Work are designed to ensure that every AbbVie employee is aware of the company\'s cultural expectations. AbbVie integrates the Ways We
@@ -650,7 +650,7 @@ Work into all talent processes, forming the basis for assessing performance, pri
 AbbVie believes its culture creates strong engagement, which is measured regularly through a confidential, third-party all-employee survey, and
 this engagement supports AbbVie’s mission of making a remarkable impact on people’s lives.
 
-**_Diversity & Inclusion. A cornerstone of AbbVie’s human capital management approach is to prioritize fostering an inclusive workforce_**
+_Diversity & Inclusion. A cornerstone of AbbVie’s human capital management approach is to prioritize fostering an inclusive workforce_
 where all employees have equal opportunity to succeed. AbbVie is committed to equal employment opportunity and non-discrimination in all
 aspects of employment. Further, AbbVie is committed to pay equity and conducts pay equity analyses annually. A critical component of AbbVie\'s
 strategy is to instill an inclusive mindset in all AbbVie leaders and employees, so the company continues to realize the full value of its workforce
