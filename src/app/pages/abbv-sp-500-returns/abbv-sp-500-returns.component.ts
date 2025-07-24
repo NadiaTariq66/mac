@@ -268,7 +268,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
       annotations.push({
         x: lastDate,
         y: lastSpxValue,
-        text:` S&P 500 (TR)<br>${lastSpxValue.toFixed(1)}%`,
+        text:` S&P 500 (TR)<br>${lastSpxValue.toFixed(2)}%`,
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
@@ -292,7 +292,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         showgrid: true,
         gridcolor: '#333',
         tickfont: { family: 'Georgia' },
-        tickformat: ',.1f',
+        tickformat: ',.2f',
         tickmode: 'auto',
         nticks: 5
       },
