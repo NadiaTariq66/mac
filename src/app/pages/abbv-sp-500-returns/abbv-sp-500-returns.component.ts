@@ -288,17 +288,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
       paper_bgcolor: '#000',
       font: { color: '#fff', family: 'Georgia' },
       annotations: annotations,
-      showlegend: true,
-      legend: {
-        x: 0.98,
-        y: 1.2,
-        xanchor: 'right',
-        yanchor: 'top',
-        bgcolor: 'rgba(0,0,0,0.5)',
-        bordercolor: '#333',
-        borderwidth: 1,
-        font: { family: 'Georgia' }
-      }
+      showlegend: false
     };
     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout as any, {responsive: true});
   }
