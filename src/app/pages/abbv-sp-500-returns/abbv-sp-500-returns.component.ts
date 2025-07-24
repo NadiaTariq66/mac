@@ -292,7 +292,8 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         showgrid: true,
         gridcolor: '#333',
         tickfont: { family: 'Georgia' },
-        tickformat: ',.2f',
+         ticksuffix: '%', 
+          tickformat: '.2f',
         tickmode: 'auto',
         nticks: 5
       },
