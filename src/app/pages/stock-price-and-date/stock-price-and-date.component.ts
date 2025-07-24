@@ -329,6 +329,34 @@ export class StockPriceAndDateComponent implements OnInit{
         font: { size: 20, color: '#FFFFFF' }
       }];
     
+    // Add title for mountain chart (Date & Price)
+    annotations.push({
+      x: -0.085,
+      y: 1.1,
+      xref: 'paper',
+      yref: 'paper',
+      text: 'Date & Price',
+      showarrow: false,
+      xanchor: 'left',
+      yanchor: 'middle',
+      font: { size: 10, color: '#FFFFFF', family: 'Georgia' },
+      xshift: 10
+    });
+
+    // Add title for bar chart (Date & Vol)
+    annotations.push({
+      x: -0.085,
+      y: 0.26,
+      xref: 'paper',
+      yref: 'paper',
+      text: 'Date & Vol',
+      showarrow: false,
+      xanchor: 'left',
+      yanchor: 'middle',
+      font: { size: 10, color: '#FFFFFF', family: 'Georgia' },
+      xshift: 10
+    });
+    
     if (points > 12) {
       const lastDate = this.dates[points - 1];
       const lastPriceValue = this.prices[points - 1];
@@ -339,7 +367,7 @@ export class StockPriceAndDateComponent implements OnInit{
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
-        font: { color: 'orange', size: 12, family: 'Georgia' },
+        font: { color: '#0066CC', size: 12, family: 'Georgia' },
         xshift: 10
       });
     }
