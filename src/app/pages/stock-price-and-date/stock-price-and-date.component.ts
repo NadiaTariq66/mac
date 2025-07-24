@@ -414,11 +414,11 @@ export class StockPriceAndDateComponent implements OnInit{
         side: 'right',
         tickformat: 'd'
       },
-      plot_bgcolor: '#111111',
-      paper_bgcolor: '#111111',
-      font: { color: '#FFFFFF', family: 'Georgia' },
-      annotations: annotations,
-      margin: { l: 60, r: 60, t: 80, b: 60 }
+             plot_bgcolor: '#111111',
+       paper_bgcolor: '#111111',
+       font: { color: '#FFFFFF', family: 'Georgia' },
+       annotations: annotations,
+       margin: { l: 60, r: 120, t: 80, b: 60 }
     };
 
     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout, {responsive: true});
