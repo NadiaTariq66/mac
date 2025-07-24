@@ -225,7 +225,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         showarrow: false,
         xanchor: 'right',
         yanchor: 'top',
-        font: { size: 20 }
+        font: { size: 20, family: 'Georgia, serif' }
       }];
     
     // Add value annotations for both lines
@@ -241,7 +241,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
-        font: { color: '#FF8C00', size: 12 },
+        font: { color: '#FF8C00', size: 12, family: 'Georgia, serif' },
         xshift: 10
       });
       
@@ -252,28 +252,30 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
-        font: { color: '#1E90FF', size: 12 },
+        font: { color: '#1E90FF', size: 12, family: 'Georgia, serif' },
         xshift: 10
       });
     }
 
     const layout = {
-      title: { text: 'Gold versus the S&P 500', font: { size: 24 } },
+      title: { text: '	Abbvie Stock Returns vs. S&P 500 Returns', font: { size: 24, family: 'Georgia, serif' } },
       xaxis: { 
-        title: { text: 'Total return, %' },
+        title: { text: 'Total return, %', font: { family: 'Georgia, serif' } },
         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
         showgrid: true,
         gridcolor: '#333',
-        tickformat: '%Y'
+        tickformat: '%Y',
+        tickfont: { family: 'Georgia, serif' }
       },
       yaxis: { 
-        title: { text: 'Total return, %' },
+        title: { text: 'Total return, %', font: { family: 'Georgia, serif' } },
         showgrid: true,
-        gridcolor: '#333'
+        gridcolor: '#333',
+        tickfont: { family: 'Georgia, serif' }
       },
       plot_bgcolor: '#000',
       paper_bgcolor: '#000',
-      font: { color: '#fff' },
+      font: { color: '#fff', family: 'Georgia, serif' },
       annotations: annotations,
       showlegend: true,
       legend: {
@@ -281,7 +283,8 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         y: 0.98,
         bgcolor: 'rgba(0,0,0,0.5)',
         bordercolor: '#333',
-        borderwidth: 1
+        borderwidth: 1,
+        font: { family: 'Georgia, serif' }
       }
     };
     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout as any, {responsive: true});
