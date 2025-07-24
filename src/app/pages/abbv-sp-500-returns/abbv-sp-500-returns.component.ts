@@ -140,11 +140,15 @@ export class AbbvSP500ReturnsComponent implements OnInit{
             const abbvValue = Number(abbvReturn);
             const spxValue = Number(spxReturn);
             
+            console.log(`Row ${i}: Date=${dateValue}, ABBV=${abbvValue}, SPX=${spxValue}`);
+            
             if (!isNaN(abbvValue) && !isNaN(spxValue)) {
+              // Excel file mein values already decimal format mein hain (0.0182 = 1.82%)
+              // Percentage format mein convert karein (0.0182 -> 1.82)
               monthlyData.push({ 
                 date: plotlyDate, 
-                abbvReturn: abbvValue, 
-                spxReturn: spxValue 
+                abbvReturn: abbvValue * 100, // 0.0182 -> 1.82
+                spxReturn: spxValue * 100    // 0.0111 -> 1.11
               });
             }
           }
@@ -156,6 +160,11 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         this.dates = monthlyData.map(item => item.date);
         this.abbvReturns = monthlyData.map(item => item.abbvReturn);
         this.spxReturns = monthlyData.map(item => item.spxReturn);
+
+        console.log('Final processed data:');
+        console.log('Dates:', this.dates.slice(0, 5));
+        console.log('ABBV Returns:', this.abbvReturns);
+        console.log('SPX Returns:', this.spxReturns);
 
         if(this.dates.length > 0) {
           this.currentIndex = 1;
@@ -282,7 +291,10 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         // title: { text: 'Total return, %', font: { family: 'Georgia' } },
         showgrid: true,
         gridcolor: '#333',
-        tickfont: { family: 'Georgia' }
+        tickfont: { family: 'Georgia' },
+        tickformat: ',.1f',
+        tickmode: 'auto',
+        nticks: 5
       },
       plot_bgcolor: '#000',
       paper_bgcolor: '#000',
