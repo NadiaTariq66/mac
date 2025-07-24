@@ -14,9 +14,6 @@ import { HttpClient } from '@angular/common/http'
 import * as Plotly from 'plotly.js-dist-min';
 import * as XLSX from 'xlsx';
 
-// PlotlyModule.plotlyjs = PlotlyJS
-
-
 @Component({
   standalone: true,
   selector: 'app-stock-price-and-date',
@@ -28,7 +25,8 @@ export class StockPriceAndDateComponent implements OnInit{
   @ViewChild('plotlyChart', { static: true }) plotlyChart!: ElementRef;
 
   dates: string[] = [];
-  price: number[] = [];
+  prices: number[] = [];
+  volumes: number[] = [];
 
   interval: any;
   currentIndex = 1;
@@ -51,43 +49,172 @@ export class StockPriceAndDateComponent implements OnInit{
   }
 
   fetchExcelData() {
-    this.http.get('../../../assets/ABBV_stock_data.xlsx', { responseType: 'arraybuffer' }).subscribe({
+    this.http.get('../../../assets/abbv-price-vol.xlsx', { responseType: 'arraybuffer' }).subscribe({
       next: (data) => {
+        try {
         const workbook = XLSX.read(data, { type: 'array' });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-        // Find column indexes for 'date' and 'Adj Close'
-        const headerRow = jsonData[0] as string[];
-        const dateIdx = headerRow.findIndex(h => h.toLowerCase().includes('date'));
-        const adjCloseIdx = headerRow.findIndex(h => h.toLowerCase().includes('adj close'));
+          console.log('Excel data structure:', jsonData);
 
-        // Collect all daily data first
-        const dailyData: { date: string; price: number }[] = [];
+          // Check if we have data and a header row
+          if (!jsonData || jsonData.length === 0) {
+            console.error("Excel file is empty or has no data.");
+            return;
+          }
 
-        for (let i = 1; i < jsonData.length; i++) {
-          const row = jsonData[i] as any[];
-          const excelDate = row[dateIdx];
-          const adjClose = row[adjCloseIdx];
+          // Find column indexes for 'Date', 'ABBV_Price', and 'ABBV_Vol'
+          const headerRow = jsonData[0] as any[];
+          console.log('Header row:', headerRow);
+          
+          if (!headerRow || !Array.isArray(headerRow)) {
+            console.error("Header row is missing or invalid.");
+            return;
+          }
 
-          if (excelDate && adjClose) {
-            // Excel dates can be numbers, so we handle that case.
-            const dateObj = XLSX.SSF.parse_date_code(excelDate);
-            const plotlyDate = `${dateObj.y}-${String(dateObj.m).padStart(2, '0')}-${String(dateObj.d).padStart(2, '0')}`;
+          // More robust column finding with fallbacks
+          let dateIdx = -1;
+          let priceIdx = -1;
+          let volumeIdx = -1;
+
+          // Based on the console output, the structure is [empty, 'ABBV_Price', 'ABBV_Vol']
+          // The first column (index 0) is the date column, even though it appears empty
+          // Let's check the actual data structure and handle this case
+          console.log('Full header row:', headerRow);
+          console.log('Header row length:', headerRow.length);
+          
+          // Check if we have the expected structure: [empty, 'ABBV_Price', 'ABBV_Vol']
+          if (headerRow.length >= 3 && 
+              (headerRow[1] === 'ABBV_Price' || headerRow[1]?.toLowerCase().includes('price')) &&
+              (headerRow[2] === 'ABBV_Vol' || headerRow[2]?.toLowerCase().includes('vol'))) {
             
-            const value = Number(adjClose);
-            if (!isNaN(value)) {
-              dailyData.push({ date: plotlyDate, price: value });
+            // Use the first column as date (index 0)
+            dateIdx = 0;
+            priceIdx = 1;
+            volumeIdx = 2;
+            
+            console.log('Using fixed column mapping - Date: 0, Price: 1, Volume: 2');
+          } else {
+            // Fallback to searching for columns
+            for (let i = 0; i < headerRow.length; i++) {
+              const header = headerRow[i];
+              if (header && typeof header === 'string') {
+                const lowerHeader = header.toLowerCase();
+                if (lowerHeader.includes('date')) {
+                  dateIdx = i;
+                } else if (lowerHeader.includes('abbv_price') || lowerHeader.includes('price')) {
+                  priceIdx = i;
+                } else if (lowerHeader.includes('abbv_vol') || lowerHeader.includes('volume')) {
+                  volumeIdx = i;
+                }
+              }
             }
           }
-        }
 
-        // Convert daily data to monthly data
-        const monthlyData = this.aggregateToMonthly(dailyData);
-        
-        this.dates = monthlyData.map(item => item.date);
-        this.price = monthlyData.map(item => item.price);
+          console.log('Column indices - Date:', dateIdx, 'Price:', priceIdx, 'Volume:', volumeIdx);
+
+          // Check if all required columns were found
+          if (dateIdx === -1 || priceIdx === -1 || volumeIdx === -1) {
+            console.error("Required columns not found. Found columns:", headerRow);
+            console.error("Date index:", dateIdx, "Price index:", priceIdx, "Volume index:", volumeIdx);
+            return;
+          }
+
+          // Collect all data
+          const chartData: { date: string; price: number; volume: number }[] = [];
+
+          // Debug: Check first few data rows
+          console.log('First few data rows:');
+          for (let i = 1; i < Math.min(10, jsonData.length); i++) {
+            const row = jsonData[i] as any[];
+            console.log(`Row ${i}:`, row);
+          }
+
+          // Find where actual data starts (skip header rows)
+          let dataStartIndex = 1;
+          for (let i = 1; i < jsonData.length; i++) {
+            const row = jsonData[i] as any[];
+            if (!row || !Array.isArray(row)) continue;
+            
+            const firstCell = row[dateIdx];
+            // Check if this looks like actual data (numeric date or valid date string)
+            if (firstCell && (
+                typeof firstCell === 'number' || 
+                (typeof firstCell === 'string' && !isNaN(Number(firstCell))) ||
+                (typeof firstCell === 'string' && !firstCell.toLowerCase().includes('ticker') && !firstCell.toLowerCase().includes('date'))
+              )) {
+              dataStartIndex = i;
+              console.log(`Data starts at row ${i}:`, row);
+              break;
+            }
+          }
+
+          console.log(`Starting data processing from row ${dataStartIndex}`);
+
+          for (let i = dataStartIndex; i < jsonData.length; i++) {
+            const row = jsonData[i] as any[];
+            if (!row || !Array.isArray(row)) continue;
+            
+            const excelDate = row[dateIdx];
+            const price = row[priceIdx];
+            const volume = row[volumeIdx];
+
+            // Skip rows that don't have valid data
+            if (!excelDate || !price || !volume) {
+              console.log(`Skipping row ${i} - missing data:`, row);
+              continue;
+            }
+
+            // Validate that we have numeric data
+            if (typeof price !== 'number' || typeof volume !== 'number') {
+              console.log(`Skipping row ${i} - non-numeric data:`, row);
+              continue;
+            }
+
+            console.log(`Processing row ${i}: Date=${excelDate}, Price=${price}, Volume=${volume}`);
+
+            // Handle Excel date format
+            let plotlyDate: string;
+            try {
+              if (typeof excelDate === 'number') {
+                const dateObj = XLSX.SSF.parse_date_code(excelDate);
+                plotlyDate = `${dateObj.y}-${String(dateObj.m).padStart(2, '0')}-${String(dateObj.d).padStart(2, '0')}`;
+              } else {
+                // If it's already a string, parse it
+                const date = new Date(excelDate);
+                if (isNaN(date.getTime())) {
+                  console.log(`Skipping row ${i} - invalid date: ${excelDate}`);
+                  continue;
+                }
+                plotlyDate = date.toISOString().split('T')[0];
+              }
+              
+              const priceValue = Number(price);
+              const volumeValue = Number(volume);
+              
+              if (!isNaN(priceValue) && !isNaN(volumeValue)) {
+                chartData.push({ 
+                  date: plotlyDate, 
+                  price: priceValue, 
+                  volume: volumeValue 
+                });
+              }
+            } catch (error) {
+              console.log(`Error processing row ${i}:`, error, row);
+              continue;
+            }
+          }
+
+          console.log('Processed chart data:', chartData.length, 'records');
+
+          // Sort by date
+          chartData.sort((a, b) => a.date.localeCompare(b.date));
+          
+          this.dates = chartData.map(item => item.date);
+          this.prices = chartData.map(item => item.price);
+          this.volumes = chartData.map(item => item.volume);
 
         if(this.dates.length > 0) {
           this.currentIndex = 1;
@@ -95,43 +222,16 @@ export class StockPriceAndDateComponent implements OnInit{
           this.startAnimation();
         } else {
           console.error("No data was extracted from the Excel file. Check column names and data format.");
+          }
+        } catch (error) {
+          console.error("Error processing Excel data:", error);
         }
       },
       error: (error) => {
-        console.error("Error fetching the Excel file. Make sure the file is in 'src/assets/data.xlsx' and the path is correct.", error);
+        console.error("Error fetching the Excel file. Make sure the file is in 'src/assets/abbv-price-vol.xlsx' and the path is correct.", error);
       }
     });
   }
-
-  // New method to aggregate daily data to monthly data
-  aggregateToMonthly(dailyData: { date: string; price: number }[]): { date: string; price: number }[] {
-    const monthlyMap = new Map<string, { total: number; count: number; lastPrice: number }>();
-
-    dailyData.forEach(item => {
-      const date = new Date(item.date);
-      const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
-      
-      if (monthlyMap.has(monthKey)) {
-        const existing = monthlyMap.get(monthKey)!;
-        existing.lastPrice = item.price; // Keep the last price of the month
-      } else {
-        monthlyMap.set(monthKey, {
-          total: item.price,
-          count: 1,
-          lastPrice: item.price
-        });
-      }
-    });
-
-    // Convert to array and sort by date
-    const monthlyArray = Array.from(monthlyMap.entries()).map(([monthKey, data]) => ({
-      date: `${monthKey}-01`, // Use first day of month for display
-      price: data.lastPrice // Use last price of the month (closing price)
-    }));
-
-    return monthlyArray.sort((a, b) => a.date.localeCompare(b.date));
-  }
-  
 
  startAnimation() {
     if (this.interval) clearInterval(this.interval);
@@ -144,7 +244,6 @@ export class StockPriceAndDateComponent implements OnInit{
       }
     }, 10);
   }
-
 
  drawChart(points: number) {
     const date = new Date(this.dates[points-1]);
@@ -164,18 +263,33 @@ export class StockPriceAndDateComponent implements OnInit{
       markerSizes[points - 1] = 6; 
     }
 
-    const trace1 = {
+    // Mountain chart (Price data)
+    const trace1: any = {
       x: this.dates.slice(0, points),
-      y: this.price.slice(0, points),
+      y: this.prices.slice(0, points),
       mode: 'lines+markers',
-      name: 'Adj Close',
+      name: 'Date & Price',
       line: { color: '#FF8C00', width: 2 }, // Orange line
       fill: 'tonexty', // Creates the mountain effect
       fillcolor: 'rgba(255, 165, 0, 0.2)',
-      marker: { color: '#FF8C00', size: markerSizes } // Orange marker
+      marker: { color: '#FF8C00', size: markerSizes },// Orange marker
+      yaxis: 'y'
     };
-    // Remove trace2 and only use trace1
-    const data = [trace1];
+
+    // Bar chart (Volume data)
+    const trace2: any = {
+      x: this.dates.slice(0, points),
+      y: this.volumes.slice(0, points),
+      type: 'bar',
+      name: 'Date & Vol',
+      marker: { 
+        color: '#4A4A4A', // Dark grey bars like in the image
+        opacity: 0.8
+      },
+      yaxis: 'y2'
+    };
+
+    const data: any[] = [trace1, trace2];
 
     const annotations: any[] = [{
         x: 1,
@@ -186,17 +300,16 @@ export class StockPriceAndDateComponent implements OnInit{
         showarrow: false,
         xanchor: 'right',
         yanchor: 'top',
-        font: { size: 20 }
+        font: { size: 20, color: '#FFFFFF' }
       }];
-    
     
     if (points > 12) {
       const lastDate = this.dates[points - 1];
-      const lastPriceValue = this.price[points - 1];
+      const lastPriceValue = this.prices[points - 1];
       annotations.push({
         x: lastDate,
         y: lastPriceValue,
-        text: `Price<br>${lastPriceValue.toFixed(2)}`, // Round to 2 decimal places
+        text: `Price<br>${lastPriceValue.toFixed(2)}`,
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
@@ -205,24 +318,54 @@ export class StockPriceAndDateComponent implements OnInit{
       });
     }
 
-    const layout = {
-      title: { text: 'Date & Price', font: { size: 24, family: 'Georgia' } },
+    const layout: any = {
+      title: { 
+        text: 'ABBV Stock Performance', 
+        font: { size: 24, family: 'Georgia', color: '#FFFFFF' } 
+      },
       showlegend: false,
+      grid: {
+        rows: 2,
+        columns: 1,
+        pattern: 'independent',
+        rowheight: [0.7, 0.3]
+      },
       xaxis: { 
-        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]], // Dynamic range with padding
-        showgrid: false,
-        tickformat: '%Y' // Display only years
+        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
+        showgrid: true,
+        gridcolor: '#333333',
+        tickformat: '%Y',
+        domain: [0, 1],
+        row: 1
+      },
+      xaxis2: {
+        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
+        showgrid: true,
+        gridcolor: '#333333',
+        tickformat: '%Y',
+        domain: [0, 1],
+        row: 2
       },
       yaxis: { 
-        title: { text: 'Adjusted Close Price', font: { size: 12, family: 'Georgia' } },
-        
-       },
-      plot_bgcolor: '#111',
-      paper_bgcolor: '#111',
-      font: { color: '#fff', family: 'Georgia' },
-      annotations: annotations
+        title: { text: 'Share Price ($)', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
+        showgrid: true,
+        gridcolor: '#333333',
+        domain: [0.3, 1]
+      },
+      yaxis2: {
+        title: { text: 'Volume (M)', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
+        showgrid: true,
+        gridcolor: '#333333',
+        domain: [0, 0.25]
+      },
+      plot_bgcolor: '#111111',
+      paper_bgcolor: '#111111',
+      font: { color: '#FFFFFF', family: 'Georgia' },
+      annotations: annotations,
+      margin: { l: 60, r: 60, t: 80, b: 60 }
     };
-    Plotly.newPlot(this.plotlyChart.nativeElement, data, layout as any, {responsive: true});
+
+    Plotly.newPlot(this.plotlyChart.nativeElement, data, layout, {responsive: true});
   }
 }
 
