@@ -200,13 +200,13 @@ export class StockPriceAndDateComponent implements OnInit{
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
-        font: { color: 'orange', size: 12 },
+        font: { color: 'orange', size: 12, family: 'Georgia' },
         xshift: 10
       });
     }
 
     const layout = {
-      title: { text: 'Stock Price' },
+      title: { text: 'Date & Price', font: { size: 24, family: 'Georgia' } },
       showlegend: false,
       xaxis: { 
         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]], // Dynamic range with padding
@@ -214,12 +214,12 @@ export class StockPriceAndDateComponent implements OnInit{
         tickformat: '%Y' // Display only years
       },
       yaxis: { 
-        title: { text: 'Adjusted Close Price' }
+        title: { text: 'Adjusted Close Price', font: { size: 12, family: 'Georgia' } },
         
        },
       plot_bgcolor: '#111',
       paper_bgcolor: '#111',
-      font: { color: '#fff' },
+      font: { color: '#fff', family: 'Georgia' },
       annotations: annotations
     };
     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout as any, {responsive: true});
