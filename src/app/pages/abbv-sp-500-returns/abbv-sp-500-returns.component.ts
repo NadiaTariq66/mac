@@ -237,7 +237,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
       annotations.push({
         x: lastDate,
         y: lastAbbvValue,
-        text: `${lastAbbvValue.toFixed(1)}%`,
+        text: `ABBV<br>${lastAbbvValue.toFixed(2)}%`,
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
@@ -248,7 +248,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
       annotations.push({
         x: lastDate,
         y: lastSpxValue,
-        text: `${lastSpxValue.toFixed(1)}%`,
+        text:` S&P 500 (TR)<br>${lastSpxValue.toFixed(1)}%`,
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
@@ -279,8 +279,10 @@ export class AbbvSP500ReturnsComponent implements OnInit{
       annotations: annotations,
       showlegend: true,
       legend: {
-        x: 0.02,
-        y: 0.98,
+        x: 0.98,
+        y: 1.27,
+        xanchor: 'right',
+        yanchor: 'top',
         bgcolor: 'rgba(0,0,0,0.5)',
         bordercolor: '#333',
         borderwidth: 1,
