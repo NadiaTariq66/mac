@@ -272,12 +272,11 @@ export class StockPriceAndDateComponent implements OnInit{
       mode: 'lines',
       line: { color: 'rgba(0, 102, 204, 0)', width: 0 },
       fill: 'tonexty',
-       fillcolor: 'rgba(0, 102, 204, 0.1)',  
+       fillcolor: 'rgba(0, 102, 204, 0.03)',  // light blue at bottom
       hoverinfo: 'skip',
       showlegend: false
     };
 
-    // Layer 2 - Light blue gradient to full price
     const traceGradient2: any = {
       x: this.dates.slice(0, points),
       y: this.prices.slice(0, points),
@@ -374,10 +373,10 @@ export class StockPriceAndDateComponent implements OnInit{
 
     const layout: any = {
       title: { 
-        // text: 'ABBV Stock Performance', 
+        text: 'Abbvie Stock Price and Volume', 
         font: { size: 24, family: 'Georgia', color: '#FFFFFF' } 
       },
-      showlegend: true,
+      showlegend: false,
       grid: {
         rows: 2,
         columns: 1,
