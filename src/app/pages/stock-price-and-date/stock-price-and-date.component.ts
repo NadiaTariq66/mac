@@ -330,7 +330,7 @@ export class StockPriceAndDateComponent implements OnInit{
     
     // Add title for mountain chart (Date & Price)
     annotations.push({
-      x: -0.085,
+      x: -0.081,
       y: 1.1,
       xref: 'paper',
       yref: 'paper',
@@ -338,13 +338,13 @@ export class StockPriceAndDateComponent implements OnInit{
       showarrow: false,
       xanchor: 'left',
       yanchor: 'middle',
-      font: { size: 10, color: '#FFFFFF', family: 'Georgia' },
-      xshift: 10
+      font: { size: 12, color: '#FFFFFF', family: 'Georgia' },
+      xshift: 5
     });
 
     // Add title for bar chart (Date & Vol)
     annotations.push({
-      x: -0.085,
+      x: -0.081,
       y: 0.26,
       xref: 'paper',
       yref: 'paper',
@@ -352,8 +352,8 @@ export class StockPriceAndDateComponent implements OnInit{
       showarrow: false,
       xanchor: 'left',
       yanchor: 'middle',
-      font: { size: 10, color: '#FFFFFF', family: 'Georgia' },
-      xshift: 10
+      font: { size: 12, color: '#FFFFFF', family: 'Georgia' },
+      xshift: 5
     });
     
     if (points > 12) {
@@ -371,56 +371,75 @@ export class StockPriceAndDateComponent implements OnInit{
       });
     }
 
-    const layout: any = {
-      title: { 
-        text: 'Abbvie Stock Price and Volume', 
-        font: { size: 24, family: 'Georgia', color: '#FFFFFF' } 
-      },
-      showlegend: false,
-      grid: {
-        rows: 2,
-        columns: 1,
-        pattern: 'independent',
-        rowheight: [0.7, 0.3]
-      },
-      xaxis: { 
-        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
-        showgrid: true,
-        gridcolor: '#333333',
-        tickformat: '%Y',
-        domain: [0, 1],
-        row: 1
-      },
-      xaxis2: {
-        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
-        showgrid: true,
-        gridcolor: '#333333',
-        tickformat: '%Y',
-        domain: [0, 1],
-        row: 2
-      },
-      yaxis: { 
-        // title: { text: 'Date & Price', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
-        showgrid: true,
-        gridcolor: '#333333',
-        domain: [0.3, 1],
-        side: 'right'
-      },
-      yaxis2: {
-        // title: { text: 'Date & Vol', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
-        showgrid: true,
-        gridcolor: '#333333',
-        domain: [0, 0.25],
-        side: 'right',
-        tickformat: 'd'
-      },
-             plot_bgcolor: '#111111',
+         const layout: any = {
+       title: { 
+         text: 'Abbvie Stock Price and Volume', 
+         font: { size: 24, family: 'Georgia', color: '#FFFFFF' } 
+       },
+       showlegend: false,
+       grid: {
+         rows: 2,
+         columns: 1,
+         pattern: 'independent',
+         rowheight: [0.7, 0.3]
+       },
+       xaxis: { 
+         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
+         showgrid: true,
+         gridcolor: '#333333',
+         tickformat: '%Y',
+         domain: [0, 1],
+         row: 1,
+         tickfont: { size: 12 }
+       },
+       xaxis2: {
+         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
+         showgrid: true,
+         gridcolor: '#333333',
+         tickformat: '%Y',
+         domain: [0, 1],
+         row: 2,
+         tickfont: { size: 12 }
+       },
+       yaxis: { 
+         showgrid: true,
+         gridcolor: '#333333',
+         domain: [0.3, 1],
+         side: 'right',
+         tickfont: { size: 12 }
+       },
+       yaxis2: {
+         showgrid: true,
+         gridcolor: '#333333',
+         domain: [0, 0.25],
+         side: 'right',
+         tickformat: 'd',
+         tickfont: { size: 12 }
+       },
+       plot_bgcolor: '#111111',
        paper_bgcolor: '#111111',
        font: { color: '#FFFFFF', family: 'Georgia' },
        annotations: annotations,
-       margin: { l: 60, r: 120, t: 80, b: 60 }
-    };
+       margin: { l: 80, r: 140, t: 100, b: 80 },
+       autosize: true,
+       height: undefined,
+       width: undefined
+     };
 
-    Plotly.newPlot(this.plotlyChart.nativeElement, data, layout, {responsive: true});
+         const config: any = {
+       responsive: true,
+       displayModeBar: true,
+       modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d'],
+       displaylogo: false,
+       toImageButtonOptions: {
+         format: 'png' as const,
+         filename: 'abbvie-stock-chart',
+         height: 600,
+         width: 800,
+         scale: 2
+       }
+     };
+
+     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout, config);
   }
 }
