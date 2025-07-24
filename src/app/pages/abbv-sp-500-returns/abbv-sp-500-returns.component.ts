@@ -59,39 +59,50 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         const worksheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-        // Find column indexes for date, ABBV returns, and SPX returns
-        const headerRow = jsonData[0] as any[];
+        // Find the actual header row (skip empty rows)
+        let headerRowIndex = 0;
+        for (let i = 0; i < jsonData.length; i++) {
+          const row = jsonData[i] as any[];
+          if (row && row.length > 0 && row.some(cell => cell && typeof cell === 'string' && 
+              (cell.toLowerCase().includes('abbv_ret_month') || cell.toLowerCase().includes('spx_ret_month')))) {
+            headerRowIndex = i;
+            break;
+          }
+        }
+        
+        const headerRow = jsonData[headerRowIndex] as any[];
+        console.log('Actual header row index:', headerRowIndex);
         console.log('Raw header row:', headerRow);
         console.log('All data rows:', jsonData.slice(0, 5)); // Show first 5 rows for debugging
         
-        // Safe header processing with null checks
-        const dateIdx = headerRow.findIndex(h => h && typeof h === 'string' && h.toLowerCase().includes('date'));
-        const abbvIdx = headerRow.findIndex(h => h && typeof h === 'string' && h.toLowerCase().includes('abbv'));
-        const spxIdx = headerRow.findIndex(h => h && typeof h === 'string' && h.toLowerCase().includes('spx'));
+        // Safe header processing with null checks - look for exact column names
+        const dateIdx = 0; // First column is always date in this format
+        const abbvIdx = headerRow.findIndex(h => h && typeof h === 'string' && h.toLowerCase().includes('abbv_ret_month'));
+        const spxIdx = headerRow.findIndex(h => h && typeof h === 'string' && h.toLowerCase().includes('spx_ret_month'));
         
-        // If date column not found, try alternative names
+        console.log('Column indexes found:', { dateIdx, abbvIdx, spxIdx });
+        
+        // If columns not found, try alternative names
         let actualDateIdx = dateIdx;
-        if (dateIdx === -1) {
-          // Try to find date column with different names
-          actualDateIdx = headerRow.findIndex(h => h && typeof h === 'string' && 
-            (h.toLowerCase().includes('date') || h.toLowerCase().includes('time') || h.toLowerCase().includes('period')));
-          
-          // If still not found, assume first column is date
-          if (actualDateIdx === -1 && headerRow.length > 0) {
-            actualDateIdx = 0;
-            console.log('Assuming first column is date column');
-          }
+        let actualAbbvIdx = abbvIdx;
+        let actualSpxIdx = spxIdx;
+        
+        if (abbvIdx === -1) {
+          actualAbbvIdx = headerRow.findIndex(h => h && typeof h === 'string' && h.toLowerCase().includes('abbv'));
+        }
+        if (spxIdx === -1) {
+          actualSpxIdx = headerRow.findIndex(h => h && typeof h === 'string' && h.toLowerCase().includes('spx'));
         }
 
-        console.log('Column indexes:', { dateIdx: actualDateIdx, abbvIdx, spxIdx });
+        console.log('Column indexes:', { dateIdx: actualDateIdx, abbvIdx: actualAbbvIdx, spxIdx: actualSpxIdx });
         console.log('Headers:', headerRow);
 
         // Check if all required columns were found
-        if (actualDateIdx === -1 || abbvIdx === -1 || spxIdx === -1) {
+        if (actualDateIdx === -1 || actualAbbvIdx === -1 || actualSpxIdx === -1) {
           console.error('Required columns not found in Excel file:');
           console.error('Date column found:', actualDateIdx !== -1);
-          console.error('ABBV column found:', abbvIdx !== -1);
-          console.error('SPX column found:', spxIdx !== -1);
+          console.error('ABBV column found:', actualAbbvIdx !== -1);
+          console.error('SPX column found:', actualSpxIdx !== -1);
           console.error('Available headers:', headerRow);
           return;
         }
@@ -99,18 +110,18 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         // Collect monthly returns data
         const monthlyData: { date: string; abbvReturn: number; spxReturn: number }[] = [];
 
-        for (let i = 1; i < jsonData.length; i++) {
+        for (let i = headerRowIndex + 1; i < jsonData.length; i++) {
           const row = jsonData[i] as any[];
           
           // Check if row exists and has required data
-          if (!row || row.length < Math.max(actualDateIdx, abbvIdx, spxIdx) + 1) {
+          if (!row || row.length < Math.max(actualDateIdx, actualAbbvIdx, actualSpxIdx) + 1) {
             console.warn(`Skipping row ${i}: insufficient data`);
             continue;
           }
           
           const dateValue = row[actualDateIdx];
-          const abbvReturn = row[abbvIdx];
-          const spxReturn = row[spxIdx];
+          const abbvReturn = row[actualAbbvIdx];
+          const spxReturn = row[actualSpxIdx];
 
           if (dateValue !== null && dateValue !== undefined && 
               abbvReturn !== null && abbvReturn !== undefined && 
@@ -280,7 +291,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
       showlegend: true,
       legend: {
         x: 0.98,
-        y: 1.27,
+        y: 1.2,
         xanchor: 'right',
         yanchor: 'top',
         bgcolor: 'rgba(0,0,0,0.5)',
