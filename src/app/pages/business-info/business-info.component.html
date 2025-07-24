@@ -427,7 +427,26 @@
             
             <!-- Carousel -->
             <div class="carousel-wrapper">
-              <ngb-carousel #carousel="ngbCarousel" [interval]="0" class="business-carousel">
+              <!-- Custom Navigation Buttons -->
+              <button 
+                class="custom-nav-btn prev-btn" 
+                (click)="prevSlide()"
+                [disabled]="currentSlideIndex === 0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              
+              <button 
+                class="custom-nav-btn next-btn" 
+                (click)="nextSlide()"
+                [disabled]="currentSlideIndex === carouselSlides.length - 1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              
+              <ngb-carousel #carousel="ngbCarousel" [interval]="0" [showNavigationArrows]="false" [showNavigationIndicators]="false" class="business-carousel">
             <ng-template ngbSlide *ngFor="let slide of carouselSlides; let i = index" [id]="slide.id">
               <div class="carousel-content" [ngClass]="{ 'two-column-layout': slide.needsTwoColumns }">
                 <div class="carousel-body">

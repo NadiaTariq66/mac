@@ -1057,6 +1057,17 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
     align-items: center;
     justify-content: center;
   }
+  
+//   // Hide default navigation arrows
+//   .carousel-control-prev,
+//   .carousel-control-next {
+//     display: none !important;
+//   }
+  
+//   // Hide default indicators
+//   .carousel-indicators {
+//     display: none !important;
+//   }
 }
 
 .carousel-content {
@@ -1213,6 +1224,53 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 
 .carousel-wrapper {
   flex: 1;
+  position: relative;
+  
+  // Custom Navigation Buttons
+  .custom-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(87, 181, 231, 0.1);
+    border: 2px solid #57B5E7;
+    color: #57B5E7;
+    border-radius: 50%;
+    margin-right: 89px;
+    width: 50px;
+    height: 50px;
+    margin-left:34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    
+    &:hover:not(:disabled) {
+      background: #57B5E7;
+      color: #000000;
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: translateY(-50%) scale(1);
+    }
+    
+    &.prev-btn {
+      left: -60px;
+    }
+    
+    &.next-btn {
+      right: -60px;
+    }
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 // View Toggle Button
