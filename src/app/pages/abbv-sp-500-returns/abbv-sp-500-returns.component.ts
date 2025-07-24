@@ -218,14 +218,14 @@ export class AbbvSP500ReturnsComponent implements OnInit{
 
     const annotations: any[] = [{
         x: 1,
-        y: 1.15,
+        y: -0.10,
         xref: 'paper',
         yref: 'paper',
         text: currentDateText,
         showarrow: false,
         xanchor: 'right',
         yanchor: 'top',
-        font: { size: 20, family: 'Georgia, serif' }
+        font: { size: 20, family: 'Georgia' }
       }];
     
     // Add value annotations for both lines
@@ -241,7 +241,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
-        font: { color: '#FF8C00', size: 12, family: 'Georgia, serif' },
+        font: { color: '#FF8C00', size: 12, family: 'Georgia' },
         xshift: 10
       });
       
@@ -252,30 +252,30 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         showarrow: false,
         xanchor: 'left',
         yanchor: 'middle',
-        font: { color: '#1E90FF', size: 12, family: 'Georgia, serif' },
+        font: { color: '#1E90FF', size: 12, family: 'Georgia' },
         xshift: 10
       });
     }
 
     const layout = {
-      title: { text: '	Abbvie Stock Returns vs. S&P 500 Returns', font: { size: 24, family: 'Georgia, serif' } },
+      title: { text: '	Abbvie Stock Returns vs. S&P 500 Returns', font: { size: 24, family: 'Georgia' } },
       xaxis: { 
-        title: { text: 'Total return, %', font: { family: 'Georgia, serif' } },
+        // title: { text: 'Total return, %', font: { family: 'Georgia' } },
         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
         showgrid: true,
         gridcolor: '#333',
         tickformat: '%Y',
-        tickfont: { family: 'Georgia, serif' }
+        tickfont: { family: 'Georgia' }
       },
       yaxis: { 
-        title: { text: 'Total return, %', font: { family: 'Georgia, serif' } },
+        // title: { text: 'Total return, %', font: { family: 'Georgia' } },
         showgrid: true,
         gridcolor: '#333',
-        tickfont: { family: 'Georgia, serif' }
+        tickfont: { family: 'Georgia' }
       },
       plot_bgcolor: '#000',
       paper_bgcolor: '#000',
-      font: { color: '#fff', family: 'Georgia, serif' },
+      font: { color: '#fff', family: 'Georgia' },
       annotations: annotations,
       showlegend: true,
       legend: {
@@ -284,7 +284,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         bgcolor: 'rgba(0,0,0,0.5)',
         bordercolor: '#333',
         borderwidth: 1,
-        font: { family: 'Georgia, serif' }
+        font: { family: 'Georgia' }
       }
     };
     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout as any, {responsive: true});
