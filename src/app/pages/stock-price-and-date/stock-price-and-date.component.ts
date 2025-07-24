@@ -269,7 +269,7 @@ export class StockPriceAndDateComponent implements OnInit{
       y: this.prices.slice(0, points),
       mode: 'lines+markers',
       name: 'Date & Price',
-      line: { color: '#FF8C00', width: 2 }, // Orange line
+       line: { color: '#FF8C00', width: 2 }, // Orange line
       fill: 'tonexty', // Creates the mountain effect
       fillcolor: 'rgba(255, 165, 0, 0.2)',
       marker: { color: '#FF8C00', size: markerSizes },// Orange marker
@@ -283,7 +283,7 @@ export class StockPriceAndDateComponent implements OnInit{
       type: 'bar',
       name: 'Date & Vol',
       marker: { 
-        color: '#4A4A4A', // Dark grey bars like in the image
+       color: '#4A4A4A', // Dark grey bars like in the image
         opacity: 0.8
       },
       yaxis: 'y2'
@@ -323,7 +323,7 @@ export class StockPriceAndDateComponent implements OnInit{
         // text: 'ABBV Stock Performance', 
         font: { size: 24, family: 'Georgia', color: '#FFFFFF' } 
       },
-      showlegend: false,
+      showlegend: true,
       grid: {
         rows: 2,
         columns: 1,
@@ -347,13 +347,13 @@ export class StockPriceAndDateComponent implements OnInit{
         row: 2
       },
       yaxis: { 
-        title: { text: 'Date & Price', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
+        // title: { text: 'Date & Price', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
         showgrid: true,
         gridcolor: '#333333',
         domain: [0.3, 1]
       },
       yaxis2: {
-        title: { text: 'Date & Vol', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
+        // title: { text: 'Date & Vol', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
         showgrid: true,
         gridcolor: '#333333',
         domain: [0, 0.25]
