@@ -320,7 +320,7 @@ export class StockPriceAndDateComponent implements OnInit{
 
     const layout: any = {
       title: { 
-        text: 'ABBV Stock Performance', 
+        // text: 'ABBV Stock Performance', 
         font: { size: 24, family: 'Georgia', color: '#FFFFFF' } 
       },
       showlegend: false,
@@ -347,13 +347,13 @@ export class StockPriceAndDateComponent implements OnInit{
         row: 2
       },
       yaxis: { 
-        title: { text: 'Share Price ($)', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
+        title: { text: 'Date & Price', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
         showgrid: true,
         gridcolor: '#333333',
         domain: [0.3, 1]
       },
       yaxis2: {
-        title: { text: 'Volume (M)', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
+        title: { text: 'Date & Vol', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
         showgrid: true,
         gridcolor: '#333333',
         domain: [0, 0.25]
