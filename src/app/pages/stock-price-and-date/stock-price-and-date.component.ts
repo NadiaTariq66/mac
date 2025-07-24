@@ -265,38 +265,59 @@ export class StockPriceAndDateComponent implements OnInit{
     if (points > 0) {
       markerSizes[points - 1] = 6; 
     }
+    // Create a simplified 2-layer gradient effect
+    const traceGradient1: any = {
+      x: this.dates.slice(0, points),
+      y: this.prices.slice(0, points).map(p => p * 0.5), // Start from 50% of price
+      mode: 'lines',
+      line: { color: 'rgba(0, 102, 204, 0)', width: 0 },
+      fill: 'tonexty',
+       fillcolor: 'rgba(0, 102, 204, 0.1)',  
+      hoverinfo: 'skip',
+      showlegend: false
+    };
 
-    // Mountain chart (Price data)
+    // Layer 2 - Light blue gradient to full price
+    const traceGradient2: any = {
+      x: this.dates.slice(0, points),
+      y: this.prices.slice(0, points),
+      mode: 'lines',
+      line: { color: 'rgba(0, 102, 204, 0)', width: 0 },
+      fill: 'tonexty',
+     
+       fillcolor: 'rgba(0, 102, 204, 0.25)', // Medium blue at top
+      hoverinfo: 'skip',
+      showlegend: false
+    };
+
+    // Final Price Line with markers
     const trace2: any = {
       x: this.dates.slice(0, points),
       y: this.prices.slice(0, points),
       mode: 'lines+markers',
       name: 'Date & Price',
-       line: { color: '#FF8C00', width: 2 }, // Orange line
-      fill: 'tonexty', // Creates the mountain effect
-      fillcolor: 'rgba(255, 165, 0, 0.2)',
-      marker: { color: '#FF8C00', size: markerSizes },// Orange marker
+      line: { color: '#0066CC', width: 2 },
+      marker: { color: '#0066CC', size: markerSizes },
       yaxis: 'y'
     };
 
-    // Bar chart (Volume data)
+    // Bar chart for Volume
     const trace1: any = {
       x: this.dates.slice(0, points),
       y: this.volumes.slice(0, points),
       type: 'bar',
       name: 'Date & Vol',
-      marker: { 
-       color: '#4A4A4A', // Dark grey bars like in the image
+      marker: {
+        color: '#4A4A4A',
         opacity: 0.8
       },
       yaxis: 'y2',
-      hovertemplate: '<b>Date:</b> %{x}<br><b>Volume:</b> %{customdata}<extra></extra>',
       customdata: this.originalVolumes.slice(0, points)
     };
 
-    const data: any[] = [trace1, trace2];
+    const data: any[] = [trace1, traceGradient1, traceGradient2, trace2];
 
-    const annotations: any[] = [{
+ const annotations: any[] = [{
         x: 1,
         y: 1.15,
         xref: 'paper',
@@ -376,4 +397,3 @@ export class StockPriceAndDateComponent implements OnInit{
     Plotly.newPlot(this.plotlyChart.nativeElement, data, layout, {responsive: true});
   }
 }
-
