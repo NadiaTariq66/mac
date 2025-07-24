@@ -27,6 +27,7 @@ export class StockPriceAndDateComponent implements OnInit{
   dates: string[] = [];
   prices: number[] = [];
   volumes: number[] = [];
+  originalVolumes: number[] = []; // Store original volume values for tooltips
 
   interval: any;
   currentIndex = 1;
@@ -123,7 +124,7 @@ export class StockPriceAndDateComponent implements OnInit{
           }
 
           // Collect all data
-          const chartData: { date: string; price: number; volume: number }[] = [];
+          const chartData: { date: string; price: number; volume: number; originalVolume: number }[] = [];
 
           // Debug: Check first few data rows
           console.log('First few data rows:');
@@ -191,16 +192,17 @@ export class StockPriceAndDateComponent implements OnInit{
                 plotlyDate = date.toISOString().split('T')[0];
               }
               
-              const priceValue = Number(price);
-              const volumeValue = Number(volume);
-              
-              if (!isNaN(priceValue) && !isNaN(volumeValue)) {
-                chartData.push({ 
-                  date: plotlyDate, 
-                  price: priceValue, 
-                  volume: volumeValue 
-                });
-              }
+                             const priceValue = Number(price);
+               const volumeValue = Number(volume);
+               
+                               if (!isNaN(priceValue) && !isNaN(volumeValue)) {
+                  chartData.push({ 
+                    date: plotlyDate, 
+                    price: priceValue, 
+                    volume: volumeValue / 1000000, // Convert to millions for display
+                    originalVolume: volumeValue // Keep original value for tooltips
+                  });
+                }
             } catch (error) {
               console.log(`Error processing row ${i}:`, error, row);
               continue;
@@ -215,6 +217,7 @@ export class StockPriceAndDateComponent implements OnInit{
           this.dates = chartData.map(item => item.date);
           this.prices = chartData.map(item => item.price);
           this.volumes = chartData.map(item => item.volume);
+          this.originalVolumes = chartData.map(item => item.originalVolume);
 
         if(this.dates.length > 0) {
           this.currentIndex = 1;
@@ -286,7 +289,9 @@ export class StockPriceAndDateComponent implements OnInit{
        color: '#4A4A4A', // Dark grey bars like in the image
         opacity: 0.8
       },
-      yaxis: 'y2'
+      yaxis: 'y2',
+      hovertemplate: '<b>Date:</b> %{x}<br><b>Volume:</b> %{customdata}<extra></extra>',
+      customdata: this.originalVolumes.slice(0, points)
     };
 
     const data: any[] = [trace1, trace2];
@@ -358,7 +363,8 @@ export class StockPriceAndDateComponent implements OnInit{
         showgrid: true,
         gridcolor: '#333333',
         domain: [0, 0.25],
-        side: 'right'
+        side: 'right',
+        tickformat: 'd'
       },
       plot_bgcolor: '#111111',
       paper_bgcolor: '#111111',
