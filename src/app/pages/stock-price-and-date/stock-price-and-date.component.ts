@@ -350,13 +350,15 @@ export class StockPriceAndDateComponent implements OnInit{
         // title: { text: 'Date & Price', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
         showgrid: true,
         gridcolor: '#333333',
-        domain: [0.3, 1]
+        domain: [0.3, 1],
+        side: 'right'
       },
       yaxis2: {
         // title: { text: 'Date & Vol', font: { size: 12, family: 'Georgia', color: '#FFFFFF' } },
         showgrid: true,
         gridcolor: '#333333',
-        domain: [0, 0.25]
+        domain: [0, 0.25],
+        side: 'right'
       },
       plot_bgcolor: '#111111',
       paper_bgcolor: '#111111',
