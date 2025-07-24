@@ -264,7 +264,7 @@ export class StockPriceAndDateComponent implements OnInit{
     }
 
     // Mountain chart (Price data)
-    const trace1: any = {
+    const trace2: any = {
       x: this.dates.slice(0, points),
       y: this.prices.slice(0, points),
       mode: 'lines+markers',
@@ -277,7 +277,7 @@ export class StockPriceAndDateComponent implements OnInit{
     };
 
     // Bar chart (Volume data)
-    const trace2: any = {
+    const trace1: any = {
       x: this.dates.slice(0, points),
       y: this.volumes.slice(0, points),
       type: 'bar',
