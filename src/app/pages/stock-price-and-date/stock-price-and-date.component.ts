@@ -196,12 +196,12 @@ export class StockPriceAndDateComponent implements OnInit{
                const volumeValue = Number(volume);
                
                                if (!isNaN(priceValue) && !isNaN(volumeValue)) {
-                  chartData.push({ 
-                    date: plotlyDate, 
-                    price: priceValue, 
-                    volume: volumeValue / 1000000, // Convert to millions for display
-                    originalVolume: volumeValue // Keep original value for tooltips
-                  });
+                                     chartData.push({ 
+                     date: plotlyDate, 
+                     price: priceValue, 
+                     volume: volumeValue, // Use original volume value
+                     originalVolume: volumeValue // Keep original value for tooltips
+                   });
                 }
             } catch (error) {
               console.log(`Error processing row ${i}:`, error, row);
