@@ -413,7 +413,7 @@ export class StockPriceAndDateComponent implements OnInit{
          gridcolor: '#333333',
          domain: [0, 0.25],
          side: 'right',
-         tickformat: 'd',
+         tickformat: '~s',
          tickfont: { size: 12 }
        },
        plot_bgcolor: '#111111',
