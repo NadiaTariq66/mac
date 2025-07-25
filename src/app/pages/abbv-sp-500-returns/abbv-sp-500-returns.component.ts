@@ -290,11 +290,12 @@ export class AbbvSP500ReturnsComponent implements OnInit{
         // title: { text: 'Total return, %', font: { family: 'Georgia' } },
         showgrid: true,
         gridcolor: '#333',
+        range: [-30, 30],
         tickfont: { family: 'Georgia' },
          ticksuffix: '%', 
           tickformat: '.2f',
         tickmode: 'auto',
-        nticks: 5
+        nticks: 10
       },
       plot_bgcolor: '#000',
       paper_bgcolor: '#000',
