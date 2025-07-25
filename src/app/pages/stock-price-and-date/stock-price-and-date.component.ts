@@ -295,44 +295,17 @@ export class StockPriceAndDateComponent implements OnInit{
 
  const annotations: any[] = [{
         x: 1,
-        y: 1.15,
+        y: -0.10,
         xref: 'paper',
         yref: 'paper',
         text: currentDateText,
         showarrow: false,
         xanchor: 'right',
-        yanchor: 'top',
+        yanchor: 'bottom',
         font: { size: 20, color: '#FFFFFF' }
       }];
     
-    // Add title for mountain chart (Date & Price)
-    annotations.push({
-      x: -0.081,
-      y: 1.1,
-      xref: 'paper',
-      yref: 'paper',
-      text: 'Date & Price',
-      showarrow: false,
-      xanchor: 'left',
-      yanchor: 'middle',
-      font: { size: 12, color: '#FFFFFF', family: 'Georgia' },
-      xshift: 5
-    });
 
-    // Add title for bar chart (Date & Vol)
-    annotations.push({
-      x: -0.081,
-      y: 0.26,
-      xref: 'paper',
-      yref: 'paper',
-      text: 'Date & Vol',
-      showarrow: false,
-      xanchor: 'left',
-      yanchor: 'middle',
-      font: { size: 12, color: '#FFFFFF', family: 'Georgia' },
-      xshift: 5
-    });
-    
     if (points > 12) {
       const lastDate = this.dates[points - 1];
       const lastPriceValue = this.prices[points - 1];
