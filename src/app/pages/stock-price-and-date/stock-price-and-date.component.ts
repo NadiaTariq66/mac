@@ -316,17 +316,17 @@ export class StockPriceAndDateComponent implements OnInit{
 
     const data: any[] = [trace1, traceGradient1, traceGradient2, trace2];
 
- const annotations: any[] = [{
-        x: 1,
-        y: 1.15,
-        xref: 'paper',
-        yref: 'paper',
-        text: currentDateText,
-        showarrow: false,
-        xanchor: 'right',
-        yanchor: 'top',
-        font: { size: 20, color: '#FFFFFF' }
-      }];
+   const annotations: any[] = [{
+         x: 1,
+        y: -0.13,
+         xref: 'paper',
+         yref: 'paper',
+         text: currentDateText,
+         showarrow: false,
+         xanchor: 'right',
+         yanchor: 'bottom',
+         font: { size: 20, color: '#FFFFFF' }
+       }];
     
     // Add title for mountain chart (Date & Price)
     annotations.push({
