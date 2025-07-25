@@ -271,7 +271,7 @@ export class StockPriceAndDateComponent implements OnInit{
   mode: 'lines',
   line: { color: '#00AEEF', width: 2 },  // Your main line color
   fill: 'tozeroy',
-  fillcolor: 'rgba(0, 175, 239, 0.2)',   // Light gradient effect
+  fillcolor: 'rgba(0, 175, 239, 0.14)',   // Light gradient effect
   name: 'Date & Price',
   yaxis: 'y'
 };
