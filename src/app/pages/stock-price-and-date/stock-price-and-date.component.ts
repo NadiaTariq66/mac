@@ -265,40 +265,17 @@ export class StockPriceAndDateComponent implements OnInit{
     if (points > 0) {
       markerSizes[points - 1] = 6; 
     }
-    // Create a simplified 2-layer gradient effect
-    const traceGradient1: any = {
-      x: this.dates.slice(0, points),
-      y: this.prices.slice(0, points).map(p => p * 0.5), // Start from 50% of price
-      mode: 'lines',
-      line: { color: 'rgba(0, 102, 204, 0)', width: 0 },
-      fill: 'tonexty',
-       fillcolor: 'rgba(0, 102, 204, 0.03)',  // light blue at bottom
-      hoverinfo: 'skip',
-      showlegend: false
-    };
+   const traceGradient: any = {
+  x: this.dates.slice(0, points),
+  y: this.prices.slice(0, points),
+  mode: 'lines',
+  line: { color: '#00AEEF', width: 2 },  // Your main line color
+  fill: 'tozeroy',
+  fillcolor: 'rgba(0, 175, 239, 0.2)',   // Light gradient effect
+  name: 'Date & Price',
+  yaxis: 'y'
+};
 
-    const traceGradient2: any = {
-      x: this.dates.slice(0, points),
-      y: this.prices.slice(0, points),
-      mode: 'lines',
-      line: { color: 'rgba(0, 102, 204, 0)', width: 0 },
-      fill: 'tonexty',
-     
-       fillcolor: 'rgba(0, 102, 204, 0.25)', // Medium blue at top
-      hoverinfo: 'skip',
-      showlegend: false
-    };
-
-    // Final Price Line with markers
-    const trace2: any = {
-      x: this.dates.slice(0, points),
-      y: this.prices.slice(0, points),
-      mode: 'lines+markers',
-      name: 'Date & Price',
-      line: { color: '#0066CC', width: 2 },
-      marker: { color: '#0066CC', size: markerSizes },
-      yaxis: 'y'
-    };
 
     // Bar chart for Volume
     const trace1: any = {
@@ -314,21 +291,48 @@ export class StockPriceAndDateComponent implements OnInit{
       customdata: this.originalVolumes.slice(0, points)
     };
 
-    const data: any[] = [trace1, traceGradient1, traceGradient2, trace2];
+    const data: any[] = [trace1, traceGradient];
 
-   const annotations: any[] = [{
-         x: 1,
-        y: -0.13,
-         xref: 'paper',
-         yref: 'paper',
-         text: currentDateText,
-         showarrow: false,
-         xanchor: 'right',
-         yanchor: 'bottom',
-         font: { size: 20, color: '#FFFFFF' }
-       }];
+ const annotations: any[] = [{
+        x: 1,
+        y: 1.15,
+        xref: 'paper',
+        yref: 'paper',
+        text: currentDateText,
+        showarrow: false,
+        xanchor: 'right',
+        yanchor: 'top',
+        font: { size: 20, color: '#FFFFFF' }
+      }];
     
-  
+    // Add title for mountain chart (Date & Price)
+    annotations.push({
+      x: -0.081,
+      y: 1.1,
+      xref: 'paper',
+      yref: 'paper',
+      text: 'Date & Price',
+      showarrow: false,
+      xanchor: 'left',
+      yanchor: 'middle',
+      font: { size: 12, color: '#FFFFFF', family: 'Georgia' },
+      xshift: 5
+    });
+
+    // Add title for bar chart (Date & Vol)
+    annotations.push({
+      x: -0.081,
+      y: 0.26,
+      xref: 'paper',
+      yref: 'paper',
+      text: 'Date & Vol',
+      showarrow: false,
+      xanchor: 'left',
+      yanchor: 'middle',
+      font: { size: 12, color: '#FFFFFF', family: 'Georgia' },
+      xshift: 5
+    });
+    
     if (points > 12) {
       const lastDate = this.dates[points - 1];
       const lastPriceValue = this.prices[points - 1];
