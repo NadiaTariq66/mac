@@ -143,8 +143,7 @@ export class AbbvSP500ReturnsComponent implements OnInit{
             console.log(`Row ${i}: Date=${dateValue}, ABBV=${abbvValue}, SPX=${spxValue}`);
             
             if (!isNaN(abbvValue) && !isNaN(spxValue)) {
-              // Excel file mein values already decimal format mein hain (0.0182 = 1.82%)
-              // Percentage format mein convert karein (0.0182 -> 1.82)
+
               monthlyData.push({ 
                 date: plotlyDate, 
                 abbvReturn: abbvValue * 100, // 0.0182 -> 1.82
