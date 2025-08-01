@@ -1,139 +1,44 @@
-<img src="./img/ct.png" class="wrape_img" />
 <div class="pages">
-    <div class="sub_header">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="company_title d-flex align-items-center">
-              <h4>Company Screening</h4>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="d-flex width-100 gap-4">
-              <div class="chat_exp_btn">
-                <button>Chat ExM</button>
-              </div>
-              <div class="sq_tool  d-flex align-items-center">
-                <a>Sequoia
-                  <span>
-                <img src="./img/g_logo.png" alt="" class="g_logo">
-              </span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3"></div>
-        </div>
-      </div>
-    </div>
-    <!-----------------main-list-container------------->
-    <criteria companyType="{{getCompanyList()}}" companyStatus="{{getCompanyStatusList()}}"></criteria>
-    <!------------------feature item-list------------------------->
-    <div class="feature_list_wraper data_margin">
-      <div class="container-fluid">
-        <div class="filter_container">
-            <div class="inner_filter_container">
-              <div class="filter_section">
-                <div class="filter_header mb-3 d-flex">
-                    <span class="icon_header">
-                        <img src="./img/round.png" alt="">
-                    </span>
-                    <h3>Company Type and Company Status</h3>
-                    <a routerLink="" class="close_del">
-                      <i class="fa-solid fa-xmark"></i>
-                    </a>
-                </div>
-                <div class="filter_main_data">
-                    <div class="sector-container">
-                        <div class="business_table">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <table class="table table-dark">
-                                        <thead>
-                                          <tr>
-                                            <th>Company Type</th>
-                                            <th>Company Status</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>
-                                               <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="Public"  (change)="onCheckboxChange($event,true,0)" >
-                                                <label class="form-check-label">Public</label>
-                                              </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="Acquired" name="Acquired" value="Acquired"  (change)="onCheckboxChange($event,true,1)">
-                                                    <label class="form-check-label">Acquired</label>
-                                                  </div>
-                                            </td>
-                                          </tr>
-        
-                                          <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="check1" name="option2" value="Private" (change)="onCheckboxChange($event,true,0)">
-                                                    <label class="form-check-label">Private</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="Liquidating" name="Liquidating" value="Liquidating" (change)="onCheckboxChange($event,true,1)">
-                                                    <label class="form-check-label">Liquidating</label>
-                                                  </div>
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td>
-                                              
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="Operating" name="Operating" value="Operating" (change)="onCheckboxChange($event,true,1)">
-                                                    <label class="form-check-label">Operating</label>
-                                                  </div>
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td>
-                                              
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="Operating-Subsidiar" name="Operating-Subsidiar" value="Operating-Subsidiar" (change)="onCheckboxChange($event,true,1)">
-                                                    <label class="form-check-label">Operating Subsidiary</label>
-                                                  </div>
-                                            </td>
-                                          </tr>
-                                          <tr>
-                                            <td>
-                                              
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="Reorganizing" name="Reorganizing" value="Reorganizing" (change)="onCheckboxChange($event,true,1)">
-                                                    <label class="form-check-label">Reorganizing</label>
-                                                  </div>
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                        
-                  
-                      </div>
-                      
-                      
+  <!------------------feature item-list------------------------->
+  <div class="feature_list_wraper data_margin">
+    <div class="filter_container">
+      <div class="inner_filter_container">
+        <div class="filter_section">
+          <div class="filter_main_data">
+            <div class="sector-container">
+              <div class="business_table">
+                <div class="row">
+                  <div
+                    class="col-12 col-md-4"
+                    *ngFor="let company of companyTypeStatusData"
+                  >
+                    <p class="fw-bold text-white">{{ company.name }}</p>
+                    <div
+                      class="form-check mb-2 ps-3"
+                      style="margin-left: 20px"
+                      *ngFor="let data of company.data"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        [(ngModel)]="data.checked"
+                        (change)="onCheckboxChange()"
+                        id="{{ company.name }}-{{ data.name }}"
+                      />
+                      <label
+                        class="form-check-label text-white"
+                        [for]="company.name + '-' + data.name"
+                      >
+                        {{ data.name }}
+                      </label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

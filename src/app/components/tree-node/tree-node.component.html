@@ -1,0 +1,14 @@
+<div class="node-row" [style.paddingLeft.px]="level * 40">
+  <input type="checkbox" [checked]="node.checked" (change)="onCheck($event)" />
+  <label class="form-check-label" style="color: white; margin-left: 10px">{{
+    node.name
+  }}</label>
+</div>
+<div *ngIf="node.children">
+  <app-tree-node
+    *ngFor="let c of node.children"
+    [node]="c"
+    [level]="level + 1"
+    (toggled)="toggled.emit($event)"
+  ></app-tree-node>
+</div>

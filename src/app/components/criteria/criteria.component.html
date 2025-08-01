@@ -1,342 +1,250 @@
-<div class="mian-list-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="heading_sub">
-              <h2>
-                Criteria
-              </h2>
+<div class="mian-list-content" style="position: sticky; top: 0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8" style="background: black">
+        <div class="heading_sub">
+          <h2
+            style="cursor: pointer"
+            (click)="isCriteriaExpanded = !isCriteriaExpanded"
+          >
+            Selected Criteria
+            <span style="margin-left: 10px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                width="18"
+                height="18"
+              >
+                <path
+                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                  fill="currentColor"
+                /></svg
+            ></span>
+          </h2>
+        </div>
+        @if (isCriteriaExpanded) {
+        <div class="main_list_wrapers">
+          @for (table of criteriaTableData; track $index) {
+          <div class="list_item">
+            <div class="number_point">{{ $index + 1 }}</div>
+            <div style="display: flex; gap: 5px; margin-left: 15px">
+              <!-- Up arrow - only show if row can move up -->
+              @if (false) {
+              <div
+                class="up-arrow"
+                style="width: 12px; fill: white; cursor: pointer"
+                (click)="moveRowUp($index)"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path
+                    d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+                  />
+                </svg>
+              </div>
+              }
+
+              <!-- Down arrow - only show if row can move down -->
+              @if (false) {
+              <div
+                class="down-arrow"
+                style="width: 12px; fill: white; cursor: pointer"
+                (click)="moveRowDown($index)"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path
+                    d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                  />
+                </svg>
+              </div>
+              }
             </div>
-            <div class="main_list_wrapers">
-                <div class="list_item" *ngIf="industry_Classification">
-                  <div class="number_point">
-                    1
-                    <!-- <span>
-                     
-                    </span> -->
-                  </div>
-                  <div class="drag_options">
-                    <a href="">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
-                          <path d="M0.000183101 9.38125L3.43664 9.38125L3.43664 0.0314178L5.16346 -2.86105e-05L5.16346 9.38125L8.59133 9.38125L4.29575 14.6222L0.000183101 9.38125Z" fill="white"/>
-                        </svg>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="list_content_areas">
-                    <div class="arrow_box ">
-  
-                    </div>
-  
-                    <div class="list_inner_content position_shift">
-                      <!-- <h4>Industry Classification: (Primary) Real Estate; Health Care</h4> -->
-                      <h4>Industry Classification: {{industry_Classification}}
-                        <!-- <span *ngIf="selectedSectors.length > 0">
-                          {{ selectedSectors.join(', ') }}<span *ngIf="selectedSectors.length > 0">, </span>
-                        </span>
-                        <span *ngIf="selectedGroups.length > 0">
-                          {{ selectedGroups.join(', ') }}<span *ngIf="selectedGroups.length > 0">, </span>
-                        </span>
-                        <span *ngIf="selectedPrimaryIndustries.length > 0">
-                          {{ selectedPrimaryIndustries.join(', ') }}
-                        </span> -->
-                      </h4>
-                    </div>
-                    <div class="action_price_section">
-                      <!-- <h4>250,000</h4> -->
-                      <h4>{{ gicsCount }}</h4>
-                      <a href="" class="delete_link">
-                        <span>
-                          <img src="./img/delete.png" alt="">
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                 <div class="list_item" *ngIf="geography">
-                <div class="number_point">
-                  1
-                   
-                </div>
-                <div class="drag_options">
-                  <a href="">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
-                          <path d="M0.000183101 9.38125L3.43664 9.38125L3.43664 0.0314178L5.16346 -2.86105e-05L5.16346 9.38125L8.59133 9.38125L4.29575 14.6222L0.000183101 9.38125Z" fill="white"/>
-                        </svg>
 
-              
-
-
-
-                      </span>
-                  </a>
-                </div>
-                <div class="list_content_areas">
-                  <div class="arrow_box d-flex align-items-center gap-3">
-                    <!-- <h2>
-                      And
-                    </h2> -->
-                    <!-- <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <path d="M13.595 7.04384L9.24577 11.3931L4.89655 7.04384L13.595 7.04384Z" fill="#999999" stroke="#999999" stroke-linejoin="round"/>
-                          </svg>
-                      </span> -->
-                  </div>
-  
-                  <div class="list_inner_content">
-                    <h4>Geography: {{geography}}
-                      <!-- <span *ngIf="selectedGeography.length > 0">
-                        {{ selectedGeography.join(', ') }}<span *ngIf="selectedGeography.length > 0">, </span>
-                      </span> -->
-                      <!-- <span *ngIf="selectedCompanyName.length > 0">
-                        {{ selectedCompanyName.join(', ') }}
-                      </span> -->
-                    </h4>
-                  </div>
-                  <div class="action_price_section">
-                    <!-- <h4>214,712</h4> -->
-                    <h4>{{ countryCount }}</h4>
-                    <a href="" class="delete_link">
-                        <span>
-                          <img src="./img/delete.png" alt="">
-                        </span>
-                    </a>
-                  </div>
-                </div>
+            <div class="list_content_areas">
+              <div class="arrow_box"></div>
+              <div class="list_inner_content position_shift">
+                <h4 style="line-height: 20px">
+                  <span style="font-size: 16px">{{ table.type }}: </span>
+                  <!-- Show clickable placeholder text when display array is empty -->
+                  @if (table.display.length === 0) { @if (table.type ===
+                  'Industry Classification') {
+                  <span
+                    class="placeholder-text clickCriteria"
+                    (click)="showCriteria(table.type)"
+                    style="cursor: pointer"
+                  >
+                    Select</span
+                  >
+                  } @else if (table.type === 'Location') {
+                  <span
+                    class="placeholder-text clickCriteria"
+                    (click)="showCriteria(table.type)"
+                    style="cursor: pointer"
+                  >
+                    Select</span
+                  >
+                  } } @else {
+                  <!-- Show actual selections when display array has items -->
+                  @for (s of table.display; let last = $last; track $index;) {
+                  <span>{{ s }}@if (!last){<span>; </span>}</span>
+                  } }
+                </h4>
               </div>
-               <div class="list_item" *ngIf="companyType">
-                <div class="number_point">
-                  1
-                   
-                </div>
-                <div class="drag_options">
-                  <a href="">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
-                          <path d="M0.000183101 9.38125L3.43664 9.38125L3.43664 0.0314178L5.16346 -2.86105e-05L5.16346 9.38125L8.59133 9.38125L4.29575 14.6222L0.000183101 9.38125Z" fill="white"/>
-                        </svg>
 
-              
+              <div class="action_price_section">
+                @if (table.count == 'Loading') {
+                <h4 style="min-width: 60px"><span class="loader"></span></h4>
+                } @else {
+                <h4
+                  style="min-width: 60px; text-align: right"
+                  *ngIf="table.count != null"
+                  [countUp]="table.count"
+                ></h4>
+                }
 
-
-
-                      </span>
-                  </a>
-                </div>
-                <div class="list_content_areas">
-                  <div class="arrow_box d-flex align-items-center gap-3">
-                    <!-- <h2>
-                      And
-                    </h2> -->
-                    <!-- <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <path d="M13.595 7.04384L9.24577 11.3931L4.89655 7.04384L13.595 7.04384Z" fill="#999999" stroke="#999999" stroke-linejoin="round"/>
-                          </svg>
-                      </span> -->
-                  </div>
-  
-                  <div class="list_inner_content">
-                    <h4>&nbsp; Company Type: {{companyType}}
-                      <!-- <span *ngIf="selectedGeography.length > 0">
-                        {{ selectedGeography.join(', ') }}<span *ngIf="selectedGeography.length > 0">, </span>
-                      </span> -->
-                      <!-- <span *ngIf="selectedCompanyName.length > 0">
-                        {{ selectedCompanyName.join(', ') }}
-                      </span> -->
-                    </h4>
-                  </div>
-                  <div class="action_price_section">
-                    <h4>214,712</h4>
-                    <!-- <h4>{{ countryCount }}</h4> -->
-                    <a href="" class="delete_link">
-                        <span>
-                          <img src="./img/delete.png" alt="">
-                        </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="list_item" *ngIf="companyStatus">
-                <div class="number_point">
-                 2
-                
-                </div>
-                <div class="drag_options">
-                  <a href="">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
-                          <path d="M0.000183101 9.38125L3.43664 9.38125L3.43664 0.0314178L5.16346 -2.86105e-05L5.16346 9.38125L8.59133 9.38125L4.29575 14.6222L0.000183101 9.38125Z" fill="white"/>
-                        </svg>
-                      </span>
-                  </a>
-                </div>
-                <div class="list_content_areas">
-                  <div class="arrow_box d-flex align-items-center  gap-3">
-                    <h2>
-                      And
-                    </h2>
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <path d="M13.595 7.04384L9.24577 11.3931L4.89655 7.04384L13.595 7.04384Z" fill="#999999" stroke="#999999" stroke-linejoin="round"/>
-                          </svg>
-                      </span>
-                  </div>
-  
-                  <div class="list_inner_content">
-                    <h4>Company Status: {{companyStatus}}
-                      <!-- <span *ngIf="selectedCompanyStatus.length > 0">
-                        {{ selectedCompanyStatus.join(', ') }}
-                      </span> -->
-                    </h4>
-                  </div>
-                  <div class="action_price_section">
-              
-                    <!-- <h4>{{companyCount1}}</h4> -->
-                    <a href="" class="delete_link">
-                        <span>
-                          <img src="./img/delete.png" alt="">
-                        </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- <div class="list_item">
-                <div class="number_point">
-                  2
-                    
-                </div>
-                <div class="drag_options">
-                  <a href="">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <g clip-path="url(#clip0_7_37)">
-                            <path d="M0.0843201 6.64749L3.92476 6.64749L3.92476 17.0965L5.85458 17.1316L5.85458 6.64749L9.68543 6.64749L4.88487 0.790436L0.0843201 6.64749Z" fill="white"/>
-                            <path d="M7.3221 13.9183L11.1625 13.9183L11.1625 5.35413L13.0924 5.32533L13.0924 13.9183L16.9232 13.9183L12.1227 18.7189L7.3221 13.9183Z" fill="white"/>
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_7_37">
-                              <rect width="23.0427" height="23.0427" fill="white" transform="matrix(1 0 -8.78733e-10 -1 0.572495 23.4906)"/>
-                            </clipPath>
-                          </defs>
-                        </svg>
-                      </span>
-                  </a>
-                </div>
-                <div class="list_content_areas">
-                  <div class="arrow_box d-flex align-items-center gap-3">
-                    <h2>
-                      And
-                    </h2>
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <path d="M13.595 7.04384L9.24577 11.3931L4.89655 7.04384L13.595 7.04384Z" fill="#999999" stroke="#999999" stroke-linejoin="round"/>
-                          </svg>
-                      </span>
-                  </div>
-  
-                  <div class="list_inner_content">
-                    <h4>Geography: United States and Canada</h4>
-                  </div>
-                  <div class="action_price_section">
-                    <h4>214,712</h4>
-                    <a href="" class="delete_link">
-                        <span>
-                          <img src="./img/delete.png" alt="">
-                        </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-  
-              <div class="list_item">
-                <div class="number_point">
-                  3
-                 
-                </div>
-                <div class="drag_options">
-                  <a href="">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
-                          <path d="M0.000183101 9.38125L3.43664 9.38125L3.43664 0.0314178L5.16346 -2.86105e-05L5.16346 9.38125L8.59133 9.38125L4.29575 14.6222L0.000183101 9.38125Z" fill="white"/>
-                        </svg>
-                      </span>
-                  </a>
-                </div>
-                <div class="list_content_areas">
-                  <div class="arrow_box d-flex align-items-center  gap-3">
-                    <h2>
-                      And
-                    </h2>
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                            <path d="M13.595 7.04384L9.24577 11.3931L4.89655 7.04384L13.595 7.04384Z" fill="#999999" stroke="#999999" stroke-linejoin="round"/>
-                          </svg>
-                      </span>
-                  </div>
-  
-                  <div class="list_inner_content">
-                    <h4>Company Type: Public Company</h4>
-                  </div>
-                  <div class="action_price_section">
-                    <h4>3.609</h4>
-                    <a href="" class="delete_link">
-                        <span>
-                          <img src="./img/delete.png" alt="">
-                        </span>
-                    </a>
-                  </div>
-                </div>
-              </div> -->
-              
-              <div class="list_item list_border_none">
-                <div class="number_point">
-  
-                </div>
-                <div class="drag_options">
-  
-                </div>
-                <div class="list_content_areas">
-                  <div class="arrow_box">
-                    <h2>
-                      Add Criteria
-                    </h2>
-                  </div>
-  
-                  <div class="d-flex width-100 ">
-                    <div class="list_inner_content search_parent only_input_border">
-                      <div class="search_input">
-                        <input type="text" placeholder=" Add Search Criteria or Add Keywords" class="search_box">
-                        <span class="search_icons">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" fill="none">
-                              <path d="M8.16997 12.4149C6.77503 12.4149 5.59458 11.9317 4.62861 10.9652C3.66265 9.99871 3.17941 8.81825 3.17889 7.42382C3.17838 6.02939 3.66162 4.84893 4.62861 3.88246C5.5956 2.91598 6.77606 2.43274 8.16997 2.43274C9.56389 2.43274 10.7446 2.91598 11.7121 3.88246C12.6796 4.84893 13.1626 6.02939 13.1611 7.42382C13.1611 7.98692 13.0715 8.51802 12.8923 9.01713C12.7131 9.51623 12.47 9.95775 12.1628 10.3417L16.4628 14.6417C16.6036 14.7825 16.674 14.9616 16.674 15.1792C16.674 15.3968 16.6036 15.5759 16.4628 15.7167C16.3221 15.8575 16.1429 15.9279 15.9253 15.9279C15.7078 15.9279 15.5286 15.8575 15.3878 15.7167L11.0878 11.4167C10.7039 11.7238 10.2624 11.967 9.76328 12.1462C9.26417 12.3253 8.73307 12.4149 8.16997 12.4149ZM8.16997 10.8792C9.1298 10.8792 9.94578 10.5434 10.6179 9.87175C11.29 9.20013 11.6259 8.38416 11.6253 7.42382C11.6248 6.46349 11.289 5.64776 10.6179 4.97666C9.9468 4.30555 9.13082 3.96948 8.16997 3.96846C7.20913 3.96743 6.39341 4.3035 5.72281 4.97666C5.05221 5.64981 4.71615 6.46553 4.71461 7.42382C4.71308 8.38211 5.04914 9.19809 5.72281 9.87175C6.39648 10.5454 7.2122 10.8812 8.16997 10.8792Z" fill="#999999"/>
-                            </svg>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="action_price_section">
-                      <div class="add_button_wraper">
-                        <button>
-                          Add
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-  
-  
-  
-                </div>
-              </div>
-  
-              <div class="butto_submit_wraper">
-                <button class="submit_button">
-                  Run Screen
-                </button>
+                <a
+                  class="delete_link"
+                  (click)="showCriteria(table.type)"
+                  style="cursor: pointer"
+                >
+                  <svg
+                    style="fill: white; width: 15px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z"
+                    />
+                  </svg>
+                </a>
+                @if (false) {
+                <a
+                  class="delete_link"
+                  style="cursor: pointer"
+                  (click)="deleteRow(table)"
+                >
+                  <span>
+                    <img src="./img/delete.png" alt="" />
+                  </span>
+                </a>
+                }
               </div>
             </div>
           </div>
-          <div class="col-lg-4"></div>
+          }
+
+          <div class="list_item list_border_none">
+            <!-- <div class="number_point"></div>
+            <div class="drag_options"></div> -->
+            <div class="list_content_areas">
+              <!-- <div class="arrow_box">
+                <h2>Add Criteria</h2>
+              </div> -->
+
+              <div class="d-flex" style="width: 83%">
+                <div class="list_inner_content search_parent only_input_border">
+                  <div
+                    class="search_input"
+                    [class.dropdown-open]="isDropdownOpen"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Add Search Criteria or Add Keywords"
+                      class="search_box"
+                      [(ngModel)]="searchText"
+                      (input)="onSearchInput($event)"
+                      (focus)="onSearchFocus()"
+                      (click)="onSearchClick()"
+                      (keydown)="onKeyDown($event)"
+                      autocomplete="off"
+                    />
+                    <!-- <span class="search_icons">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="19"
+                        viewBox="0 0 20 19"
+                        fill="none"
+                      >
+                        <path
+                          d="M8.16997 12.4149C6.77503 12.4149 5.59458 11.9317 4.62861 10.9652C3.66265 9.99871 3.17941 8.81825 3.17889 7.42382C3.17838 6.02939 3.66162 4.84893 4.62861 3.88246C5.5956 2.91598 6.77606 2.43274 8.16997 2.43274C9.56389 2.43274 10.7446 2.91598 11.7121 3.88246C12.6796 4.84893 13.1626 6.02939 13.1611 7.42382C13.1611 7.98692 13.0715 8.51802 12.8923 9.01713C12.7131 9.51623 12.47 9.95775 12.1628 10.3417L16.4628 14.6417C16.6036 14.7825 16.674 14.9616 16.674 15.1792C16.674 15.3968 16.6036 15.5759 16.4628 15.7167C16.3221 15.8575 16.1429 15.9279 15.9253 15.9279C15.7078 15.9279 15.5286 15.8575 15.3878 15.7167L11.0878 11.4167C10.7039 11.7238 10.2624 11.967 9.76328 12.1462C9.26417 12.3253 8.73307 12.4149 8.16997 12.4149ZM8.16997 10.8792C9.1298 10.8792 9.94578 10.5434 10.6179 9.87175C11.29 9.20013 11.6259 8.38416 11.6253 7.42382C11.6248 6.46349 11.289 5.64776 10.6179 4.97666C9.9468 4.30555 9.13082 3.96948 8.16997 3.96846C7.20913 3.96743 6.39341 4.3035 5.72281 4.97666C5.05221 5.64981 4.71615 6.46553 4.71461 7.42382C4.71308 8.38211 5.04914 9.19809 5.72281 9.87175C6.39648 10.5454 7.2122 10.8812 8.16997 10.8792Z"
+                          fill="#999999"
+                        />
+                      </svg>
+                    </span> -->
+
+                    <!-- Clear button when text is entered -->
+                    <span
+                      *ngIf="searchText"
+                      class="clear_icon"
+                      (click)="clearDropdownSearch()"
+                      title="Clear search"
+                    >
+                      ×
+                    </span>
+
+                    <!-- Dropdown -->
+                    <div
+                      *ngIf="isDropdownOpen && filteredCriteria.length > 0"
+                      class="criteria-dropdown"
+                    >
+                      <div class="dropdown-header">
+                        <small class="text-muted"
+                          >{{ filteredCriteria.length }} result(s) found</small
+                        >
+                      </div>
+                      <div
+                        *ngFor="let criteria of filteredCriteria; let i = index"
+                        class="dropdown-item"
+                        [class.highlighted]="i === highlightedIndex"
+                        (click)="selectDropdownCriteria(criteria)"
+                        (mouseenter)="highlightedIndex = i"
+                      >
+                        <div class="item-name">{{ criteria.name }}</div>
+                        <div class="item-path">
+                          {{ getDisplayPath(criteria) }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- No results message -->
+                    <div
+                      *ngIf="
+                        isDropdownOpen &&
+                        filteredCriteria.length === 0 &&
+                        searchText
+                      "
+                      class="criteria-dropdown no-results"
+                    >
+                      <div class="dropdown-item disabled">
+                        No criteria found for "{{ searchText }}"
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="action_price_section">
+                  <div class="add_button_wraper">
+                    <button
+                      (click)="addDropdownCriteria()"
+                      [disabled]="!selectedDropdownCriteria"
+                      [class.disabled]="!selectedDropdownCriteria"
+                    >
+                      Add
+                    </button>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="butto_submit_wraper">
+            <button class="submit_button" (click)="getCompaniesCluster()">
+              Run Screen
+            </button>
+          </div>
         </div>
+        }
       </div>
+      <div class="col-lg-4"></div>
     </div>
+  </div>
+</div>

@@ -7,11 +7,10 @@ import { FormatNumberPipe } from '../../shared/pipes/number-format.pipe';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { NgxDocViewerModule } from 'ngx-doc-viewer';
 @Component({
   standalone: true,
   selector: 'app-company-dashboard',
-  imports: [NgbModule,NgxSliderModule, CommonModule, FormatNumberPipe,NgxDocViewerModule],
+  imports: [NgbModule,NgxSliderModule, CommonModule, FormatNumberPipe],
   templateUrl: './company-dashboard.component.html',
   styleUrl: './company-dashboard.component.scss'
 })

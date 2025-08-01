@@ -42,42 +42,13 @@
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
-              d="M9.875 2.5C9.875 1.465 9.035 0.625 8 0.625H3C1.965 0.625 1.125 1.465 1.125 2.5V10C1.125 11.035 1.965 11.875 3 11.875H8C9.035 11.875 9.875 11.035 9.875 10V2.5ZM8.625 2.5V10C8.625 10.345 8.345 10.625 8 10.625H3C2.655 10.625 2.375 10.345 2.375 10V2.5C2.375 2.155 2.655 1.875 3 1.875H8C8.345 1.875 8.625 2.155 8.625 2.5ZM9.875 15C9.875 13.965 9.035 13.125 8 13.125H3C1.965 13.125 1.125 13.965 1.125 15V17.5C1.125 18.535 1.965 19.375 3 19.375H8C9.035 19.375 9.875 18.535 9.875 17.5V15ZM8.625 15V17.5C8.625 17.845 8.345 18.125 8 18.125H3C2.655 18.125 2.375 17.845 2.375 17.5V15C2.375 14.655 2.655 14.375 3 14.375H8C8.345 14.375 8.625 14.655 8.625 15ZM19.875 2.5C19.875 2.00272 19.6775 1.52581 19.3258 1.17417C18.9742 0.822544 18.4973 0.625 18 0.625H13C12.5027 0.625 12.0258 0.822544 11.6742 1.17417C11.3225 1.52581 11.125 2.00272 11.125 2.5V17.5C11.125 17.9973 11.3225 18.4742 11.6742 18.8258C12.0258 19.1775 12.5027 19.375 13 19.375H18C18.4973 19.375 18.9742 19.1775 19.3258 18.8258C19.6775 18.4742 19.875 17.9973 19.875 17.5V2.5ZM18.625 2.5V17.5C18.625 17.845 18.345 18.125 18 18.125H13C12.655 18.125 12.375 17.845 12.375 17.5V2.5C12.375 2.155 12.655 1.875 13 1.875H18C18.345 1.875 18.625 2.155 18.625 2.5Z"
+              d="M9.875AH 2.5C9.875 1.465 9.035 0.625 8 0.625H3C1.965 0.625 1.125 1.465 1.125 2.5V10C1.125 11.035 1.965 11.875 3 11.875H8C9.035 11.875 9.875 11.035 9.875 10V2.5ZM8.625 2.5V10C8.625 10.345 8.345 10.625 8 10.625H3C2.655 10.625 2.375 10.345 2.375 10V2.5C2.375 2.155 2.655 1.875 3 1.875H8C8.345 1.875 8.625 2.155 8.625 2.5ZM9.875 15C9.875 13.965 9.035 13.125 8 13.125H3C1.965 13.125 1.125 13.965 1.125 15V17.5C1.125 18.535 1.965 19.375 3 19.375H8C9.035 19.375 9.875 18.535 9.875 17.5V15ZM8.625 15V17.5C8.625 17.845 8.345 18.125 8 18.125H3C2.655 18.125 2.375 17.845 2.375 17.5V15C2.375 14.655 2.655 14.375 3 14.375H8C8.345 14.375 8.625 14.655 8.625 15ZM19.875 2.5C19.875 2.00272 19.6775 1.52581 19.3258 1.17417C18.9742 0.822544 18.4973 0.625 18 0.625H13C12.5027 0.625 12.0258 0.822544 11.6742 1.17417C11.3225 1.52581 11.125 2.00272 11.125 2.5V17.5C11.125 17.9973 11.3225 18.4742 11.6742 18.8258C12.0258 19.1775 12.5027 19.375 13 19.375H18C18.4973 19.375 18.9742 19.1775 19.3258 18.8258C19.6775 18.4742 19.875 17.9973 19.875 17.5V2.5ZM18.625 2.5V17.5C18.625 17.845 18.345 18.125 18 18.125H13C12.655 18.125 12.375 17.845 12.375 17.5V2.5C12.375 2.155 12.655 1.875 13 1.875H18C18.345 1.875 18.625 2.155 18.625 2.5Z"
               fill="#E9E9EA"
               fill-opacity="0.63"
             />
           </svg>
         </div>
         <span class="text-sm">Company Overview</span>
-        <!-- Collapse icon (down if closed, up if open) -->
-          <div class="w-6 h-6 flex items-center justify-center mr-3">
-        <svg
-          *ngIf="showHeadings"
-          class="transition-transform transform rotate-180"
-          width="21"
-            height="20"
-            viewBox="0 0 21 20"
-            fill="none"
-          stroke="currentColor"
-          
-         
-        >
-          <path d="M19 15l-7-7-7 7" />
-        </svg>
-        <svg
-          *ngIf="!showHeadings"
-          class="transition-transform transform"
-          width="21"
-            height="20"
-            viewBox="0 0 21 20"
-            fill="none"
-          stroke="currentColor"
-          
-         
-        >
-          <path d="M19 9l-7 7-7-7" />
-        </svg>
-        </div>
       </a>
       <!-- Headings removed - now shown in carousel slides -->
       <a
@@ -200,14 +171,14 @@
         <span class="text-sm font-medium">Financials</span>
       </a>
       <a
-        (click)="navigate('/balance-sheet')"
+        (click)="navigate('/balance-sheet/abbv')"
         class="pointer sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800"
-        [ngClass]="{ active: getRouterURL() == '/balance-sheet' }"
+        [ngClass]="{ active: getRouterURL() == '/balance-sheet/abbv' }"
       >
         <div class="w-6 h-6 flex items-center justify-center mr-3">
           <i
             class="filter-icon balance-sheet-unselected mt-10"
-            [ngClass]="{ active: getRouterURL() == '/balance-sheet' }"
+            [ngClass]="{ active: getRouterURL() == '/balance-sheet/abbv' }"
           ></i>
         </div>
         <span class="text-sm font-medium">Balance Sheet</span>
@@ -250,7 +221,7 @@
             [ngClass]="{ active: getRouterURL() == '/cash-flows' }"
           ></i>
         </div>
-        <span class="text-sm font-medium">Price & Date</span>
+        <span class="text-sm font-medium">Stock Price & Vol</span>
       </a>
        <a (click)="navigate('/abbv-sp-500-returns')" class="pointer sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800" [ngClass]="{'active' : getRouterURL() == '/abbv-sp-500-returns'}">
         <div class="w-6 h-6 flex items-center justify-center mr-3">
@@ -436,21 +407,7 @@
     <div
       class="bg-gray-900 border-b border-gray-800 px-6 py-3 flex flex-col md:flex-row justify-between"
     >
-      <!-- View Toggle Button -->
-      <!-- <div class="mb-4 flex justify-end">
-        <button 
-          (click)="toggleView()" 
-          class="view-toggle-btn"
-          [ngClass]="{ 'active': showCarousel }">
-          <svg *ngIf="showCarousel" width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <svg *ngIf="!showCarousel" width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M4 6h4v12H4V6zm6 0h4v12h-4V6zm6 0h4v12h-4V6z" stroke="currentColor" stroke-width="2"/>
-          </svg>
-          {{ showCarousel ? 'Two Column View' : 'Carousel View' }}
-        </button>
-      </div> -->
+    
               <!-- Carousel View -->
         <div *ngIf="showCarousel" class="w-full">
           <div class="carousel-container">
@@ -463,14 +420,33 @@
                     [class.active]="i === currentSlideIndex"
                     (click)="goToSlide(i)">
                   <span class="toc-number">{{ i + 1 }}</span>
-                  <span class="toc-text">{{ heading.text }}</span>
+                  <span class="toc-text" [ngbTooltip]="heading.text">{{ heading.text }}</span>
                 </li>
               </ul>
             </div>
             
             <!-- Carousel -->
             <div class="carousel-wrapper">
-              <ngb-carousel #carousel="ngbCarousel" [interval]="0" class="business-carousel">
+              <!-- Custom Navigation Buttons -->
+              <button 
+                class="custom-nav-btn prev-btn" 
+                (click)="prevSlide()"
+                [disabled]="currentSlideIndex === 0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              
+              <button 
+                class="custom-nav-btn next-btn" 
+                (click)="nextSlide()"
+                [disabled]="currentSlideIndex === carouselSlides.length - 1">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              
+              <ngb-carousel #carousel="ngbCarousel" [interval]="0" [showNavigationArrows]="false" [showNavigationIndicators]="false" class="business-carousel">
             <ng-template ngbSlide *ngFor="let slide of carouselSlides; let i = index" [id]="slide.id">
               <div class="carousel-content" [ngClass]="{ 'two-column-layout': slide.needsTwoColumns }">
                 <div class="carousel-body">
@@ -491,58 +467,6 @@
             </ngb-carousel>
             </div>
           </div>
-        
-        <!-- Carousel Navigation -->
-        <!-- <div class="carousel-navigation mt-4 flex justify-center items-center space-x-4">
-          <button 
-            class="carousel-nav-btn" 
-            (click)="prevSlide()"
-            [disabled]="currentSlideIndex === 0">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button> -->
-          
-          <!-- <div class="carousel-indicators flex space-x-2">
-            <button 
-              *ngFor="let slide of carouselSlides; let i = index"
-              class="carousel-indicator"
-              [class.active]="i === currentSlideIndex"
-              (click)="goToSlide(i)">
-              {{ i + 1 }}
-            </button>
-          </div> -->
-          
-          <!-- <button 
-            class="carousel-nav-btn" 
-            (click)="nextSlide()"
-            [disabled]="currentSlideIndex === carouselSlides.length - 1">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
-      </div> -->
-
-      <!-- Two Column View (Hidden by default) -->
-      <!-- <div
-        *ngIf="!showCarousel"
-        #contentContainer
-        class="prose prose-invert max-w-none two-column-content"
-      >
-        <div>
-          <markdown
-            [data]="htmlContentLeft"
-            (ready)="extractHeadings()"
-          ></markdown>
-        </div>
-        <div>
-          <markdown
-            [data]="htmlContentRight"
-            (ready)="extractHeadings()"
-          ></markdown>
-        </div>
-      </div> -->
     </div>
   </div>
 </div>

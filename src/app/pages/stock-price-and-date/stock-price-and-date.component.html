@@ -85,9 +85,9 @@
               </div>
               <span class="text-sm font-medium">Financials</span>
             </a>
-            <a (click)="navigate('/balance-sheet')" class="pointer sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800" [ngClass]="{'active' : getRouterURL() == '/balance-sheet'}">
+            <a (click)="navigate('/balance-sheet/abbv')" class="pointer sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800" [ngClass]="{'active' : getRouterURL() == '/balance-sheet/abbv'}">
                 <div class="w-6 h-6 flex items-center justify-center mr-3">
-                  <i class="filter-icon balance-sheet-unselected mt-10" [ngClass]="{'active' : getRouterURL() == '/balance-sheet'}"></i>
+                  <i class="filter-icon balance-sheet-unselected mt-10" [ngClass]="{'active' : getRouterURL() == '/balance-sheet/abbv'}"></i>
                 </div>
                 <span class="text-sm font-medium">Balance Sheet</span>
               </a>
@@ -108,7 +108,7 @@
                 <div class="w-6 h-6 flex items-center justify-center mr-3">
                   <i class="filter-icon balance-sheet-unselected mt-10" [ngClass]="{'active' : getRouterURL() == '/price-and-date'}"></i>
                 </div>
-                <span class="text-sm font-medium">Price & Date</span>
+                <span class="text-sm font-medium">Stock Price & Vol</span>
               </a>
                <a (click)="navigate('/abbv-sp-500-returns')" class="pointer sidebar-item flex items-center px-4 py-2.5 hover:bg-gray-800" [ngClass]="{'active' : getRouterURL() == '/abbv-sp-500-returns'}">
                 <div class="w-6 h-6 flex items-center justify-center mr-3">

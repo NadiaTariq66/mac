@@ -1,0 +1,42 @@
+<div class="range-slider-container">
+  <div class="range-slider-labels">
+    <span class="range-label">{{ currentValue.min }}</span>
+    <span class="range-label">{{ currentValue.max }}</span>
+  </div>
+
+  <div class="range-slider-wrapper" #sliderWrapper>
+    <div class="range-track"></div>
+    <div
+      class="range-fill"
+      [style.left.%]="getPercentage(currentValue.min)"
+      [style.width.%]="
+        getPercentage(currentValue.max) - getPercentage(currentValue.min)
+      "
+    ></div>
+
+    <input
+      type="range"
+      class="range-input range-input-min"
+      [min]="min"
+      [max]="max"
+      [value]="currentValue.min"
+      (input)="onMinChange($event)"
+      #minSlider
+    />
+
+    <input
+      type="range"
+      class="range-input range-input-max"
+      [min]="min"
+      [max]="max"
+      [value]="currentValue.max"
+      (input)="onMaxChange($event)"
+      #maxSlider
+    />
+  </div>
+
+  <div class="range-slider-bounds">
+    <span class="bound-label">{{ min }}</span>
+    <span class="bound-label">{{ max }}</span>
+  </div>
+</div>

@@ -1057,12 +1057,23 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
     align-items: center;
     justify-content: center;
   }
+  
+//   // Hide default navigation arrows
+//   .carousel-control-prev,
+//   .carousel-control-next {
+//     display: none !important;
+//   }
+  
+//   // Hide default indicators
+//   .carousel-indicators {
+//     display: none !important;
+//   }
 }
 
 .carousel-content {
   max-width: 800px;
   margin: 0 auto;
-  height: 630px; // Fixed height for all slides
+  height: 640px; // Fixed height for all slides
   overflow-y: auto; // Scrollable content
   padding: 2rem;
   
@@ -1127,59 +1138,7 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   }
 }
 
-.carousel-navigation {
-  .carousel-nav-btn {
-    background: transparent;
-    border: 2px solid #57B5E7;
-    color: #57B5E7;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    
-    &:hover:not(:disabled) {
-      background: #57B5E7;
-      color: #000;
-    }
-    
-    &:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-  }
-  
-  .carousel-indicators {
-    .carousel-indicator {
-      background: transparent;
-      border: 2px solid #57B5E7;
-      color: #57B5E7;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.875rem;
-      font-weight: 500;
-      
-      &:hover {
-        background: #57B5E7;
-        color: #000;
-      }
-      
-      &.active {
-        background: #57B5E7;
-        color: #000;
-      }
-    }
-  }
-}
+
 
 // Carousel Container with Table of Contents
 .carousel-container {
@@ -1189,20 +1148,23 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 }
 
 .table-of-contents {
-  width: 280px;
+  width: 260px;
   background: rgba(29, 29, 29, 0.70);
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 0.5rem;
   flex-shrink: 0;
+  max-height: 640px !important; // Reduced height
+  cursor: pointer !important;
+  text-overflow: ellipsis;
   
   .toc-title {
     color: #ffffff;
     font-family: Georgia;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     border-bottom: 2px solid #57B5E7;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
   }
   
   .toc-list {
@@ -1214,9 +1176,9 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
   .toc-item {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0.15rem;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
     color: rgba(233, 233, 234, 0.9);
@@ -1227,34 +1189,34 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
       color: #ffffff;
     }
     
-    &.active {
-      background: #57B5E7;
-      color: #000000;
-    }
+    // &.active {
+    //   background: #57B5E7;
+    //   color: #000000;
+    // }
     
     .toc-number {
       background: rgba(87, 181, 231, 0.2);
       color: #57B5E7;
-      width: 24px;
-      height: 24px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      margin-right: 0.75rem;
+      margin-right: 0.4rem;
       flex-shrink: 0;
     }
     
-    &.active .toc-number {
-      background: #ffffff;
-      color: #000000;
-    }
+    // &.active .toc-number {
+    //   background: #ffffff;
+    //   color: #000000;
+    // }
     
     .toc-text {
-      font-size: 0.875rem;
-      line-height: 1.4;
+      font-size: 0.75rem;
+      line-height: 1.2;
       flex: 1;
     }
   }
@@ -1262,6 +1224,53 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
 
 .carousel-wrapper {
   flex: 1;
+  position: relative;
+  
+  // Custom Navigation Buttons
+  .custom-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(87, 181, 231, 0.1);
+    border: 2px solid #57B5E7;
+    color: #57B5E7;
+    border-radius: 50%;
+    margin-right: 89px;
+    width: 50px;
+    height: 50px;
+    margin-left:34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    
+    &:hover:not(:disabled) {
+      background: #57B5E7;
+      color: #000000;
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: translateY(-50%) scale(1);
+    }
+    
+    &.prev-btn {
+      left: -60px;
+    }
+    
+    &.next-btn {
+      right: -60px;
+    }
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 // View Toggle Button
@@ -1285,10 +1294,10 @@ a.sidebar-item.flex.items-center.px-4.py-2\.5.hover\:bg-gray-800>span {
     color: #000;
   }
   
-  &.active {
-    background: #57B5E7;
-    color: #000;
-  }
+  // &.active {
+  //   background: #57B5E7;
+  //   color: #000;
+  // }
   
   svg {
     width: 16px;
