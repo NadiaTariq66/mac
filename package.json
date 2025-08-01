@@ -25,6 +25,7 @@
     "bootstrap": "^5.3.6",
     "markdown-to-html": "^0.0.13",
     "marked": "^16.1.1",
+    "ngx-countup": "^13.2.0",
     "ngx-doc-viewer": "^15.0.1",
     "ngx-markdown": "^20.0.0",
     "plotly.js": "^3.0.1",

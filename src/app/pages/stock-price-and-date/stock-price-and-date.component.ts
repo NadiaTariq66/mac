@@ -334,66 +334,66 @@ export class StockPriceAndDateComponent implements OnInit{
          rowheight: [0.7, 0.3]
        },
        hovermode: 'closest',
-       xaxis: { 
-        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
-        showgrid: true,
-        gridcolor: '#333333',
-        tickformat: '%Y',
-        domain: [0, 1],
-        row: 1,
-        tickfont: { size: 12 },
-        dtick: 'M12', 
-        showspikes: true,
-        spikemode: 'across', // or 'toaxis'
-        spikesnap: 'cursor',
-        spikethickness: 1,
-        spikecolor: '#AAAAAA',
-        spikedash: 'solid'
-       },
-       xaxis2: {
-        range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
-        showgrid: true,
-        gridcolor: '#333333',
-        tickformat: '%Y',
-        domain: [0, 1],
-        row: 2,
-        tickfont: { size: 12 },
-        showspikes: true,
-        spikemode: 'across',
-        spikesnap: 'cursor',
-        spikethickness: 1,
-        spikecolor: '#AAAAAA',
-        spikedash: 'solid'
+                               xaxis: { 
+         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
+         showgrid: true,
+         gridcolor: 'rgba(51, 51, 51, 0.1)', // Much more transparent grid
+         tickformat: '%Y',
+         domain: [0, 1],
+         row: 1,
+         tickfont: { size: 12 },
+         dtick: 'M12', 
+         showspikes: true,
+         spikemode: 'across', // or 'toaxis'
+         spikesnap: 'cursor',
+         spikethickness: 1,
+         spikecolor: '#AAAAAA',
+         spikedash: 'solid'
+        },
+        xaxis2: {
+         range: [this.dates[0], xAxisEndDate.toISOString().split('T')[0]],
+         showgrid: true,
+         gridcolor: 'rgba(51, 51, 51, 0.1)', // Much more transparent grid
+         tickformat: '%Y',
+         domain: [0, 1],
+         row: 2,
+         tickfont: { size: 12 },
+         showspikes: true,
+         spikemode: 'across',
+         spikesnap: 'cursor',
+         spikethickness: 1,
+         spikecolor: '#AAAAAA',
+         spikedash: 'solid'
 
-       },
-        yaxis: { 
-          showgrid: true,
-          gridcolor: '#333333',
-          domain: [0.3, 1],
-          side: 'right',
-          tickfont: { size: 12 },
-          showspikes: true,
-          spikemode: 'across',
-          spikesnap: 'cursor',
-          spikethickness: 1,
-          spikecolor: '#AAAAAA',
-          spikedash: 'solid'
-       },
-       yaxis2: {
-        showgrid: true,
-        gridcolor: '#333333',
-        domain: [0, 0.25],
-        side: 'right',
-        tickformat: '~s',
-        tickfont: { size: 12 },
-        showspikes: true,
-        spikemode: 'across',
-        spikesnap: 'cursor',
-        spikethickness: 1,
-        spikecolor: '#AAAAAA',
-        spikedash: 'solid'
+        },
+         yaxis: { 
+           showgrid: true,
+           gridcolor: 'rgba(51, 51, 51, 0.1)', // Much more transparent grid
+           domain: [0.3, 1],
+           side: 'right',
+           tickfont: { size: 12 },
+           showspikes: true,
+           spikemode: 'across',
+           spikesnap: 'cursor',
+           spikethickness: 1,
+           spikecolor: '#AAAAAA',
+           spikedash: 'solid'
+        },
+        yaxis2: {
+         showgrid: true,
+         gridcolor: 'rgba(51, 51, 51, 0.1)', // Much more transparent grid
+         domain: [0, 0.25],
+         side: 'right',
+         tickformat: '~s',
+         tickfont: { size: 12 },
+         showspikes: true,
+         spikemode: 'across',
+         spikesnap: 'cursor',
+         spikethickness: 1,
+         spikecolor: '#AAAAAA',
+         spikedash: 'solid'
 
-       },
+        },
        plot_bgcolor: '#111111',
        paper_bgcolor: '#111111',
        font: { color: '#FFFFFF', family: 'Georgia' },
