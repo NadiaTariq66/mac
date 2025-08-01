@@ -273,7 +273,8 @@ export class StockPriceAndDateComponent implements OnInit{
   fill: 'tozeroy',
   fillcolor: 'rgba(0, 175, 239, 0.14)',   // Light gradient effect
   name: 'Date & Price',
-  yaxis: 'y'
+  yaxis: 'y',
+  hovertemplate: '<b>Date:</b> %{x}<br><b>Price:</b> $%{y:.2f}<extra></extra>'
 };
 
 
@@ -288,7 +289,8 @@ export class StockPriceAndDateComponent implements OnInit{
         opacity: 0.8
       },
       yaxis: 'y2',
-      customdata: this.originalVolumes.slice(0, points)
+      customdata: this.originalVolumes.slice(0, points),
+      hovertemplate: '<b>Date:</b> %{x}<br><b>Volume:</b> %{customdata}<extra></extra>'
     };
 
     const data: any[] = [trace1, traceGradient];
