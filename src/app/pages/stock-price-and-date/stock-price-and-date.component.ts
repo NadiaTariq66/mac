@@ -245,7 +245,7 @@ export class StockPriceAndDateComponent implements OnInit{
       } else {
         clearInterval(this.interval);
       }
-    }, 10);
+    }, 5);
   }
 
  drawChart(points: number) {
